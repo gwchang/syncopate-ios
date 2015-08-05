@@ -49,6 +49,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="counterLabel" destination="hm7-xq-Hur" id="CtM-PK-r0W"/>
                         <outlet property="dataSourceLabel" destination="dxH-4v-PxC" id="Y6I-UQ-35C"/>
                         <outlet property="dataSourceTextField" destination="j5Y-QM-o8q" id="lbz-9d-16h"/>
                         <outlet property="startButton" destination="Gox-4w-sEX" id="Jh8-DB-ovl"/>

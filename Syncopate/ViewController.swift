@@ -15,6 +15,12 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    
+    @IBOutlet weak var counterLabel: UILabel!
+    
+    var intervalTimer: NSTimer?
+    var counter = 0;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -29,15 +35,34 @@ class ViewController: UIViewController {
         
         self.stopButton.setTitle("Stop", forState: .Normal);
         self.stopButton.addTarget(self, action: "handleStopButtonClick:", forControlEvents: .TouchUpInside);
+        
+        self.counterLabel.text = String(self.counter);
     }
     
     func handleStartButtonClick(sender:UIButton!) {
         self.dataSourceLabel.text = self.dataSourceTextField.text;
+        self.intervalTimer = NSTimer.scheduledTimerWithTimeInterval(1, // 1 second
+            target: self,
+            selector: "handleIntervalTimer:",
+            userInfo: nil,
+            repeats: true)
+    }
+    
+    func handleIntervalTimer(timer: NSTimer) {
+        self.counterLabel.text = String(++self.counter);
+        
+        println("Timer: " + String(self.counter));
+        getData();
     }
     
     func handleStopButtonClick(sender:UIButton!) {
-
+        self.intervalTimer?.invalidate();
+        self.intervalTimer = nil;
+        
+        self.counter = 0;
+        self.counterLabel.text = String(self.counter);
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,6 +74,7 @@ class ViewController: UIViewController {
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
         
+        println(request.URL);
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
             let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
