@@ -24,7 +24,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        /*
         self.dataSourceLabel.text = "http://localhost:8080/clusters/55aed92950db53426a000001";
+        */
+        self.dataSourceLabel.text = "http://jsonplaceholder.typicode.com/posts/1"
         self.dataSourceLabel.lineBreakMode = .ByWordWrapping;
         self.dataSourceLabel.numberOfLines = 0;
         
@@ -74,10 +77,10 @@ class ViewController: UIViewController {
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
         
-        println(request.URL);
+        println(request.URL!);
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             if error != nil {
-                println(request.URL);
+                println("ERROR: " + request.URL!.absoluteString!);
                 println(error.description);
             } else {
                 var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
@@ -87,7 +90,8 @@ class ViewController: UIViewController {
                 if (jsonResult != nil) {
                     // process jsonResult
                 } else {
-                    // couldn't load JSON, look at error
+                    println("ERROR: Unable to parse json " +
+                        request.URL!.absoluteString!);
                 }
             }
         })
