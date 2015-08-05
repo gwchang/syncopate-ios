@@ -88,7 +88,7 @@ class ViewController: UIViewController {
                 let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
                 
                 if (jsonResult != nil) {
-                    // process jsonResult
+                    println(jsonResult);
                 } else {
                     println("ERROR: Unable to parse json " +
                         request.URL!.absoluteString!);
