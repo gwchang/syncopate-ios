@@ -76,17 +76,20 @@ class ViewController: UIViewController {
         
         println(request.URL);
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
-            let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
-            
-            if (jsonResult != nil) {
-                // process jsonResult
+            if error != nil {
+                println(request.URL);
+                println(error.description);
             } else {
-                // couldn't load JSON, look at error
+                var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+                
+                let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+                
+                if (jsonResult != nil) {
+                    // process jsonResult
+                } else {
+                    // couldn't load JSON, look at error
+                }
             }
-            
-            println(request.URL);
-            
         })
     }
 
