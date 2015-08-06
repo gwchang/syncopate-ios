@@ -42,9 +42,18 @@ class ViewController: UIViewController {
         
         self.startButton.setTitle("Start", forState: .Normal);
         self.startButton.addTarget(self, action: "handleStartButtonClick:", forControlEvents: .TouchUpInside);
+        //self.startButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+        self.startButton.backgroundColor = UIColor.clearColor();
+        self.startButton.layer.cornerRadius = 5
+        self.startButton.layer.borderWidth = 1
+        self.startButton.layer.borderColor = self.view.tintColor.CGColor
         
         self.stopButton.setTitle("Stop", forState: .Normal);
         self.stopButton.addTarget(self, action: "handleStopButtonClick:", forControlEvents: .TouchUpInside);
+        self.stopButton.backgroundColor = UIColor.clearColor();
+        self.stopButton.layer.cornerRadius = 5
+        self.stopButton.layer.borderWidth = 1
+        self.stopButton.layer.borderColor = self.view.tintColor.CGColor
         
         updateCount(self.counter);
         self.keyLabel.text = self.lastKey;
