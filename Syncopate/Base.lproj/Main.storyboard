@@ -52,7 +52,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;key&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FM0-Ze-3ca">
-                                <rect key="frame" x="23" y="391" width="48" height="21"/>
+                                <rect key="frame" x="23" y="391" width="168" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -64,7 +64,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;value&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXs-1N-zss">
-                                <rect key="frame" x="199" y="391" width="61" height="21"/>
+                                <rect key="frame" x="199" y="391" width="178" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -76,10 +76,10 @@
                         <outlet property="counterLabel" destination="hm7-xq-Hur" id="CtM-PK-r0W"/>
                         <outlet property="dataSourceLabel" destination="dxH-4v-PxC" id="Y6I-UQ-35C"/>
                         <outlet property="dataSourceTextField" destination="j5Y-QM-o8q" id="lbz-9d-16h"/>
-                        <outlet property="keyLabel" destination="FM0-Ze-3ca" id="cRU-eP-g9f"/>
+                        <outlet property="keyLabel" destination="FM0-Ze-3ca" id="cYb-a8-UBC"/>
                         <outlet property="startButton" destination="Gox-4w-sEX" id="Jh8-DB-ovl"/>
                         <outlet property="stopButton" destination="2fe-eT-hp1" id="Iot-8h-oxx"/>
-                        <outlet property="valueLabel" destination="ZXs-1N-zss" id="blj-SJ-Nl1"/>
+                        <outlet property="valueLabel" destination="ZXs-1N-zss" id="hfr-00-DT4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

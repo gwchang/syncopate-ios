@@ -17,11 +17,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     
     @IBOutlet weak var counterLabel: UILabel!
-    @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var keyLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
     
     var intervalTimer: NSTimer?
     var counter = 0;
+    var lastKey = "[key]";
+    var lastValue = "[value]";
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +45,8 @@ class ViewController: UIViewController {
         self.stopButton.addTarget(self, action: "handleStopButtonClick:", forControlEvents: .TouchUpInside);
         
         updateCount(self.counter);
-        self.keyLabel.text = "<key";
-        self.valueLabel.text = "<value>";
+        self.keyLabel.text = self.lastKey;
+        self.valueLabel.text = self.lastValue;
     }
     
     func updateCount(count: Int) {
@@ -65,6 +67,8 @@ class ViewController: UIViewController {
         
         println("Timer: " + String(self.counter));
         getData();
+        self.keyLabel.text = self.lastKey;
+        self.keyLabel.setNeedsDisplay();
     }
     
     func handleStopButtonClick(sender:UIButton!) {
@@ -99,7 +103,17 @@ class ViewController: UIViewController {
                 if (jsonResult != nil) {
                     println(jsonResult);
                     if let series = jsonResult["Series"] as? NSArray {
-                        println(series.count);
+                        if series.count > 0 {
+                            if let last = series[series.count-1] as? NSDictionary {
+                                if let snapshot = last["Snapshot"] as? NSDictionary {
+                                    println(snapshot);
+                                    if let k = snapshot["Key"] as? String {
+                                        println("key " + k);
+                                        self.lastKey = k;
+                                    }
+                                }
+                            }
+                        }
                     }
                 } else {
                     println("ERROR: Unable to parse json " +
