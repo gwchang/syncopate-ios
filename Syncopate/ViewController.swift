@@ -19,11 +19,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var keyLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     var intervalTimer: NSTimer?
     var counter = 0;
     var lastKey = "[key]";
     var lastValue = "[value]";
+    var lastTimestamp = "[timestamp]";
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +49,7 @@ class ViewController: UIViewController {
         updateCount(self.counter);
         self.keyLabel.text = self.lastKey;
         self.valueLabel.text = self.lastValue;
+        self.timeLabel.text = self.lastTimestamp;
     }
     
     func updateCount(count: Int) {
@@ -71,6 +74,8 @@ class ViewController: UIViewController {
         self.keyLabel.setNeedsDisplay();
         self.valueLabel.text = self.lastValue;
         self.valueLabel.setNeedsDisplay();
+        self.timeLabel.text = "\(self.lastTimestamp)";
+        self.timeLabel.setNeedsDisplay();
     }
     
     func handleStopButtonClick(sender:UIButton!) {
@@ -107,12 +112,16 @@ class ViewController: UIViewController {
                     if let series = jsonResult["Series"] as? NSArray {
                         if series.count > 0 {
                             if let last = series[series.count-1] as? NSDictionary {
-                                if let snapshot = last["Snapshot"] as? NSDictionary {
-                                    println(snapshot);
-                                    if let k = snapshot["Key"] as? String {
-                                        if let v : AnyObject = snapshot["Value"] {
-                                            self.lastValue = "\(v)";
-                                            self.lastKey = k;
+                                // println(last);
+                                if let updateTimestamp : AnyObject = last["LastUpdate"] {
+                                    if let snapshot = last["Snapshot"] as? NSDictionary {
+                                        println(snapshot);
+                                        if let k = snapshot["Key"] as? String {
+                                            if let v : AnyObject = snapshot["Value"] {
+                                                self.lastValue = "\(v)";
+                                                    self.lastKey = k;
+                                            self.lastTimestamp = "\(updateTimestamp)";
+                                            }
                                         }
                                     }
                                 }

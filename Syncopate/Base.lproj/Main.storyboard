@@ -69,6 +69,18 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timestamp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxd-ry-hjC">
+                                <rect key="frame" x="23" y="468" width="86" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;time&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-Ws-PME">
+                                <rect key="frame" x="23" y="525" width="361" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -79,6 +91,7 @@
                         <outlet property="keyLabel" destination="FM0-Ze-3ca" id="cYb-a8-UBC"/>
                         <outlet property="startButton" destination="Gox-4w-sEX" id="Jh8-DB-ovl"/>
                         <outlet property="stopButton" destination="2fe-eT-hp1" id="Iot-8h-oxx"/>
+                        <outlet property="timeLabel" destination="b8Y-Ws-PME" id="vKm-nk-6n7"/>
                         <outlet property="valueLabel" destination="ZXs-1N-zss" id="hfr-00-DT4"/>
                     </connections>
                 </viewController>
