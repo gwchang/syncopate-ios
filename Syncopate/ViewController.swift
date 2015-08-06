@@ -69,6 +69,8 @@ class ViewController: UIViewController {
         getData();
         self.keyLabel.text = self.lastKey;
         self.keyLabel.setNeedsDisplay();
+        self.valueLabel.text = self.lastValue;
+        self.valueLabel.setNeedsDisplay();
     }
     
     func handleStopButtonClick(sender:UIButton!) {
@@ -108,8 +110,10 @@ class ViewController: UIViewController {
                                 if let snapshot = last["Snapshot"] as? NSDictionary {
                                     println(snapshot);
                                     if let k = snapshot["Key"] as? String {
-                                        println("key " + k);
-                                        self.lastKey = k;
+                                        if let v : AnyObject = snapshot["Value"] {
+                                            self.lastValue = "\(v)";
+                                            self.lastKey = k;
+                                        }
                                     }
                                 }
                             }
