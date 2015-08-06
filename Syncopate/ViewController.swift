@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.dataSourceLabel.text = "http://localhost:8080/clusters/55aed92950db53426a000001";
+        self.dataSourceLabel.text = "http://localhost:8080/clusters/55aed92950db53426a000002";
         /*
         self.dataSourceLabel.text = "http://jsonplaceholder.typicode.com/posts/1"
         */
@@ -117,14 +117,20 @@ class ViewController: UIViewController {
                 let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
                 
                 if (jsonResult != nil) {
-                    println(jsonResult);
+                    // println(jsonResult);
                     if let series = jsonResult["Series"] as? NSArray {
                         if series.count > 0 {
                             if let last = series[series.count-1] as? NSDictionary {
                                 // println(last);
                                 if let updateTimestamp : AnyObject = last["LastUpdate"] {
                                     if let snapshot = last["Snapshot"] as? NSDictionary {
-                                        println(snapshot);
+                                        // println(snapshot);
+                                        for (k,v) in snapshot {
+                                            self.lastTimestamp = "\(updateTimestamp)";
+                                            self.lastKey = "\(k)";
+                                            self.lastValue = "\(v)";
+                                        }
+                                        /*
                                         if let k = snapshot["Key"] as? String {
                                             if let v : AnyObject = snapshot["Value"] {
                                                 self.lastValue = "\(v)";
@@ -132,6 +138,7 @@ class ViewController: UIViewController {
                                             self.lastTimestamp = "\(updateTimestamp)";
                                             }
                                         }
+                                        */
                                     }
                                 }
                             }
