@@ -24,10 +24,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        /*
+        
         self.dataSourceLabel.text = "http://localhost:8080/clusters/55aed92950db53426a000001";
-        */
+        /*
         self.dataSourceLabel.text = "http://jsonplaceholder.typicode.com/posts/1"
+        */
         self.dataSourceLabel.lineBreakMode = .ByWordWrapping;
         self.dataSourceLabel.numberOfLines = 0;
         
@@ -89,6 +90,9 @@ class ViewController: UIViewController {
                 
                 if (jsonResult != nil) {
                     println(jsonResult);
+                    if let series = jsonResult["Series"] as? NSArray {
+                        println(series.count);
+                    }
                 } else {
                     println("ERROR: Unable to parse json " +
                         request.URL!.absoluteString!);
