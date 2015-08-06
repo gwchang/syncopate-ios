@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     
     @IBOutlet weak var counterLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var keyLabel: UILabel!
     
     var intervalTimer: NSTimer?
     var counter = 0;
@@ -40,7 +42,13 @@ class ViewController: UIViewController {
         self.stopButton.setTitle("Stop", forState: .Normal);
         self.stopButton.addTarget(self, action: "handleStopButtonClick:", forControlEvents: .TouchUpInside);
         
-        self.counterLabel.text = String(self.counter);
+        updateCount(self.counter);
+        self.keyLabel.text = "<key";
+        self.valueLabel.text = "<value>";
+    }
+    
+    func updateCount(count: Int) {
+        self.counterLabel.text = "Count: " + String(self.counter);
     }
     
     func handleStartButtonClick(sender:UIButton!) {
@@ -53,7 +61,7 @@ class ViewController: UIViewController {
     }
     
     func handleIntervalTimer(timer: NSTimer) {
-        self.counterLabel.text = String(++self.counter);
+        updateCount(++self.counter);
         
         println("Timer: " + String(self.counter));
         getData();
@@ -64,7 +72,7 @@ class ViewController: UIViewController {
         self.intervalTimer = nil;
         
         self.counter = 0;
-        self.counterLabel.text = String(self.counter);
+        updateCount(self.counter);
     }
     
     override func didReceiveMemoryWarning() {
