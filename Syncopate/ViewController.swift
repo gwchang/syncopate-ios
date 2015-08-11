@@ -183,12 +183,12 @@ class ViewController: UIViewController {
                 if (jsonResult != nil) {
                     // println(jsonResult);
                     if let series = jsonResult["Series"] as? NSArray {
-                        if series.count > 0 {
-                            if let last = series[series.count-1] as? NSDictionary {
+                        for var i = 0; i < series.count; ++i {
+                            if let last = series[i] as? NSDictionary {
                                 // println(last);
                                 if let updateTimestamp : AnyObject = last["LastUpdate"] {
                                     if let snapshot = last["Snapshot"] as? NSDictionary {
-                                        // println(snapshot);
+                                        println(snapshot);
                                         for (k,v) in snapshot {
                                             self.lastTimestamp = "\(updateTimestamp)";
                                             self.lastSnapshots["\(k)"] = "\(v)";
