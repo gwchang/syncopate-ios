@@ -52,29 +52,34 @@ class ViewController: UIViewController {
     var lastValue = "[value]";
     var lastTimestamp = "0";
     var lastSnapshots = Dictionary<String,String>();
+    var viewSnapshots = Dictionary<String,UILabel>();
     var yStart : CGFloat = 340;
     
-    func createSnapshotLabels(key: String) {
-        var valueHeight : CGFloat = 50;
-        var keyHeight : CGFloat = 15;
+    func showSnapshot(key: String, value: String) {
+        if self.viewSnapshots[key] == nil {
+            var valueHeight : CGFloat = 50;
+            var keyHeight : CGFloat = 15;
         
-        var valueLabel = UILabel(frame: CGRectMake(0, 0, 200, valueHeight));
-        valueLabel.center = CGPointMake(160, self.yStart);
-        valueLabel.textAlignment = NSTextAlignment.Center
-        valueLabel.text = ">"
-        valueLabel.textColor = colorWithHexString("#fff6e5");
-        valueLabel.font = valueLabel.font.fontWithSize(50);
-        self.view.addSubview(valueLabel);
+            var valueLabel = UILabel(frame: CGRectMake(0, 0, 200, valueHeight));
+            valueLabel.center = CGPointMake(160, self.yStart);
+            valueLabel.textAlignment = NSTextAlignment.Center
+            valueLabel.text = value;
+            valueLabel.textColor = colorWithHexString("#fff6e5");
+            valueLabel.font = valueLabel.font.fontWithSize(50);
+            self.view.addSubview(valueLabel);
         
-        var keyLabel = UILabel(frame: CGRectMake(0, 0, 200, keyHeight));
-        keyLabel.center = CGPointMake(160, self.yStart + valueHeight / 2 + 5);
-        keyLabel.textAlignment = NSTextAlignment.Center
-        keyLabel.text = key;
-        keyLabel.textColor = colorWithHexString("#ff7f66");
-        keyLabel.font = keyLabel.font.fontWithSize(15);
-        self.view.addSubview(keyLabel);
-        
-        self.yStart += valueHeight + keyHeight + 10;
+            var keyLabel = UILabel(frame: CGRectMake(0, 0, 200, keyHeight));
+            keyLabel.center = CGPointMake(160, self.yStart + valueHeight / 2 + 5);
+            keyLabel.textAlignment = NSTextAlignment.Center
+            keyLabel.text = key;
+            keyLabel.textColor = colorWithHexString("#ff7f66");
+            keyLabel.font = keyLabel.font.fontWithSize(15);
+            self.view.addSubview(keyLabel);
+            self.viewSnapshots[key] = valueLabel;
+            self.yStart += valueHeight + keyHeight + 10;
+        } else {
+            self.viewSnapshots[key]!.text = value;
+        }
     }
     
     override func viewDidLoad() {
@@ -124,7 +129,7 @@ class ViewController: UIViewController {
         self.view.backgroundColor = colorWithHexString("#3e454c");
         
         // Snapshots
-        createSnapshotLabels("test");
+        showSnapshot("test",value: "<");
     }
     
     func updateCount(count: Int) {
