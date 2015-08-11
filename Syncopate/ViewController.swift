@@ -49,11 +49,11 @@ class ViewController: UIViewController {
     var lastTimestamp = "0";
     var lastSnapshots = Dictionary<String,String>();
     var viewSnapshots = Dictionary<String,UILabel>();
-    var yStart : CGFloat = 340;
+    var yStart : CGFloat = 320;
     
     func showSnapshot(key: String, value: String) {
         if self.viewSnapshots[key] == nil {
-            var valueHeight : CGFloat = 50;
+            var valueHeight : CGFloat = 100;
             var keyHeight : CGFloat = 15;
         
             var valueLabel = UILabel(frame: CGRectMake(0, 0, 200, valueHeight));
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
             valueLabel.textAlignment = NSTextAlignment.Center
             valueLabel.text = value;
             valueLabel.textColor = colorWithHexString("#fff6e5");
-            valueLabel.font = valueLabel.font.fontWithSize(50);
+            valueLabel.font = valueLabel.font.fontWithSize(valueHeight);
             self.view.addSubview(valueLabel);
         
             var keyLabel = UILabel(frame: CGRectMake(0, 0, 200, keyHeight));
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
             keyLabel.textAlignment = NSTextAlignment.Center
             keyLabel.text = key;
             keyLabel.textColor = colorWithHexString("#ff7f66");
-            keyLabel.font = keyLabel.font.fontWithSize(15);
+            keyLabel.font = keyLabel.font.fontWithSize(keyHeight);
             self.view.addSubview(keyLabel);
             self.viewSnapshots[key] = valueLabel;
             self.yStart += valueHeight + keyHeight + 10;
