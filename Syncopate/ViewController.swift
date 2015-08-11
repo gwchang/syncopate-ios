@@ -42,14 +42,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     
     @IBOutlet weak var counterLabel: UILabel!
-    @IBOutlet weak var keyLabel: UILabel!
-    @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
     var intervalTimer: NSTimer?
     var counter = 0;
-    var lastKey = "[key]";
-    var lastValue = "[value]";
     var lastTimestamp = "0";
     var lastSnapshots = Dictionary<String,String>();
     var viewSnapshots = Dictionary<String,UILabel>();
@@ -78,7 +74,9 @@ class ViewController: UIViewController {
             self.viewSnapshots[key] = valueLabel;
             self.yStart += valueHeight + keyHeight + 10;
         } else {
-            self.viewSnapshots[key]!.text = value;
+            var valueLabel = self.viewSnapshots[key]!;
+            valueLabel.text = value;
+            valueLabel.setNeedsDisplay();
         }
     }
     
@@ -120,16 +118,11 @@ class ViewController: UIViewController {
         
         self.counterLabel.textColor = textColor;
         updateCount(self.counter);
-        self.keyLabel.text = self.lastKey;
-        self.valueLabel.text = self.lastValue;
         self.timeLabel.text = "Timestamp: \(self.lastTimestamp)";
         self.timeLabel.textColor = textColor;
         
         // Background
         self.view.backgroundColor = colorWithHexString("#3e454c");
-        
-        // Snapshots
-        showSnapshot("test",value: "<");
     }
     
     func updateCount(count: Int) {
@@ -150,12 +143,12 @@ class ViewController: UIViewController {
         
         println("Timer: " + String(self.counter));
         getData();
-        self.keyLabel.text = self.lastKey;
-        self.keyLabel.setNeedsDisplay();
-        self.valueLabel.text = self.lastValue;
-        self.valueLabel.setNeedsDisplay();
         self.timeLabel.text = "Timestamp: \(self.lastTimestamp)";
         self.timeLabel.setNeedsDisplay();
+        
+        for (k,v) in self.lastSnapshots {
+            showSnapshot(k, value: v);
+        }
     }
     
     func handleStopButtonClick(sender:UIButton!) {
@@ -198,19 +191,8 @@ class ViewController: UIViewController {
                                         // println(snapshot);
                                         for (k,v) in snapshot {
                                             self.lastTimestamp = "\(updateTimestamp)";
-                                            self.lastKey = "\(k)";
-                                            self.lastValue = "\(v)";
                                             self.lastSnapshots["\(k)"] = "\(v)";
                                         }
-                                        /*
-                                        if let k = snapshot["Key"] as? String {
-                                            if let v : AnyObject = snapshot["Value"] {
-                                                self.lastValue = "\(v)";
-                                                    self.lastKey = k;
-                                            self.lastTimestamp = "\(updateTimestamp)";
-                                            }
-                                        }
-                                        */
                                     }
                                 }
                             }
