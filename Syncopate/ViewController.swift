@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     var counter = 0;
     var lastKey = "[key]";
     var lastValue = "[value]";
-    var lastTimestamp = "[timestamp]";
+    var lastTimestamp = "0";
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +59,7 @@ class ViewController: UIViewController {
         let textColor = colorWithHexString("#fff6e5");
         
         self.titleLabel.textColor = textColor;
+        self.titleLabel.font = self.titleLabel.font.fontWithSize(30);
         self.dataSourceLabel.text = "http://localhost:8080/clusters/55aed92950db53426a000002";
         self.dataSourceLabel.textColor = textColor;
             
@@ -91,7 +92,8 @@ class ViewController: UIViewController {
         updateCount(self.counter);
         self.keyLabel.text = self.lastKey;
         self.valueLabel.text = self.lastValue;
-        self.timeLabel.text = self.lastTimestamp;
+        self.timeLabel.text = "Timestamp: \(self.lastTimestamp)";
+        self.timeLabel.textColor = textColor;
         
         // Background
         self.view.backgroundColor = colorWithHexString("#3e454c");
@@ -119,7 +121,7 @@ class ViewController: UIViewController {
         self.keyLabel.setNeedsDisplay();
         self.valueLabel.text = self.lastValue;
         self.valueLabel.setNeedsDisplay();
-        self.timeLabel.text = "\(self.lastTimestamp)";
+        self.timeLabel.text = "Timestamp: \(self.lastTimestamp)";
         self.timeLabel.setNeedsDisplay();
     }
     
