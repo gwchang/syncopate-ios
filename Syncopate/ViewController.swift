@@ -51,6 +51,31 @@ class ViewController: UIViewController {
     var lastKey = "[key]";
     var lastValue = "[value]";
     var lastTimestamp = "0";
+    var lastSnapshots = Dictionary<String,String>();
+    var yStart : CGFloat = 340;
+    
+    func createSnapshotLabels(key: String) {
+        var valueHeight : CGFloat = 50;
+        var keyHeight : CGFloat = 15;
+        
+        var valueLabel = UILabel(frame: CGRectMake(0, 0, 200, valueHeight));
+        valueLabel.center = CGPointMake(160, self.yStart);
+        valueLabel.textAlignment = NSTextAlignment.Center
+        valueLabel.text = ">"
+        valueLabel.textColor = colorWithHexString("#fff6e5");
+        valueLabel.font = valueLabel.font.fontWithSize(50);
+        self.view.addSubview(valueLabel);
+        
+        var keyLabel = UILabel(frame: CGRectMake(0, 0, 200, keyHeight));
+        keyLabel.center = CGPointMake(160, self.yStart + valueHeight / 2 + 5);
+        keyLabel.textAlignment = NSTextAlignment.Center
+        keyLabel.text = key;
+        keyLabel.textColor = colorWithHexString("#ff7f66");
+        keyLabel.font = keyLabel.font.fontWithSize(15);
+        self.view.addSubview(keyLabel);
+        
+        self.yStart += valueHeight + keyHeight + 10;
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +122,9 @@ class ViewController: UIViewController {
         
         // Background
         self.view.backgroundColor = colorWithHexString("#3e454c");
+        
+        // Snapshots
+        createSnapshotLabels("test");
     }
     
     func updateCount(count: Int) {
@@ -167,6 +195,7 @@ class ViewController: UIViewController {
                                             self.lastTimestamp = "\(updateTimestamp)";
                                             self.lastKey = "\(k)";
                                             self.lastValue = "\(v)";
+                                            self.lastSnapshots["\(k)"] = "\(v)";
                                         }
                                         /*
                                         if let k = snapshot["Key"] as? String {
