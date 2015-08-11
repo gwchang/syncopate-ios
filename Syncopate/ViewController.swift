@@ -8,8 +8,33 @@
 
 import UIKit
 
+func colorWithHexString(hex:String) -> UIColor {
+    var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).uppercaseString
+    
+    if (cString.hasPrefix("#")) {
+        cString = (cString as NSString).substringFromIndex(1)
+    }
+    
+    if (count(cString) != 6) {
+        return UIColor.grayColor()
+    }
+    
+    var rString = (cString as NSString).substringToIndex(2)
+    var gString = ((cString as NSString).substringFromIndex(2) as NSString).substringToIndex(2)
+    var bString = ((cString as NSString).substringFromIndex(4) as NSString).substringToIndex(2)
+    
+    var r:CUnsignedInt = 0, g:CUnsignedInt = 0, b:CUnsignedInt = 0;
+    NSScanner(string: rString).scanHexInt(&r)
+    NSScanner(string: gString).scanHexInt(&g)
+    NSScanner(string: bString).scanHexInt(&b)
+    
+    
+    return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: CGFloat(1))
+}
+
 class ViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dataSourceLabel: UILabel!
     @IBOutlet weak var dataSourceTextField: UITextField!
 
@@ -31,7 +56,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let textColor = colorWithHexString("#fff6e5");
+        
+        self.titleLabel.textColor = textColor;
         self.dataSourceLabel.text = "http://localhost:8080/clusters/55aed92950db53426a000002";
+        self.dataSourceLabel.textColor = textColor;
+            
         /*
         self.dataSourceLabel.text = "http://jsonplaceholder.typicode.com/posts/1"
         */
@@ -46,19 +76,25 @@ class ViewController: UIViewController {
         self.startButton.backgroundColor = UIColor.clearColor();
         self.startButton.layer.cornerRadius = 5
         self.startButton.layer.borderWidth = 1
-        self.startButton.layer.borderColor = self.view.tintColor.CGColor
+        self.startButton.layer.borderColor = textColor.CGColor;
+        self.startButton.setTitleColor(textColor, forState: .Normal);
         
         self.stopButton.setTitle("Stop", forState: .Normal);
         self.stopButton.addTarget(self, action: "handleStopButtonClick:", forControlEvents: .TouchUpInside);
         self.stopButton.backgroundColor = UIColor.clearColor();
         self.stopButton.layer.cornerRadius = 5
         self.stopButton.layer.borderWidth = 1
-        self.stopButton.layer.borderColor = self.view.tintColor.CGColor
+        self.stopButton.layer.borderColor = textColor.CGColor; //self.view.tintColor.CGColor
+        self.stopButton.setTitleColor(textColor, forState: .Normal);
         
+        self.counterLabel.textColor = textColor;
         updateCount(self.counter);
         self.keyLabel.text = self.lastKey;
         self.valueLabel.text = self.lastValue;
         self.timeLabel.text = self.lastTimestamp;
+        
+        // Background
+        self.view.backgroundColor = colorWithHexString("#3e454c");
     }
     
     func updateCount(count: Int) {
