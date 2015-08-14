@@ -39,14 +39,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D49A2B011B71991300127617 /* Frameworks */ = {
+		D49A2B161B71991300127617 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D49A2B161B71991300127617 /* Frameworks */ = {
+		D49A2B321B7DB86700127617 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -120,8 +120,8 @@
 			buildConfigurationList = D49A2B231B71991300127617 /* Build configuration list for PBXNativeTarget "Syncopate" */;
 			buildPhases = (
 				D49A2B001B71991300127617 /* Sources */,
-				D49A2B011B71991300127617 /* Frameworks */,
 				D49A2B021B71991300127617 /* Resources */,
+				D49A2B321B7DB86700127617 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -411,6 +411,7 @@
 				D49A2B251B71991300127617 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D49A2B261B71991300127617 /* Build configuration list for PBXNativeTarget "SyncopateTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +420,7 @@
 				D49A2B281B71991300127617 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
