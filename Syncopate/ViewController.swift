@@ -45,12 +45,13 @@ class ViewController: UIViewController, WebSocketDelegate {
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
-    var intervalTimer: NSTimer?
+    var intervalTimer: NSTimer?;
     var counter = 0;
     var lastTimestamp = "0";
     var lastSnapshots = Dictionary<String,String>();
     var viewSnapshots = Dictionary<String,UILabel>();
     var yStart : CGFloat = 320;
+    var socket: WebSocket?;
     
     func showSnapshot(key: String, value: String) {
         if self.viewSnapshots[key] == nil {
@@ -217,19 +218,22 @@ class ViewController: UIViewController, WebSocketDelegate {
             path: "/")!);
         socket.delegate = self;
         socket.connect();
+        self.socket = socket;
     }
     
-    // Websocket Delegate Methods.
+    ///////////////////////////////////////////////////////////////////
+    // Websocket Delegate Methods
+    ///////////////////////////////////////////////////////////////////
     
     func websocketDidConnect(ws: WebSocket) {
-        println("websocket is connected")
+        println("Websocket is connected")
     }
     
     func websocketDidDisconnect(ws: WebSocket, error: NSError?) {
         if let e = error {
-            println("websocket is disconnected: \(e.localizedDescription)")
+            println("Websocket is disconnected: \(e.localizedDescription)")
         } else {
-            println("websocket disconnected")
+            println("Websocket disconnected")
         }
     }
     
