@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Starscream
 
 func colorWithHexString(hex:String) -> UIColor {
     var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).uppercaseString
@@ -32,7 +33,7 @@ func colorWithHexString(hex:String) -> UIColor {
     return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: CGFloat(1))
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WebSocketDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dataSourceLabel: UILabel!
@@ -209,7 +210,36 @@ class ViewController: UIViewController {
             }
         })
     }
-
+    
+    func getDataWebsocket() {
+        var socket = WebSocket(url: NSURL(scheme: "ws",
+            host: "localhost:8080",
+            path: "/")!);
+        socket.delegate = self;
+        socket.connect();
+    }
+    
+    // Websocket Delegate Methods.
+    
+    func websocketDidConnect(ws: WebSocket) {
+        println("websocket is connected")
+    }
+    
+    func websocketDidDisconnect(ws: WebSocket, error: NSError?) {
+        if let e = error {
+            println("websocket is disconnected: \(e.localizedDescription)")
+        } else {
+            println("websocket disconnected")
+        }
+    }
+    
+    func websocketDidReceiveMessage(ws: WebSocket, text: String) {
+        println("Received text: \(text)")
+    }
+    
+    func websocketDidReceiveData(ws: WebSocket, data: NSData) {
+        println("Received data: \(data.length)")
+    }
 
 }
 
