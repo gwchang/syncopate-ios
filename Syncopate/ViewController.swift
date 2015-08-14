@@ -164,6 +164,26 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func parseData(jsonResult: NSDictionary) {
+        // println(jsonResult);
+        if let series = jsonResult["Series"] as? NSArray {
+            for var i = 0; i < series.count; ++i {
+                if let last = series[i] as? NSDictionary {
+                    // println(last);
+                    if let updateTimestamp : AnyObject = last["LastUpdate"] {
+                        if let snapshot = last["Snapshot"] as? NSDictionary {
+                            println(snapshot);
+                            for (k,v) in snapshot {
+                                self.lastTimestamp = "\(updateTimestamp)";
+                                self.lastSnapshots["\(k)"] = "\(v)";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     func getData() {
         var url : String = self.dataSourceLabel.text!;
         var request : NSMutableURLRequest = NSMutableURLRequest()
@@ -181,23 +201,7 @@ class ViewController: UIViewController {
                 let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
                 
                 if (jsonResult != nil) {
-                    // println(jsonResult);
-                    if let series = jsonResult["Series"] as? NSArray {
-                        for var i = 0; i < series.count; ++i {
-                            if let last = series[i] as? NSDictionary {
-                                // println(last);
-                                if let updateTimestamp : AnyObject = last["LastUpdate"] {
-                                    if let snapshot = last["Snapshot"] as? NSDictionary {
-                                        println(snapshot);
-                                        for (k,v) in snapshot {
-                                            self.lastTimestamp = "\(updateTimestamp)";
-                                            self.lastSnapshots["\(k)"] = "\(v)";
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    self.parseData(jsonResult);
                 } else {
                     println("ERROR: Unable to parse json " +
                         request.URL!.absoluteString!);
