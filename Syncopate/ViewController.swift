@@ -52,6 +52,7 @@ class ViewController: UIViewController, WebSocketDelegate {
     var viewSnapshots = Dictionary<String,UILabel>();
     var yStart : CGFloat = 320;
     var socket: WebSocket?;
+    var wsMode: Bool = true;
     
     func showSnapshot(key: String, value: String) {
         if self.viewSnapshots[key] == nil {
@@ -132,12 +133,16 @@ class ViewController: UIViewController, WebSocketDelegate {
     }
     
     func handleStartButtonClick(sender:UIButton!) {
-        self.dataSourceLabel.text = self.dataSourceTextField.text;
-        self.intervalTimer = NSTimer.scheduledTimerWithTimeInterval(1, // 1 second
-            target: self,
-            selector: "handleIntervalTimer:",
-            userInfo: nil,
-            repeats: true)
+        if self.wsMode {
+            getDataWebsocket()
+        } else {
+            self.dataSourceLabel.text = self.dataSourceTextField.text;
+            self.intervalTimer = NSTimer.scheduledTimerWithTimeInterval(1, // 1 second
+                target: self,
+                selector: "handleIntervalTimer:",
+                userInfo: nil,
+                repeats: true)
+        }
     }
     
     func handleIntervalTimer(timer: NSTimer) {
@@ -154,9 +159,12 @@ class ViewController: UIViewController, WebSocketDelegate {
     }
     
     func handleStopButtonClick(sender:UIButton!) {
-        self.intervalTimer?.invalidate();
-        self.intervalTimer = nil;
-        
+        if self.wsMode {
+            self.socket?.disconnect();
+        } else {
+            self.intervalTimer?.invalidate();
+            self.intervalTimer = nil;
+        }
         self.counter = 0;
         updateCount(self.counter);
     }
@@ -214,8 +222,8 @@ class ViewController: UIViewController, WebSocketDelegate {
     
     func getDataWebsocket() {
         var socket = WebSocket(url: NSURL(scheme: "ws",
-            host: "localhost:8080",
-            path: "/")!);
+            host: "localhost:1234",
+            path: "/ws?series=testcluster.t1000_temp&series=testcluster.t1000_load&series=testcluster.aapl_price")!);
         socket.delegate = self;
         socket.connect();
         self.socket = socket;
@@ -238,7 +246,22 @@ class ViewController: UIViewController, WebSocketDelegate {
     }
     
     func websocketDidReceiveMessage(ws: WebSocket, text: String) {
-        println("Received text: \(text)")
+        // println("Received text: \(text)")
+        updateCount(++self.counter);
+        
+        if let data = text.dataUsingEncoding(NSUTF8StringEncoding) {
+            // println("\(data)");
+            var error: NSError?;
+            let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data,
+                options:NSJSONReadingOptions.allZeros,
+                error: &error) as? NSDictionary;
+        
+            if (jsonResult != nil) {
+                self.parseData(jsonResult);
+            } else {
+                println("ERROR: Unable to parse text: \(text)");
+            }
+        }
     }
     
     func websocketDidReceiveData(ws: WebSocket, data: NSData) {
