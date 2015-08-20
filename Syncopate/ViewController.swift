@@ -150,6 +150,10 @@ class ViewController: UIViewController, WebSocketDelegate {
         
         println("Timer: " + String(self.counter));
         getData();
+        updateViews();
+    }
+    
+    func updateViews() {
         self.timeLabel.text = "Timestamp: \(self.lastTimestamp)";
         self.timeLabel.setNeedsDisplay();
         
@@ -262,6 +266,7 @@ class ViewController: UIViewController, WebSocketDelegate {
                 println("ERROR: Unable to parse text: \(text)");
             }
         }
+        updateViews();
     }
     
     func websocketDidReceiveData(ws: WebSocket, data: NSData) {
