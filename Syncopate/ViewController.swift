@@ -36,8 +36,8 @@ func colorWithHexString(hex:String) -> UIColor {
 class ViewController: UIViewController, WebSocketDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var dataSourceLabel: UILabel!
-    @IBOutlet weak var dataSourceTextField: UITextField!
+    @IBOutlet weak var sourceHostTextField: UITextField!
+    @IBOutlet weak var sourcePathTextField: UITextField!
 
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
@@ -91,16 +91,11 @@ class ViewController: UIViewController, WebSocketDelegate {
         
         self.titleLabel.textColor = textColor;
         self.titleLabel.font = self.titleLabel.font.fontWithSize(30);
-        self.dataSourceLabel.text = "http://localhost:8080/clusters/55aed92950db53426a000002";
-        self.dataSourceLabel.textColor = textColor;
-            
-        /*
-        self.dataSourceLabel.text = "http://jsonplaceholder.typicode.com/posts/1"
-        */
-        self.dataSourceLabel.lineBreakMode = .ByWordWrapping;
-        self.dataSourceLabel.numberOfLines = 0;
+
+        // self.dataSourceLabel.textColor = textColor;
         
-        self.dataSourceTextField.text = self.dataSourceLabel.text;
+        self.sourceHostTextField.text = "localhost:1234";
+        self.sourcePathTextField.text = "/ws?series=testcluster.t1000_temp&series=testcluster.t1000_load&series=testcluster.aapl_price";
         
         self.startButton.setTitle("Start", forState: .Normal);
         self.startButton.addTarget(self, action: "handleStartButtonClick:", forControlEvents: .TouchUpInside);
@@ -136,7 +131,6 @@ class ViewController: UIViewController, WebSocketDelegate {
         if self.wsMode {
             getDataWebsocket()
         } else {
-            self.dataSourceLabel.text = self.dataSourceTextField.text;
             self.intervalTimer = NSTimer.scheduledTimerWithTimeInterval(1, // 1 second
                 target: self,
                 selector: "handleIntervalTimer:",
@@ -199,7 +193,7 @@ class ViewController: UIViewController, WebSocketDelegate {
     }
     
     func getData() {
-        var url : String = self.dataSourceLabel.text!;
+        var url : String = "\(self.sourceHostTextField.text)\(self.sourcePathTextField)";
         var request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
@@ -226,8 +220,8 @@ class ViewController: UIViewController, WebSocketDelegate {
     
     func getDataWebsocket() {
         var socket = WebSocket(url: NSURL(scheme: "ws",
-            host: "localhost:1234",
-            path: "/ws?series=testcluster.t1000_temp&series=testcluster.t1000_load&series=testcluster.aapl_price")!);
+            host: self.sourceHostTextField.text,
+            path: self.sourcePathTextField.text)!);
         socket.delegate = self;
         socket.connect();
         self.socket = socket;
@@ -238,14 +232,14 @@ class ViewController: UIViewController, WebSocketDelegate {
     ///////////////////////////////////////////////////////////////////
     
     func websocketDidConnect(ws: WebSocket) {
-        println("Websocket is connected")
+        println("Websocket is connected: \(self.sourceHostTextField.text)\(self.sourcePathTextField.text)")
     }
     
     func websocketDidDisconnect(ws: WebSocket, error: NSError?) {
         if let e = error {
             println("Websocket is disconnected: \(e.localizedDescription)")
         } else {
-            println("Websocket disconnected")
+            println("Websocket disconnected: \(self.sourceHostTextField.text)\(self.sourcePathTextField.text)")
         }
     }
     
