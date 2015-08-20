@@ -38,6 +38,8 @@ class ViewController: UIViewController, WebSocketDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var sourceHostTextField: UITextField!
     @IBOutlet weak var sourcePathTextField: UITextField!
+    @IBOutlet weak var sourceHostLabel: UILabel!
+    @IBOutlet weak var sourcePathLabel: UILabel!
 
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
@@ -92,7 +94,8 @@ class ViewController: UIViewController, WebSocketDelegate {
         self.titleLabel.textColor = textColor;
         self.titleLabel.font = self.titleLabel.font.fontWithSize(30);
 
-        // self.dataSourceLabel.textColor = textColor;
+        self.sourceHostLabel.textColor = textColor;
+        self.sourcePathLabel.textColor = textColor;
         
         self.sourceHostTextField.text = "localhost:1234";
         self.sourcePathTextField.text = "/ws?series=testcluster.t1000_temp&series=testcluster.t1000_load&series=testcluster.aapl_price";
