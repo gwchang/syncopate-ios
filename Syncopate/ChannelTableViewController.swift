@@ -49,6 +49,10 @@ class ChannelTableViewController: UITableViewController {
         cell.groupLabel.text = channel.group
         cell.topicLabel.text = channel.topic
         cell.valueLabel.text = channel.value
+        cell.contentView.backgroundColor = colorWithHexString("#3e454c")
+        cell.groupLabel.textColor = colorWithHexString("#fff6e5")
+        cell.topicLabel.textColor = colorWithHexString("#ff7f66")
+        cell.topicLabel.font = cell.topicLabel.font.fontWithSize(20);
         
         return cell
     }
