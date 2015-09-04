@@ -12,10 +12,12 @@
 		D47C8FD71B99115700212774 /* ChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FD61B99115700212774 /* ChannelTableViewController.swift */; };
 		D47C8FD91B99139F00212774 /* ChannelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FD81B99139F00212774 /* ChannelState.swift */; };
 		D47C8FDA1B99139F00212774 /* ChannelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FD81B99139F00212774 /* ChannelState.swift */; };
-		D47C8FDC1B992AEF00212774 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FDB1B992AEF00212774 /* Style.swift */; };
-		D47C8FDD1B992AEF00212774 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FDB1B992AEF00212774 /* Style.swift */; };
+		D47C8FDC1B992AEF00212774 /* Syncopate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FDB1B992AEF00212774 /* Syncopate.swift */; };
+		D47C8FDD1B992AEF00212774 /* Syncopate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FDB1B992AEF00212774 /* Syncopate.swift */; };
 		D47C8FE21B9A253800212774 /* WebSocketConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FE11B9A253800212774 /* WebSocketConnection.swift */; };
 		D47C8FE31B9A253800212774 /* WebSocketConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FE11B9A253800212774 /* WebSocketConnection.swift */; };
+		D47C8FE51B9A2AFA00212774 /* ClusterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FE41B9A2AFA00212774 /* ClusterState.swift */; };
+		D47C8FE61B9A2AFA00212774 /* ClusterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FE41B9A2AFA00212774 /* ClusterState.swift */; };
 		D49A2B0A1B71991300127617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A2B091B71991300127617 /* AppDelegate.swift */; };
 		D49A2B0C1B71991300127617 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A2B0B1B71991300127617 /* ViewController.swift */; };
 		D49A2B0F1B71991300127617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49A2B0D1B71991300127617 /* Main.storyboard */; };
@@ -67,8 +69,9 @@
 		D47C8FD01B9903C400212774 /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
 		D47C8FD61B99115700212774 /* ChannelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelTableViewController.swift; sourceTree = "<group>"; };
 		D47C8FD81B99139F00212774 /* ChannelState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelState.swift; sourceTree = "<group>"; };
-		D47C8FDB1B992AEF00212774 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		D47C8FDB1B992AEF00212774 /* Syncopate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Syncopate.swift; sourceTree = "<group>"; };
 		D47C8FE11B9A253800212774 /* WebSocketConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketConnection.swift; sourceTree = "<group>"; };
+		D47C8FE41B9A2AFA00212774 /* ClusterState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterState.swift; sourceTree = "<group>"; };
 		D49A2B041B71991300127617 /* Syncopate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Syncopate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49A2B081B71991300127617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49A2B091B71991300127617 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,9 +139,10 @@
 				D49A2B091B71991300127617 /* AppDelegate.swift */,
 				D49A2B0B1B71991300127617 /* ViewController.swift */,
 				D47C8FE11B9A253800212774 /* WebSocketConnection.swift */,
+				D47C8FE41B9A2AFA00212774 /* ClusterState.swift */,
 				D49A2B0D1B71991300127617 /* Main.storyboard */,
 				D47C8FD61B99115700212774 /* ChannelTableViewController.swift */,
-				D47C8FDB1B992AEF00212774 /* Style.swift */,
+				D47C8FDB1B992AEF00212774 /* Syncopate.swift */,
 				D47C8FD81B99139F00212774 /* ChannelState.swift */,
 				D47C8FD01B9903C400212774 /* ChannelTableViewCell.swift */,
 				D49A2B101B71991300127617 /* Images.xcassets */,
@@ -310,8 +314,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D47C8FE51B9A2AFA00212774 /* ClusterState.swift in Sources */,
 				D47C8FD71B99115700212774 /* ChannelTableViewController.swift in Sources */,
-				D47C8FDC1B992AEF00212774 /* Style.swift in Sources */,
+				D47C8FDC1B992AEF00212774 /* Syncopate.swift in Sources */,
 				D47C8FD91B99139F00212774 /* ChannelState.swift in Sources */,
 				D49A2B0C1B71991300127617 /* ViewController.swift in Sources */,
 				D47C8FD11B9903C400212774 /* ChannelTableViewCell.swift in Sources */,
@@ -325,7 +330,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D49A2B201B71991300127617 /* SyncopateTests.swift in Sources */,
-				D47C8FDD1B992AEF00212774 /* Style.swift in Sources */,
+				D47C8FE61B9A2AFA00212774 /* ClusterState.swift in Sources */,
+				D47C8FDD1B992AEF00212774 /* Syncopate.swift in Sources */,
 				D47C8FDA1B99139F00212774 /* ChannelState.swift in Sources */,
 				D47C8FE31B9A253800212774 /* WebSocketConnection.swift in Sources */,
 			);
