@@ -20,6 +20,7 @@
 		D47C8FE61B9A2AFA00212774 /* ClusterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FE41B9A2AFA00212774 /* ClusterState.swift */; };
 		D47C8FE81B9A2DE600212774 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FE71B9A2DE600212774 /* AppState.swift */; };
 		D47C8FE91B9A2DE600212774 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FE71B9A2DE600212774 /* AppState.swift */; };
+		D47C8FEF1B9A3DB000212774 /* ClusterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FEE1B9A3DB000212774 /* ClusterTableViewController.swift */; };
 		D49A2B0A1B71991300127617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A2B091B71991300127617 /* AppDelegate.swift */; };
 		D49A2B0C1B71991300127617 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A2B0B1B71991300127617 /* ViewController.swift */; };
 		D49A2B0F1B71991300127617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49A2B0D1B71991300127617 /* Main.storyboard */; };
@@ -75,6 +76,7 @@
 		D47C8FE11B9A253800212774 /* WebSocketConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketConnection.swift; sourceTree = "<group>"; };
 		D47C8FE41B9A2AFA00212774 /* ClusterState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterState.swift; sourceTree = "<group>"; };
 		D47C8FE71B9A2DE600212774 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		D47C8FEE1B9A3DB000212774 /* ClusterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterTableViewController.swift; sourceTree = "<group>"; };
 		D49A2B041B71991300127617 /* Syncopate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Syncopate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49A2B081B71991300127617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49A2B091B71991300127617 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				D47C8FE41B9A2AFA00212774 /* ClusterState.swift */,
 				D47C8FE71B9A2DE600212774 /* AppState.swift */,
 				D49A2B0D1B71991300127617 /* Main.storyboard */,
+				D47C8FEE1B9A3DB000212774 /* ClusterTableViewController.swift */,
 				D47C8FD61B99115700212774 /* ChannelTableViewController.swift */,
 				D47C8FDB1B992AEF00212774 /* Syncopate.swift */,
 				D47C8FD81B99139F00212774 /* ChannelState.swift */,
@@ -322,6 +325,7 @@
 				D47C8FD71B99115700212774 /* ChannelTableViewController.swift in Sources */,
 				D47C8FDC1B992AEF00212774 /* Syncopate.swift in Sources */,
 				D47C8FE81B9A2DE600212774 /* AppState.swift in Sources */,
+				D47C8FEF1B9A3DB000212774 /* ClusterTableViewController.swift in Sources */,
 				D47C8FD91B99139F00212774 /* ChannelState.swift in Sources */,
 				D49A2B0C1B71991300127617 /* ViewController.swift in Sources */,
 				D47C8FD11B9903C400212774 /* ChannelTableViewCell.swift in Sources */,
