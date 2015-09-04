@@ -11,7 +11,7 @@ import UIKit
 class ChannelTableViewController: UITableViewController {
 
     // MARK: Properties
-    var channels = [Channel]()
+    var channels = [ChannelState]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +25,11 @@ class ChannelTableViewController: UITableViewController {
     }
     
     func loadSampleChannels() {
-        let channel1 = Channel(
+        let channel1 = ChannelState(
             group: "top",
             topic: "cpu_usage_user",
             value: "25%")!
-        let channel2 = Channel(
+        let channel2 = ChannelState(
             group: "top",
             topic:"cpu_usage_sys",
             value: "75%")!

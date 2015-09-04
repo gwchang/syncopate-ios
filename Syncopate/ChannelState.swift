@@ -1,5 +1,5 @@
 //
-//  Channel.swift
+//  ChannelState.swift
 //  Syncopate
 //
 //  Created by Gary Chang on 9/3/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Channel {
+class ChannelState {
     
     // MARK: Properties
     var group: String
