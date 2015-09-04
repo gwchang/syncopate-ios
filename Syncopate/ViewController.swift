@@ -97,7 +97,8 @@ class ViewController: UIViewController, WebSocketDelegate {
         self.sourceHostLabel.textColor = textColor;
         self.sourcePathLabel.textColor = textColor;
         
-        self.sourceHostTextField.text = "localhost:1234";
+        self.sourceHostTextField.text = "api.blub.io:32798";
+        // "localhost:1234";
         self.sourcePathTextField.text = "/ws?series=testcluster.t1000_temp&series=testcluster.t1000_load&series=testcluster.aapl_price";
         
         self.startButton.setTitle("Start", forState: .Normal);
@@ -228,6 +229,8 @@ class ViewController: UIViewController, WebSocketDelegate {
         socket.delegate = self;
         socket.connect();
         self.socket = socket;
+        
+        println("Connecting to websocket: \(self.sourceHostTextField.text)\(self.sourcePathTextField.text)")
     }
     
     ///////////////////////////////////////////////////////////////////
