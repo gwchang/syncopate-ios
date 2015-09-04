@@ -19,13 +19,20 @@ class ChannelTableViewController: UITableViewController {
         loadSampleChannels()
         
         self.tableView.backgroundColor = SyncopateStyle.backgroundColor
-        self.tableView.separatorColor = SyncopateStyle.textColor
+        self.tableView.separatorColor = SyncopateStyle.darkColor
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.tableView.separatorInset = UIEdgeInsetsZero
     }
     
     func loadSampleChannels() {
-        let channel1 = Channel(group: "top", topic: "cpu_usage_user")!
-        let channel2 = Channel(group: "top", topic:
-            "cpu_usage_sys")!
+        let channel1 = Channel(
+            group: "top",
+            topic: "cpu_usage_user",
+            value: "25%")!
+        let channel2 = Channel(
+            group: "top",
+            topic:"cpu_usage_sys",
+            value: "75%")!
         channels += [ channel1, channel2 ]
     }
 
@@ -49,13 +56,25 @@ class ChannelTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ChannelTableViewCell
 
         let channel = channels[indexPath.row]
+        
+        // Assign text
         cell.groupLabel.text = channel.group
         cell.topicLabel.text = channel.topic
         cell.valueLabel.text = channel.value
+        
+        // Set color and font size
         cell.contentView.backgroundColor = SyncopateStyle.backgroundColor
         cell.groupLabel.textColor = SyncopateStyle.textColor
+        cell.groupLabel.font = cell.groupLabel.font.fontWithSize(20)
+        
         cell.topicLabel.textColor = SyncopateStyle.highlightColor
-        cell.topicLabel.font = cell.topicLabel.font.fontWithSize(20);
+        cell.topicLabel.font = cell.topicLabel.font.fontWithSize(20)
+        
+        cell.valueLabel.textColor = SyncopateStyle.textColor
+        cell.valueLabel.font = cell.valueLabel.font.fontWithSize(60)
+        
+        // cell.separatorInset = UIEdgeInsetsZero
+        // cell.layoutMargins = UIEdgeInsetsZero
         
         return cell
     }

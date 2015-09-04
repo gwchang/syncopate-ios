@@ -37,4 +37,5 @@ struct SyncopateStyle {
     static let textColor        = colorWithHexString("#fff6e5")
     static let highlightColor   = colorWithHexString("#ff7f66")
     static let backgroundColor  = colorWithHexString("#3e454c")
+    static let darkColor        = colorWithHexString("#191C1F")
 }

@@ -16,13 +16,17 @@ class Channel {
     var value: String
     
     // MARK: Initialization
-    init?(group: String, topic: String) {
+    init?(group: String, topic: String, value: String) {
         self.group = group
         self.topic = topic
-        self.value = ""
+        self.value = value
         
         if group.isEmpty || topic.isEmpty {
             return nil
         }
+    }
+    
+    convenience init?(group: String, topic: String) {
+        self.init(group: group, topic: topic, value: "")
     }
 }
