@@ -25,6 +25,9 @@ class WebSocketConnection: WebSocketDelegate {
     }
     
     func connect(host: String, path:String) {
+        // Disconnect previous connection
+        disconnect()
+        
         self.received = 0
         self.host = host
         self.path = path
@@ -38,10 +41,12 @@ class WebSocketConnection: WebSocketDelegate {
     }
     
     func disconnect() {
-        self.socket?.disconnect()
         self.received = 0
-        
-        println("Disconnecting to websocket: \(self.host)\(self.path)")
+        if let s = self.socket {
+            s.disconnect()
+            println("Disconnecting to websocket: \(self.host)\(self.path)")
+            self.socket = nil
+        }
     }
     
     // MARK: Websocket callback

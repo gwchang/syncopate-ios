@@ -11,10 +11,13 @@ import Foundation
 class ClusterState {
     
     // MARK: Properties
+    
     var name: String
     var token: String
     var wsHost: String
     var wsPath: String
+    
+    // MARK: Initialization
     
     init(name: String, token: String) {
         self.name = name
