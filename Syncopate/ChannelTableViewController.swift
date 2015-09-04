@@ -17,6 +17,8 @@ class ChannelTableViewController: UITableViewController {
         super.viewDidLoad()
 
         loadSampleChannels()
+        
+        self.tableView.backgroundColor = colorWithHexString("#3e454c")
     }
     
     func loadSampleChannels() {
