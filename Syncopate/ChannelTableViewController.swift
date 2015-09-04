@@ -11,6 +11,7 @@ import UIKit
 class ChannelTableViewController: UITableViewController {
 
     // MARK: Properties
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     var channels = [ChannelState]()
     
     override func viewDidLoad() {
@@ -22,6 +23,11 @@ class ChannelTableViewController: UITableViewController {
         self.tableView.separatorColor = SyncopateStyle.darkColor
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.tableView.separatorInset = UIEdgeInsetsZero
+        
+        // navigationController?.navigationBarHidden = false
+        self.navigationController?.navigationBarHidden = false
+        self.navigationItem.title = "Channels"
+        self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
     }
     
     func loadSampleChannels() {
