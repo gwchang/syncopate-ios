@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Channel Table View Controller-->
+        <!--Channel Table View Controller Scene-->
         <scene sceneID="eXW-Sj-lAO">
             <objects>
-                <tableViewController id="dwx-3R-8qG" customClass="ChannelTableViewController" customModule="Syncopate" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Channel Table View Controller Scene" id="dwx-3R-8qG" customClass="ChannelTableViewController" customModule="Syncopate" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="6m2-X6-6gi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,10 +69,13 @@
                             <outlet property="delegate" destination="dwx-3R-8qG" id="kXM-4N-CWQ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Channels Menu Bar" id="lUR-2u-nAQ">
+                        <barButtonItem key="rightBarButtonItem" image="menu" id="IaL-ai-FCI"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oD0-bq-8c8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="563" y="301"/>
+            <point key="canvasLocation" x="563" y="293"/>
         </scene>
         <!--Cluster Table View Controller-->
         <scene sceneID="Yum-z3-xgf">
@@ -184,4 +187,7 @@
             <point key="canvasLocation" x="-90" y="301"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="22" height="22"/>
+    </resources>
 </document>
