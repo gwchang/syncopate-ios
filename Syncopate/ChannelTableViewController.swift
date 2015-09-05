@@ -25,9 +25,15 @@ class ChannelTableViewController: UITableViewController {
         self.tableView.separatorInset = UIEdgeInsetsZero
         
         // navigationController?.navigationBarHidden = false
-        self.navigationController?.navigationBarHidden = false
+        // self.navigationController?.navigationBarHidden = false
         self.navigationItem.title = "Channels"
-        self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
+        // self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
+        
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
     
     func loadSampleChannels() {

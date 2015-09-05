@@ -21,6 +21,7 @@
 		D47C8FE81B9A2DE600212774 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FE71B9A2DE600212774 /* AppState.swift */; };
 		D47C8FE91B9A2DE600212774 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FE71B9A2DE600212774 /* AppState.swift */; };
 		D47C8FEF1B9A3DB000212774 /* ClusterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FEE1B9A3DB000212774 /* ClusterTableViewController.swift */; };
+		D47C90031B9B51EF00212774 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D47C90021B9B51EF00212774 /* SWRevealViewController.m */; };
 		D49A2B0A1B71991300127617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A2B091B71991300127617 /* AppDelegate.swift */; };
 		D49A2B0C1B71991300127617 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A2B0B1B71991300127617 /* ViewController.swift */; };
 		D49A2B0F1B71991300127617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49A2B0D1B71991300127617 /* Main.storyboard */; };
@@ -77,6 +78,9 @@
 		D47C8FE41B9A2AFA00212774 /* ClusterState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterState.swift; sourceTree = "<group>"; };
 		D47C8FE71B9A2DE600212774 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		D47C8FEE1B9A3DB000212774 /* ClusterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterTableViewController.swift; sourceTree = "<group>"; };
+		D47C90001B9B51EE00212774 /* Syncopate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Syncopate-Bridging-Header.h"; sourceTree = "<group>"; };
+		D47C90011B9B51EF00212774 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		D47C90021B9B51EF00212774 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		D49A2B041B71991300127617 /* Syncopate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Syncopate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49A2B081B71991300127617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49A2B091B71991300127617 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,9 +123,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D47C8FFB1B9B518C00212774 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D47C90011B9B51EF00212774 /* SWRevealViewController.h */,
+				D47C90021B9B51EF00212774 /* SWRevealViewController.m */,
+				D47C90001B9B51EE00212774 /* Syncopate-Bridging-Header.h */,
+			);
+			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
 		D49A2AFB1B71991300127617 = {
 			isa = PBXGroup;
 			children = (
+				D47C8FFB1B9B518C00212774 /* SWRevealViewController */,
 				D40F9C601B7DBAE700BE5C82 /* Starscream.xcodeproj */,
 				D49A2B061B71991300127617 /* Syncopate */,
 				D49A2B1C1B71991300127617 /* SyncopateTests */,
@@ -329,6 +344,7 @@
 				D47C8FD91B99139F00212774 /* ChannelState.swift in Sources */,
 				D49A2B0C1B71991300127617 /* ViewController.swift in Sources */,
 				D47C8FD11B9903C400212774 /* ChannelTableViewCell.swift in Sources */,
+				D47C90031B9B51EF00212774 /* SWRevealViewController.m in Sources */,
 				D47C8FE21B9A253800212774 /* WebSocketConnection.swift in Sources */,
 				D49A2B0A1B71991300127617 /* AppDelegate.swift in Sources */,
 			);
@@ -464,9 +480,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Syncopate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Syncopate-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -474,9 +493,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Syncopate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Syncopate-Bridging-Header.h";
 			};
 			name = Release;
 		};
