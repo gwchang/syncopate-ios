@@ -10,9 +10,19 @@ import UIKit
 
 class ClusterTableViewController: UITableViewController {
 
+    // MARK: Properties
+    var clusters = [ClusterState]()
+    
+    func loadSampleClusters() {
+        let cluster1 = ClusterState(name: "cluster1", token: "abc")
+        let cluster2 = ClusterState(name: "cluster2", token: "def")
+        clusters += [ cluster1, cluster2 ]
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadSampleClusters()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -28,26 +38,24 @@ class ClusterTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+        return clusters.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
+        let cellIdentifier = "ClusterTableViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ClusterTableViewCell
+    
+        let cluster = clusters[indexPath.row]
+        
+        cell.nameLabel.text = cluster.name
+        
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.

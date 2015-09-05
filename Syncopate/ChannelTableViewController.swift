@@ -14,6 +14,18 @@ class ChannelTableViewController: UITableViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     var channels = [ChannelState]()
     
+    func loadSampleChannels() {
+        let channel1 = ChannelState(
+            group: "top",
+            topic: "cpu_usage_user",
+            value: "25%")!
+        let channel2 = ChannelState(
+            group: "top",
+            topic:"cpu_usage_sys",
+            value: "75%")!
+        channels += [ channel1, channel2 ]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,18 +50,6 @@ class ChannelTableViewController: UITableViewController {
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-    }
-    
-    func loadSampleChannels() {
-        let channel1 = ChannelState(
-            group: "top",
-            topic: "cpu_usage_user",
-            value: "25%")!
-        let channel2 = ChannelState(
-            group: "top",
-            topic:"cpu_usage_sys",
-            value: "75%")!
-        channels += [ channel1, channel2 ]
     }
 
     override func didReceiveMemoryWarning() {

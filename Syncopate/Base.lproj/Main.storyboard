@@ -90,11 +90,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="foi-wg-B2e">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClusterTableViewCell" id="foi-wg-B2e" customClass="ClusterTableViewCell" customModule="Syncopate" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="foi-wg-B2e" id="vWf-SI-Gj3">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfk-1k-k4o">
+                                            <rect key="frame" x="8" y="8" width="584" height="27.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="yfk-1k-k4o" secondAttribute="trailing" constant="8" id="45g-7v-nxf"/>
+                                        <constraint firstItem="yfk-1k-k4o" firstAttribute="top" secondItem="vWf-SI-Gj3" secondAttribute="top" constant="8" id="Ck6-Wp-319"/>
+                                        <constraint firstItem="yfk-1k-k4o" firstAttribute="leading" secondItem="vWf-SI-Gj3" secondAttribute="leading" constant="8" id="L5f-bG-i3h"/>
+                                        <constraint firstAttribute="bottom" secondItem="yfk-1k-k4o" secondAttribute="bottom" constant="8" id="r2N-ed-bTz"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="yfk-1k-k4o" id="FlD-3h-g4E"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
