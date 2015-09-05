@@ -27,6 +27,10 @@ class ChannelTableViewController: UITableViewController {
         // navigationController?.navigationBarHidden = false
         // self.navigationController?.navigationBarHidden = false
         self.navigationItem.title = "Channels"
+        var navBar = self.navigationController?.navigationBar
+        navBar?.barTintColor = SyncopateStyle.darkColor
+        let titleProp: NSDictionary = [NSForegroundColorAttributeName: SyncopateStyle.textColor]
+        navBar?.titleTextAttributes = titleProp as [NSObject: AnyObject]
         // self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
         
         if self.revealViewController() != nil {
@@ -86,7 +90,8 @@ class ChannelTableViewController: UITableViewController {
         cell.valueLabel.font = cell.valueLabel.font.fontWithSize(60)
         
         // cell.separatorInset = UIEdgeInsetsZero
-        // cell.layoutMargins = UIEdgeInsetsZero
+        cell.layoutMargins = UIEdgeInsetsZero
+        cell.preservesSuperviewLayoutMargins = false
         
         return cell
     }
