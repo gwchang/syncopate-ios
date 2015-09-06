@@ -12,6 +12,8 @@ class ChannelTableViewController: UITableViewController {
 
     // MARK: Properties
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    var navTitle: String = "default"
+    
     var channels = [ChannelState]()
     
     func loadSampleChannels() {
@@ -38,7 +40,7 @@ class ChannelTableViewController: UITableViewController {
         
         // navigationController?.navigationBarHidden = false
         // self.navigationController?.navigationBarHidden = false
-        self.navigationItem.title = "Channels"
+        self.navigationItem.title = self.navTitle
         var navBar = self.navigationController?.navigationBar
         navBar?.barTintColor = SyncopateStyle.darkColor
         let titleProp: NSDictionary = [NSForegroundColorAttributeName: SyncopateStyle.textColor]

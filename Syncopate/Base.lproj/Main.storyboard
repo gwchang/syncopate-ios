@@ -111,7 +111,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="yfk-1k-k4o" id="FlD-3h-g4E"/>
-                                    <segue destination="MBH-zz-AZb" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Xgf-kg-XyL"/>
+                                    <segue destination="MBH-zz-AZb" kind="custom" identifier="showChannelTableView" customClass="SWRevealViewControllerSeguePushController" id="Xgf-kg-XyL"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

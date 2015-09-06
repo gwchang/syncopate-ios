@@ -92,14 +92,22 @@ class ClusterTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showChannelTableView" {
+            if let navController = segue.destinationViewController as? UINavigationController {
+                if var vc = navController.topViewController as? ChannelTableViewController {
+                    if let indexPath = self.tableView.indexPathForSelectedRow() {
+                        vc.navTitle = clusters[indexPath.row].name
+                    }
+                }
+            }
+        }
     }
-    */
 
 }
