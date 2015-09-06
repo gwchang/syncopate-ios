@@ -13,15 +13,10 @@ class ClusterTableViewController: UITableViewController {
     // MARK: Properties
     var clusters = [ClusterState]()
     
-    func loadSampleClusters() {
-        let cluster1 = ClusterState(name: "cluster1", token: "abc")
-        let cluster2 = ClusterState(name: "cluster2", token: "def")
-        clusters += [ cluster1, cluster2 ]
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadSampleClusters()
+        clusters = AppManager.sharedInstance.getClusters()
         
         // Initialize background and separator color
         self.tableView.backgroundColor = SyncopateStyle.menuBackgroundColor
