@@ -84,6 +84,7 @@ class ChannelTableViewController: UITableViewController {
         var bgColorView = UIView()
         bgColorView.backgroundColor = SyncopateStyle.mainSelectedColor
         cell.selectedBackgroundView = bgColorView
+        cell.backgroundColor = SyncopateStyle.mainBackgroundColor
         
         // Get rid of inset
         cell.layoutMargins = UIEdgeInsetsZero
