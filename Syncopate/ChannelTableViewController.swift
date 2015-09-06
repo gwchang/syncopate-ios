@@ -79,6 +79,13 @@ class ChannelTableViewController: UITableViewController {
         cell.valueLabel.textColor = SyncopateStyle.mainTextColor
         cell.valueLabel.font = cell.valueLabel.font.fontWithSize(60)
         
+        // Selection colors
+        cell.selectionStyle = UITableViewCellSelectionStyle.Default
+        var bgColorView = UIView()
+        bgColorView.backgroundColor = SyncopateStyle.mainSelectedColor
+        cell.selectedBackgroundView = bgColorView
+        
+        // Get rid of inset
         cell.layoutMargins = UIEdgeInsetsZero
         cell.preservesSuperviewLayoutMargins = false
         

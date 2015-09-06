@@ -57,6 +57,7 @@
                                     <outlet property="groupLabel" destination="65H-9Q-xDf" id="EL8-G4-Zfb"/>
                                     <outlet property="topicLabel" destination="0Mn-uG-pwr" id="T3U-Z4-a2r"/>
                                     <outlet property="valueLabel" destination="ICv-ZD-QT7" id="hXn-bb-sds"/>
+                                    <segue destination="hrX-yc-cs7" kind="show" identifier="showTopicView" id="wWZ-FL-6Yo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -76,6 +77,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oD0-bq-8c8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1375" y="293"/>
+        </scene>
+        <!--Topic-->
+        <scene sceneID="bjT-G0-ikL">
+            <objects>
+                <viewController id="ydd-U1-hxQ" customClass="TopicViewController" customModule="Syncopate" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f0X-VU-BHU"/>
+                        <viewControllerLayoutGuide type="bottom" id="paA-sK-hyB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0ut-62-Wu0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Topic" id="S9l-3F-o6I"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fPJ-1o-Q3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3303" y="293"/>
         </scene>
         <!--Cluster Table View Controller-->
         <scene sceneID="Yum-z3-xgf">
@@ -243,6 +264,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="quo-Ub-gSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="563" y="293"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6db-iy-BKQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hrX-yc-cs7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JUd-Ht-lsC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ydd-U1-hxQ" kind="relationship" relationship="rootViewController" id="4oV-gF-7Yp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l2V-96-w3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2491" y="293"/>
         </scene>
     </scenes>
     <resources>

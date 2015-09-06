@@ -25,6 +25,7 @@
 		D47C90051B9B8F6300212774 /* ClusterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C90041B9B8F6300212774 /* ClusterTableViewCell.swift */; };
 		D47C90071B9CA9A300212774 /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C90061B9CA9A300212774 /* PersistencyManager.swift */; };
 		D47C90081B9CAEA200212774 /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C90061B9CA9A300212774 /* PersistencyManager.swift */; };
+		D47C900A1B9CC6F500212774 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C90091B9CC6F500212774 /* TopicViewController.swift */; };
 		D49A2B0A1B71991300127617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A2B091B71991300127617 /* AppDelegate.swift */; };
 		D49A2B0C1B71991300127617 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A2B0B1B71991300127617 /* ViewController.swift */; };
 		D49A2B0F1B71991300127617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49A2B0D1B71991300127617 /* Main.storyboard */; };
@@ -86,6 +87,7 @@
 		D47C90021B9B51EF00212774 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		D47C90041B9B8F6300212774 /* ClusterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterTableViewCell.swift; sourceTree = "<group>"; };
 		D47C90061B9CA9A300212774 /* PersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistencyManager.swift; sourceTree = "<group>"; };
+		D47C90091B9CC6F500212774 /* TopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
 		D49A2B041B71991300127617 /* Syncopate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Syncopate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49A2B081B71991300127617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49A2B091B71991300127617 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				D47C8FE71B9A2DE600212774 /* AppManager.swift */,
 				D47C90061B9CA9A300212774 /* PersistencyManager.swift */,
 				D49A2B0D1B71991300127617 /* Main.storyboard */,
+				D47C90091B9CC6F500212774 /* TopicViewController.swift */,
 				D47C8FEE1B9A3DB000212774 /* ClusterTableViewController.swift */,
 				D47C90041B9B8F6300212774 /* ClusterTableViewCell.swift */,
 				D47C8FD61B99115700212774 /* ChannelTableViewController.swift */,
@@ -349,6 +352,7 @@
 				D47C8FE81B9A2DE600212774 /* AppManager.swift in Sources */,
 				D47C8FEF1B9A3DB000212774 /* ClusterTableViewController.swift in Sources */,
 				D47C8FD91B99139F00212774 /* ChannelState.swift in Sources */,
+				D47C900A1B9CC6F500212774 /* TopicViewController.swift in Sources */,
 				D47C90051B9B8F6300212774 /* ClusterTableViewCell.swift in Sources */,
 				D49A2B0C1B71991300127617 /* ViewController.swift in Sources */,
 				D47C8FD11B9903C400212774 /* ChannelTableViewCell.swift in Sources */,

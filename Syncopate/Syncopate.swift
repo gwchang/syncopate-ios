@@ -46,6 +46,7 @@ struct SyncopateStyle {
     static let mainHighlightColor   = SyncopateTheme.color1
     static let mainBackgroundColor  = SyncopateTheme.color4
     static let mainSeparatorColor   = SyncopateTheme.color5
+    static let mainSelectedColor    = SyncopateTheme.color2
     static let mainNavColor         = SyncopateTheme.color4
     
     static let menuTextColor        = SyncopateTheme.color3
