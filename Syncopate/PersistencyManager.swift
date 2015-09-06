@@ -36,4 +36,10 @@ class PersistencyManager {
             value: "75%")!
         self.channels[selectedClusterName] = [ channel1, channel2 ]
     }
+    
+    func reset() {
+        clusters = [ClusterState]()
+        channels = Dictionary<String, Array<ChannelState>>()
+        selectedClusterName = ""
+    }
 }
