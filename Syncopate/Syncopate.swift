@@ -34,11 +34,11 @@ func colorWithHexString(hex:String) -> UIColor {
 }
 
 struct SyncopateTheme {
-    static let color1 = colorWithHexString("#EA6045")
-    static let color2 = colorWithHexString("#F8CA4D")
-    static let color3 = colorWithHexString("#F5E5C0")
-    static let color4 = colorWithHexString("#2F3440")
-    static let color5 = colorWithHexString("#1F2430")
+    static let color1 = colorWithHexString("#ff7f66")
+    static let color2 = colorWithHexString("#59646e")
+    static let color3 = colorWithHexString("#fff6e5")
+    static let color4 = colorWithHexString("#3e454c")
+    static let color5 = colorWithHexString("#2F3440")
 }
 
 struct SyncopateStyle {
