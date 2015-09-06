@@ -37,22 +37,22 @@ struct SyncopateTheme {
     static let color1 = colorWithHexString("#EA6045")
     static let color2 = colorWithHexString("#F8CA4D")
     static let color3 = colorWithHexString("#F5E5C0")
-    static let color4 = colorWithHexString("#3F5666")
-    static let color5 = colorWithHexString("#2F3440")
+    static let color4 = colorWithHexString("#2F3440")
+    static let color5 = colorWithHexString("#1F2430")
 }
 
 struct SyncopateStyle {
     static let mainTextColor        = SyncopateTheme.color3
     static let mainHighlightColor   = SyncopateTheme.color1
-    static let mainBackgroundColor  = SyncopateTheme.color5
-    static let mainSeparatorColor   = SyncopateTheme.color4
-    static let mainNavColor         = SyncopateTheme.color5
+    static let mainBackgroundColor  = SyncopateTheme.color4
+    static let mainSeparatorColor   = SyncopateTheme.color5
+    static let mainNavColor         = SyncopateTheme.color4
     
     static let menuTextColor        = SyncopateTheme.color3
     static let menuHighlightColor   = SyncopateTheme.color2
-    static let menuBackgroundColor  = SyncopateTheme.color4
-    static let menuSeparatorColor   = SyncopateTheme.color5
-    static let menuSelectedColor    = SyncopateTheme.color5
+    static let menuBackgroundColor  = SyncopateTheme.color5
+    static let menuSeparatorColor   = SyncopateTheme.color4
+    static let menuSelectedColor    = SyncopateTheme.color4
 }
 
 struct SyncopateConfig {

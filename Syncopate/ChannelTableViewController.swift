@@ -36,7 +36,7 @@ class ChannelTableViewController: UITableViewController {
         // Initialize background and separator color
         self.tableView.backgroundColor = SyncopateStyle.mainBackgroundColor
         self.tableView.separatorColor = SyncopateStyle.mainSeparatorColor
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         self.tableView.separatorInset = UIEdgeInsetsZero
         
         // Initialize navigation bar
