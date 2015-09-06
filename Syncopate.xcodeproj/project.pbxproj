@@ -14,8 +14,8 @@
 		D47C8FDA1B99139F00212774 /* ChannelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FD81B99139F00212774 /* ChannelState.swift */; };
 		D47C8FDC1B992AEF00212774 /* Syncopate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FDB1B992AEF00212774 /* Syncopate.swift */; };
 		D47C8FDD1B992AEF00212774 /* Syncopate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FDB1B992AEF00212774 /* Syncopate.swift */; };
-		D47C8FE21B9A253800212774 /* WebSocketConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FE11B9A253800212774 /* WebSocketConnection.swift */; };
-		D47C8FE31B9A253800212774 /* WebSocketConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FE11B9A253800212774 /* WebSocketConnection.swift */; };
+		D47C8FE21B9A253800212774 /* APIWebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FE11B9A253800212774 /* APIWebSocketClient.swift */; };
+		D47C8FE31B9A253800212774 /* APIWebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FE11B9A253800212774 /* APIWebSocketClient.swift */; };
 		D47C8FE51B9A2AFA00212774 /* ClusterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FE41B9A2AFA00212774 /* ClusterState.swift */; };
 		D47C8FE61B9A2AFA00212774 /* ClusterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FE41B9A2AFA00212774 /* ClusterState.swift */; };
 		D47C8FE81B9A2DE600212774 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C8FE71B9A2DE600212774 /* AppState.swift */; };
@@ -75,7 +75,7 @@
 		D47C8FD61B99115700212774 /* ChannelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelTableViewController.swift; sourceTree = "<group>"; };
 		D47C8FD81B99139F00212774 /* ChannelState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelState.swift; sourceTree = "<group>"; };
 		D47C8FDB1B992AEF00212774 /* Syncopate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Syncopate.swift; sourceTree = "<group>"; };
-		D47C8FE11B9A253800212774 /* WebSocketConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketConnection.swift; sourceTree = "<group>"; };
+		D47C8FE11B9A253800212774 /* APIWebSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIWebSocketClient.swift; sourceTree = "<group>"; };
 		D47C8FE41B9A2AFA00212774 /* ClusterState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterState.swift; sourceTree = "<group>"; };
 		D47C8FE71B9A2DE600212774 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		D47C8FEE1B9A3DB000212774 /* ClusterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterTableViewController.swift; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 			children = (
 				D49A2B091B71991300127617 /* AppDelegate.swift */,
 				D49A2B0B1B71991300127617 /* ViewController.swift */,
-				D47C8FE11B9A253800212774 /* WebSocketConnection.swift */,
+				D47C8FE11B9A253800212774 /* APIWebSocketClient.swift */,
 				D47C8FE41B9A2AFA00212774 /* ClusterState.swift */,
 				D47C8FE71B9A2DE600212774 /* AppState.swift */,
 				D49A2B0D1B71991300127617 /* Main.storyboard */,
@@ -349,7 +349,7 @@
 				D49A2B0C1B71991300127617 /* ViewController.swift in Sources */,
 				D47C8FD11B9903C400212774 /* ChannelTableViewCell.swift in Sources */,
 				D47C90031B9B51EF00212774 /* SWRevealViewController.m in Sources */,
-				D47C8FE21B9A253800212774 /* WebSocketConnection.swift in Sources */,
+				D47C8FE21B9A253800212774 /* APIWebSocketClient.swift in Sources */,
 				D49A2B0A1B71991300127617 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,7 +363,7 @@
 				D47C8FDD1B992AEF00212774 /* Syncopate.swift in Sources */,
 				D47C8FE91B9A2DE600212774 /* AppState.swift in Sources */,
 				D47C8FDA1B99139F00212774 /* ChannelState.swift in Sources */,
-				D47C8FE31B9A253800212774 /* WebSocketConnection.swift in Sources */,
+				D47C8FE31B9A253800212774 /* APIWebSocketClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

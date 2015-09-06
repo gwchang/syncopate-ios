@@ -12,7 +12,7 @@ class AppState {
     
     // MARK: Properties
     var clusters = [ClusterState]()
-    var wsconn = WebSocketConnection()
+    var wsconn = APIWebSocketClient()
     
     init() {
         
