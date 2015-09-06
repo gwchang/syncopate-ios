@@ -21,20 +21,8 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SZM-u8-DBO" id="2fh-Bb-ruz">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="group" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65H-9Q-xDf">
-                                            <rect key="frame" x="8" y="8" width="208" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="yeb-hy-w6I"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="topic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mn-uG-pwr">
-                                            <rect key="frame" x="8" y="46" width="208" height="35.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="35.5" id="Zpf-qG-mUI"/>
-                                            </constraints>
+                                            <rect key="frame" x="8" y="46" width="208" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -45,15 +33,23 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="group" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65H-9Q-xDf">
+                                            <rect key="frame" x="8" y="8" width="208" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="yeb-hy-w6I"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="0Mn-uG-pwr" firstAttribute="top" secondItem="65H-9Q-xDf" secondAttribute="bottom" constant="8" id="01A-XP-RIQ"/>
                                         <constraint firstItem="ICv-ZD-QT7" firstAttribute="top" secondItem="2fh-Bb-ruz" secondAttribute="top" constant="8" id="8XN-cd-7Is"/>
+                                        <constraint firstItem="0Mn-uG-pwr" firstAttribute="top" secondItem="65H-9Q-xDf" secondAttribute="bottom" constant="8" id="GAe-ai-pc6"/>
                                         <constraint firstAttribute="trailing" secondItem="ICv-ZD-QT7" secondAttribute="trailing" constant="10" id="OO7-pH-IqK"/>
                                         <constraint firstItem="0Mn-uG-pwr" firstAttribute="leading" secondItem="2fh-Bb-ruz" secondAttribute="leading" constant="8" id="R4z-9m-5a6"/>
                                         <constraint firstItem="65H-9Q-xDf" firstAttribute="leading" secondItem="2fh-Bb-ruz" secondAttribute="leading" constant="8" id="X1b-sD-cHE"/>
-                                        <constraint firstAttribute="bottom" secondItem="0Mn-uG-pwr" secondAttribute="bottom" constant="8" id="ghv-ut-hVM"/>
-                                        <constraint firstItem="65H-9Q-xDf" firstAttribute="top" secondItem="2fh-Bb-ruz" secondAttribute="top" constant="8" id="svC-Bi-kKc"/>
+                                        <constraint firstAttribute="bottom" secondItem="0Mn-uG-pwr" secondAttribute="bottom" constant="7.5" id="sHo-qW-WRW"/>
                                         <constraint firstAttribute="bottom" secondItem="ICv-ZD-QT7" secondAttribute="bottom" constant="8" id="wge-xn-Ibc"/>
                                     </constraints>
                                 </tableViewCellContentView>
