@@ -14,6 +14,8 @@ class PersistencyManager {
     var clusters = [ClusterState]()
     var channels = Dictionary<String, Array<ChannelState>>()
     var selectedClusterName: String = ""
+    var selectedChannelGroup: String = ""
+    var selectedChannelTopic: String = ""
     
     init() {
         loadSampleData()
@@ -41,5 +43,7 @@ class PersistencyManager {
         clusters = [ClusterState]()
         channels = Dictionary<String, Array<ChannelState>>()
         selectedClusterName = ""
+        selectedChannelGroup = ""
+        selectedChannelTopic = ""
     }
 }

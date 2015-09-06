@@ -38,11 +38,22 @@ class AppManager {
         }
     }
     
+    // Selected cluster
     func getSelectedClusterName() -> String {
         return persistencyManager.selectedClusterName
     }
     
     func setSelectedClusterName(name: String) {
         persistencyManager.selectedClusterName = name
+    }
+    
+    // Selected channel
+    func getSelectedChannelName() -> String {
+        return persistencyManager.selectedChannelGroup + "." + persistencyManager.selectedChannelTopic
+    }
+    
+    func setSelectedChannel(group: String, topic: String) {
+        persistencyManager.selectedChannelGroup = group
+        persistencyManager.selectedChannelTopic = topic
     }
 }
