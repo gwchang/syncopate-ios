@@ -34,16 +34,16 @@ class ChannelTableViewController: UITableViewController {
         loadSampleChannels()
         
         // Initialize background and separator color
-        self.tableView.backgroundColor = SyncopateStyle.backgroundColor
-        self.tableView.separatorColor = SyncopateStyle.separatorColor
+        self.tableView.backgroundColor = SyncopateStyle.mainBackgroundColor
+        self.tableView.separatorColor = SyncopateStyle.mainSeparatorColor
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.tableView.separatorInset = UIEdgeInsetsZero
         
         // Initialize navigation bar
         self.navigationItem.title = self.navTitle
         var navBar = self.navigationController?.navigationBar
-        navBar?.barTintColor = SyncopateStyle.darkColor
-        let titleProp: NSDictionary = [NSForegroundColorAttributeName: SyncopateStyle.textColor]
+        navBar?.barTintColor = SyncopateStyle.mainNavColor
+        let titleProp: NSDictionary = [NSForegroundColorAttributeName: SyncopateStyle.mainTextColor]
         navBar?.titleTextAttributes = titleProp as [NSObject: AnyObject]
         
         // Initialize navigation menu button
@@ -81,14 +81,14 @@ class ChannelTableViewController: UITableViewController {
         cell.valueLabel.text = channel.value
         
         // Set color and font size
-        cell.contentView.backgroundColor = SyncopateStyle.backgroundColor
-        cell.groupLabel.textColor = SyncopateStyle.textColor
+        cell.contentView.backgroundColor = SyncopateStyle.mainBackgroundColor
+        cell.groupLabel.textColor = SyncopateStyle.mainTextColor
         cell.groupLabel.font = cell.groupLabel.font.fontWithSize(20)
         
-        cell.topicLabel.textColor = SyncopateStyle.highlightColor
+        cell.topicLabel.textColor = SyncopateStyle.mainHighlightColor
         cell.topicLabel.font = cell.topicLabel.font.fontWithSize(20)
         
-        cell.valueLabel.textColor = SyncopateStyle.textColor
+        cell.valueLabel.textColor = SyncopateStyle.mainTextColor
         cell.valueLabel.font = cell.valueLabel.font.fontWithSize(60)
         
         cell.layoutMargins = UIEdgeInsetsZero
