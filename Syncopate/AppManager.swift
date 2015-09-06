@@ -31,6 +31,18 @@ class AppManager {
     }
     
     func getChannels() -> [ChannelState] {
-        return persistencyManager.channels
+        if let val = persistencyManager.channels[persistencyManager.selectedClusterName] {
+            return val
+        } else {
+            return []
+        }
+    }
+    
+    func getSelectedClusterName() -> String {
+        return persistencyManager.selectedClusterName
+    }
+    
+    func setSelectedClusterName(name: String) {
+        persistencyManager.selectedClusterName = name
     }
 }

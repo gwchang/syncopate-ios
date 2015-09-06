@@ -12,20 +12,20 @@ class PersistencyManager {
     
     // MARK: Instance properties
     var clusters = [ClusterState]()
-    var channels = [ChannelState]()
+    var channels = Dictionary<String, Array<ChannelState>>()
+    var selectedClusterName: String = ""
     
     init() {
-        loadSampleClusters()
-        loadSampleChannels()
+        loadSampleData()
     }
     
-    func loadSampleClusters() {
+    func loadSampleData() {
         let cluster1 = ClusterState(name: "cluster1", token: "abc")
         let cluster2 = ClusterState(name: "cluster2", token: "def")
-        clusters += [ cluster1, cluster2 ]
-    }
-    
-    func loadSampleChannels() {
+        self.clusters += [ cluster1, cluster2 ]
+        
+        self.selectedClusterName = clusters[0].name
+
         let channel1 = ChannelState(
             group: "top",
             topic: "cpu_usage_user",
@@ -34,6 +34,6 @@ class PersistencyManager {
             group: "top",
             topic:"cpu_usage_sys",
             value: "75%")!
-        channels += [ channel1, channel2 ]
+        self.channels[selectedClusterName] = [ channel1, channel2 ]
     }
 }

@@ -12,7 +12,6 @@ class ChannelTableViewController: UITableViewController {
 
     // MARK: Properties
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    var navTitle: String = "default"
     
     var channels = [ChannelState]()
     
@@ -28,7 +27,7 @@ class ChannelTableViewController: UITableViewController {
         self.tableView.separatorInset = UIEdgeInsetsZero
         
         // Initialize navigation bar
-        self.navigationItem.title = self.navTitle
+        self.navigationItem.title = AppManager.sharedInstance.getSelectedClusterName()
         var navBar = self.navigationController?.navigationBar
         navBar?.barTintColor = SyncopateStyle.mainNavColor
         let titleProp: NSDictionary = [NSForegroundColorAttributeName: SyncopateStyle.mainTextColor]
