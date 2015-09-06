@@ -33,20 +33,20 @@ class ChannelTableViewController: UITableViewController {
 
         loadSampleChannels()
         
+        // Initialize background and separator color
         self.tableView.backgroundColor = SyncopateStyle.backgroundColor
-        self.tableView.separatorColor = SyncopateStyle.darkColor
+        self.tableView.separatorColor = SyncopateStyle.separatorColor
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.tableView.separatorInset = UIEdgeInsetsZero
         
-        // navigationController?.navigationBarHidden = false
-        // self.navigationController?.navigationBarHidden = false
+        // Initialize navigation bar
         self.navigationItem.title = self.navTitle
         var navBar = self.navigationController?.navigationBar
         navBar?.barTintColor = SyncopateStyle.darkColor
         let titleProp: NSDictionary = [NSForegroundColorAttributeName: SyncopateStyle.textColor]
         navBar?.titleTextAttributes = titleProp as [NSObject: AnyObject]
-        // self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
         
+        // Initialize navigation menu button
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
@@ -91,7 +91,6 @@ class ChannelTableViewController: UITableViewController {
         cell.valueLabel.textColor = SyncopateStyle.textColor
         cell.valueLabel.font = cell.valueLabel.font.fontWithSize(60)
         
-        // cell.separatorInset = UIEdgeInsetsZero
         cell.layoutMargins = UIEdgeInsetsZero
         cell.preservesSuperviewLayoutMargins = false
         
