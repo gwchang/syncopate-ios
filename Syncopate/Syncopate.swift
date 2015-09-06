@@ -34,16 +34,16 @@ func colorWithHexString(hex:String) -> UIColor {
 }
 
 struct SyncopateTheme {
-    static let color1 = colorWithHexString("#FCFFF5")
-    static let color2 = colorWithHexString("#D1DBBD")
-    static let color3 = colorWithHexString("#91AA9D")
-    static let color4 = colorWithHexString("#3E606F")
-    static let color5 = colorWithHexString("#193441")
+    static let color1 = colorWithHexString("#EA6045")
+    static let color2 = colorWithHexString("#F8CA4D")
+    static let color3 = colorWithHexString("#F5E5C0")
+    static let color4 = colorWithHexString("#3F5666")
+    static let color5 = colorWithHexString("#2F3440")
 }
 
 struct SyncopateStyle {
-    static let mainTextColor        = SyncopateTheme.color1
-    static let mainHighlightColor   = SyncopateTheme.color2
+    static let mainTextColor        = SyncopateTheme.color3
+    static let mainHighlightColor   = SyncopateTheme.color1
     static let mainBackgroundColor  = SyncopateTheme.color5
     static let mainSeparatorColor   = SyncopateTheme.color4
     static let mainNavColor         = SyncopateTheme.color5
