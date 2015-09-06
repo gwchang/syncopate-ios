@@ -1,5 +1,5 @@
 //
-//  APIWebSocketClient.swift
+//  WebSocketClient.swift
 //  Syncopate
 //
 //  Created by Gary Chang on 9/4/15.
@@ -9,7 +9,7 @@
 import Foundation
 import Starscream
 
-class APIWebSocketClient: WebSocketDelegate {
+class WebSocketClient: WebSocketDelegate {
     
     // MARK: Properties
     var host: String
