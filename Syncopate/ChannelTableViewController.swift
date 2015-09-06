@@ -45,7 +45,7 @@ class ChannelTableViewController: UITableViewController {
         navBar?.barTintColor = SyncopateStyle.mainNavColor
         let titleProp: NSDictionary = [NSForegroundColorAttributeName: SyncopateStyle.mainTextColor]
         navBar?.titleTextAttributes = titleProp as [NSObject: AnyObject]
-        
+
         // Initialize navigation menu button
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
