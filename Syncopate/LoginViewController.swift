@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
         NSNotificationCenter.defaultCenter().postNotification(notification)
     
         // Dismiss login screen
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
