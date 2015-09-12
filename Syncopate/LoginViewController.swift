@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
         
         // Initialize buttons
         loginButton.setTitle("Login", forState: .Normal);
-        loginButton.addTarget(self, action: "handleLoginButtonClick:", forControlEvents: .TouchUpInside);
+        // loginButton.addTarget(self, action: "handleLoginButtonClick:", forControlEvents: .TouchUpInside);
         loginButton.backgroundColor = UIColor.clearColor();
         loginButton.layer.cornerRadius = 5
         loginButton.layer.borderWidth = 1
@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
         loginButton.setTitleColor(SyncopateStyle.menuTextColor, forState: .Normal);
     }
     
-    func handleLoginButtonClick(sender:UIButton!) {
+    @IBAction func loginAction(sender: AnyObject) {
         println("logging in with \(usernameTextField.text):\(passwordTextField.text)")
         if checkLogin(usernameTextField.text, password: passwordTextField.text) {
             // Send notification
@@ -57,9 +57,6 @@ class LoginViewController: UIViewController {
         return true
     }
 
-    func loginWasSuccessful() {
-
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

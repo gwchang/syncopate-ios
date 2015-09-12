@@ -285,6 +285,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginAction:" destination="mP0-Fu-ycc" eventType="touchUpInside" id="e0T-cW-mHP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -299,7 +302,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="loginButton" destination="bFD-Wz-jK2" id="iLI-QZ-HiA"/>
+                        <outlet property="loginButton" destination="bFD-Wz-jK2" id="cFs-r5-Zhn"/>
                         <outlet property="loginView" destination="KRQ-O0-I21" id="cTe-D2-6Uk"/>
                         <outlet property="passwordTextField" destination="9ej-Hu-Hdl" id="ecy-Z1-Aru"/>
                         <outlet property="usernameTextField" destination="5ae-V9-HdF" id="0gS-2E-xLJ"/>
