@@ -225,6 +225,54 @@
             </objects>
             <point key="canvasLocation" x="-426" y="271"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="fzG-u2-b1r">
+            <objects>
+                <viewController id="mP0-Fu-ycc" customClass="LoginViewController" customModule="Syncopate" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qfb-q0-wkQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="uV4-za-W4c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z6I-b5-6S9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Syncopate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZz-fP-hNs">
+                                <rect key="frame" x="230" y="95" width="206" height="94"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRQ-O0-I21">
+                                <rect key="frame" x="183" y="225" width="300" height="193"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ae-V9-HdF">
+                                        <rect key="frame" x="27" y="33" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ej-Hu-Hdl">
+                                        <rect key="frame" x="27" y="113" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" label=""/>
+                    </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="9ej-Hu-Hdl" id="ecy-Z1-Aru"/>
+                        <outlet property="usernameTextField" destination="5ae-V9-HdF" id="0gS-2E-xLJ"/>
+                        <outlet property="welcomeLabel" destination="iZz-fP-hNs" id="wPm-Zq-cLV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="snA-9b-Kk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-394" y="1043"/>
+        </scene>
         <!--Reveal View Controller-->
         <scene sceneID="hUx-To-esb">
             <objects>
