@@ -27,7 +27,7 @@ class AppManager {
     }
     
     func isLoggedIn() -> Bool {
-        return true
+        return false
     }
     
     
