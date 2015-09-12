@@ -13,12 +13,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
 
+    @IBOutlet weak var loginView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.welcomeLabel.textColor = SyncopateStyle.menuTextColor
         self.view.backgroundColor = SyncopateStyle.menuBackgroundColor
+        self.loginView.backgroundColor = SyncopateStyle.menuBackgroundColor
         
         usernameTextField.placeholder = "Username";
         usernameTextField.autocorrectionType = UITextAutocorrectionType.No;
