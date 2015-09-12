@@ -23,7 +23,12 @@ class LoginViewController: UIViewController {
         self.view.backgroundColor = SyncopateStyle.menuBackgroundColor
         self.loginView.backgroundColor = SyncopateStyle.menuBackgroundColor
         
-        usernameTextField.placeholder = "Username";
+        if let previousUsername = NSUserDefaults.standardUserDefaults().stringForKey("username") {
+            usernameTextField.placeholder = previousUsername
+        } else {
+            usernameTextField.placeholder = "Username";
+        }
+        
         usernameTextField.autocorrectionType = UITextAutocorrectionType.No;
         usernameTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
         
@@ -42,6 +47,19 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginAction(sender: AnyObject) {
+        // 1.
+        if (usernameTextField.text == "" || passwordTextField.text == "") {
+            var alert = UIAlertView()
+            alert.title = "Please enter both a username and password!"
+            alert.addButtonWithTitle("OK")
+            alert.show()
+            // return;
+        }
+        
+        // 2.
+        usernameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        
         println("logging in with \(usernameTextField.text):\(passwordTextField.text)")
         if checkLogin(usernameTextField.text, password: passwordTextField.text) {
             // Send notification
@@ -54,6 +72,10 @@ class LoginViewController: UIViewController {
     }
     
     func checkLogin(username: String, password: String) -> Bool {
+        if username != "" {
+            NSUserDefaults.standardUserDefaults().setValue(username, forKey: "username")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
         return true
     }
 
