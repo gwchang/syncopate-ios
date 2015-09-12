@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
 
     @IBOutlet weak var loginView: UIView!
+    @IBOutlet weak var loginButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,6 +30,19 @@ class LoginViewController: UIViewController {
         passwordTextField.placeholder = "Password";
         passwordTextField.autocorrectionType = UITextAutocorrectionType.No;
         passwordTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
+        
+        // Initialize buttons
+        loginButton.setTitle("Login", forState: .Normal);
+        loginButton.addTarget(self, action: "handleLoginButtonClick:", forControlEvents: .TouchUpInside);
+        loginButton.backgroundColor = UIColor.clearColor();
+        loginButton.layer.cornerRadius = 5
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = SyncopateStyle.menuTextColor.CGColor
+        loginButton.setTitleColor(SyncopateStyle.menuTextColor, forState: .Normal);
+    }
+    
+    func handleLoginButtonClick(sender:UIButton!) {
+        println("login")
     }
 
     override func didReceiveMemoryWarning() {

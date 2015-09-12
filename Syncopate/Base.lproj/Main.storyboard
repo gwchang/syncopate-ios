@@ -238,6 +238,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Syncopate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZz-fP-hNs">
+                                <rect key="frame" x="101" y="87" width="300" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRQ-O0-I21">
                                 <rect key="frame" x="144" y="222" width="214" height="84"/>
                                 <subviews>
@@ -271,12 +277,12 @@
                                     <constraint firstAttribute="trailing" secondItem="9ej-Hu-Hdl" secondAttribute="trailing" constant="8" id="qM5-t3-AHW"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Syncopate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZz-fP-hNs">
-                                <rect key="frame" x="101" y="87" width="300" height="50"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFD-Wz-jK2">
+                                <rect key="frame" x="144" y="339" width="98" height="33"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label=""/>
@@ -285,11 +291,13 @@
                             <constraint firstAttribute="trailing" secondItem="KRQ-O0-I21" secondAttribute="trailing" constant="50" id="6W5-Km-ygE"/>
                             <constraint firstItem="KRQ-O0-I21" firstAttribute="leading" secondItem="z6I-b5-6S9" secondAttribute="leading" constant="50" id="6iu-XR-TUh"/>
                             <constraint firstItem="iZz-fP-hNs" firstAttribute="top" secondItem="z6I-b5-6S9" secondAttribute="top" constant="20" symbolic="YES" id="8H2-sG-s8x"/>
+                            <constraint firstItem="bFD-Wz-jK2" firstAttribute="top" secondItem="KRQ-O0-I21" secondAttribute="bottom" constant="30" id="WsB-Sk-F8K"/>
                             <constraint firstItem="iZz-fP-hNs" firstAttribute="leading" secondItem="z6I-b5-6S9" secondAttribute="leading" constant="50" id="qrC-w6-d5E"/>
                             <constraint firstAttribute="trailing" secondItem="iZz-fP-hNs" secondAttribute="trailing" constant="50" id="tmz-Lf-0SP"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="bFD-Wz-jK2" id="iLI-QZ-HiA"/>
                         <outlet property="loginView" destination="KRQ-O0-I21" id="cTe-D2-6Uk"/>
                         <outlet property="passwordTextField" destination="9ej-Hu-Hdl" id="ecy-Z1-Aru"/>
                         <outlet property="usernameTextField" destination="5ae-V9-HdF" id="0gS-2E-xLJ"/>
