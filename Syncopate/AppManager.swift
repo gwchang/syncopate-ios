@@ -30,6 +30,10 @@ class AppManager {
         return false
     }
     
+    func clearData() {
+        // Clear user data on logout
+    }
+    
     
     func getClusters() -> [ClusterState] {
         return persistencyManager.clusters

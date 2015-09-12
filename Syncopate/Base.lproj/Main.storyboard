@@ -307,10 +307,10 @@
             </objects>
             <point key="canvasLocation" x="-394" y="1043"/>
         </scene>
-        <!--Reveal View Controller-->
+        <!--mainView-->
         <scene sceneID="hUx-To-esb">
             <objects>
-                <viewController id="iMn-qH-y5Z" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController title="mainView" id="iMn-qH-y5Z" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OpZ-7i-Kgc"/>
                         <viewControllerLayoutGuide type="bottom" id="lcl-Kt-aXs"/>
@@ -370,6 +370,6 @@
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xgf-kg-XyL"/>
+        <segue reference="Ivq-cP-3Ag"/>
     </inferredMetricsTieBreakers>
 </document>
