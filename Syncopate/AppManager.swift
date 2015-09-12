@@ -26,6 +26,11 @@ class AppManager {
         persistencyManager = PersistencyManager()
     }
     
+    func isLoggedIn() -> Bool {
+        return true
+    }
+    
+    
     func getClusters() -> [ClusterState] {
         return persistencyManager.clusters
     }

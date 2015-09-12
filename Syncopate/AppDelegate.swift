@@ -16,7 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        // Show login view if not logged in already
+        if !AppManager.sharedInstance.isLoggedIn() {
+            self.showLoginScreen(false)
+        }
         return true
+    }
+    
+    func showLoginScreen(animated: Bool) {
+        // Get login screen from storyboard and present it
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        if let viewController = storyboard.instantiateViewControllerWithIdentifier("loginViewController") as? LoginViewController {
+            self.window?.makeKeyAndVisible()
+            self.window?.rootViewController?.presentViewController(
+                viewController,
+                animated: animated,
+                completion: nil)
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
