@@ -42,9 +42,19 @@ class LoginViewController: UIViewController {
     }
     
     func handleLoginButtonClick(sender:UIButton!) {
-        println("login")
+        // println("login")
+        loginWasSuccessful()
     }
 
+    func loginWasSuccessful() {
+        // Send notification
+        let notification = NSNotification(name: "loginSuccessful", object: self)
+        NSNotificationCenter.defaultCenter().postNotification(notification)
+    
+        // Dismiss login screen
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
