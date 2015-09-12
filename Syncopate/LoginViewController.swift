@@ -42,17 +42,23 @@ class LoginViewController: UIViewController {
     }
     
     func handleLoginButtonClick(sender:UIButton!) {
-        // println("login")
-        loginWasSuccessful()
+        println("logging in with \(usernameTextField.text):\(passwordTextField.text)")
+        if checkLogin(usernameTextField.text, password: passwordTextField.text) {
+            // Send notification
+            let notification = NSNotification(name: "loginSuccessful", object: self)
+            NSNotificationCenter.defaultCenter().postNotification(notification)
+            
+            // Dismiss login screen
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+    
+    func checkLogin(username: String, password: String) -> Bool {
+        return true
     }
 
     func loginWasSuccessful() {
-        // Send notification
-        let notification = NSNotification(name: "loginSuccessful", object: self)
-        NSNotificationCenter.defaultCenter().postNotification(notification)
-    
-        // Dismiss login screen
-        self.dismissViewControllerAnimated(true, completion: nil)
+
     }
     
     override func didReceiveMemoryWarning() {
