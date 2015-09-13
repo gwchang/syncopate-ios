@@ -225,11 +225,11 @@
             </objects>
             <point key="canvasLocation" x="-426" y="271"/>
         </scene>
-        <!--Login View Controller-->
+        <!--loginView-->
         <scene sceneID="fzG-u2-b1r">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="snA-9b-Kk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="loginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mP0-Fu-ycc" customClass="LoginViewController" customModule="Syncopate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginView" title="loginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mP0-Fu-ycc" customClass="LoginViewController" customModule="Syncopate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qfb-q0-wkQ"/>
                         <viewControllerLayoutGuide type="bottom" id="uV4-za-W4c"/>
@@ -315,7 +315,7 @@
         <!--mainView-->
         <scene sceneID="hUx-To-esb">
             <objects>
-                <viewController title="mainView" id="iMn-qH-y5Z" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainView" title="mainView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iMn-qH-y5Z" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OpZ-7i-Kgc"/>
                         <viewControllerLayoutGuide type="bottom" id="lcl-Kt-aXs"/>
