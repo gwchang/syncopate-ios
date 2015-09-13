@@ -63,7 +63,13 @@ class LoginViewController: UIViewController {
         passwordTextField.resignFirstResponder()
         
         println("logging in with \(usernameTextField.text):\(passwordTextField.text)")
-        if checkLogin(usernameTextField.text, password: passwordTextField.text) {
+        checkLogin(usernameTextField.text, password: passwordTextField.text)
+        loginCallback("", error: nil)
+    }
+    
+    func loginCallback(data: String, error: String?) {
+        let success = true
+        if success {
             // Send notification
             let notification = NSNotification(name: "loginSuccessful", object: self)
             NSNotificationCenter.defaultCenter().postNotification(notification)
@@ -105,6 +111,5 @@ class LoginViewController: UIViewController {
             // Select the default cluster to view
         }
     }
-
 
 }
