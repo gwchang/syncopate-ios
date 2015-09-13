@@ -48,21 +48,21 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginAction(sender: AnyObject) {
         // 1.
-        /*
+        usernameTextField.text = "admin"
+        passwordTextField.text = "123"
         if (usernameTextField.text == "" || passwordTextField.text == "") {
             var alert = UIAlertView()
             alert.title = "Please enter both a username and password!"
             alert.addButtonWithTitle("OK")
             alert.show()
-            // return;
+            return;
         }
-        */
         
         // 2.
         usernameTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
         
-        println("logging in with \(usernameTextField.text):\(passwordTextField.text)")
+        println("Logging in with \(usernameTextField.text):\(passwordTextField.text)")
         checkLogin(usernameTextField.text, password: passwordTextField.text)
         loginCallback("", error: nil)
     }
@@ -87,6 +87,7 @@ class LoginViewController: UIViewController {
     }
     
     func checkLogin(username: String, password: String) -> Bool {
+        AppManager.sharedInstance.login(username, password: password)
         if username != "" {
             NSUserDefaults.standardUserDefaults().setValue(username, forKey: "username")
             NSUserDefaults.standardUserDefaults().synchronize()

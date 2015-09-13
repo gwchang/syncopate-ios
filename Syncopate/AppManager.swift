@@ -30,6 +30,30 @@ class AppManager {
         return false
     }
     
+    func login(username: String, password: String) {
+        // Create login string
+        let loginString = NSString(format: "%@:%@", username, password)
+        let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
+        let base64LoginString = loginData.base64EncodedStringWithOptions(nil)
+        
+        // Create request
+        let url = NSURL(string: "http://localhost:8000/cluster/login")
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "GET"
+        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        request.timeoutInterval = 10.0
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {(data, response, error) in
+            let status = (response as? NSHTTPURLResponse)?.statusCode
+            println(status)
+            println(NSString(data: data, encoding: NSUTF8StringEncoding))
+            // println(response)
+            // println(error)
+        }
+        
+        task.resume()
+    }
+    
     func clearData() {
         // Clear user data on logout
     }
