@@ -71,6 +71,12 @@ class LoginViewController: UIViewController {
             // Dismiss login screen
             // self.dismissViewControllerAnimated(true, completion: nil)
             performSegueWithIdentifier("showMainView", sender: self)
+        } else {
+            var alert = UIAlertView()
+            alert.title = "Login Failed"
+            alert.message = "Wrong username or password."
+            alert.addButtonWithTitle("Retry")
+            alert.show()
         }
     }
     
@@ -89,14 +95,16 @@ class LoginViewController: UIViewController {
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showMainView" {
+            // Select the default cluster to view
+        }
     }
-    */
+
 
 }
