@@ -20,10 +20,13 @@ class AppManager {
     
     // MARK: Instance properties
     private let persistencyManager: PersistencyManager
-    var ws = WebSocketClient()
+    let ws: WebSocketClient
+    let http: HttpClient
     
     init() {
         persistencyManager = PersistencyManager()
+        http = HttpClient(host: SyncopateConfig.httpHost)
+        ws = WebSocketClient()
     }
     
     func isLoggedIn() -> Bool {
@@ -37,7 +40,7 @@ class AppManager {
         let base64LoginString = loginData.base64EncodedStringWithOptions(nil)
         
         // Create request
-        let url = NSURL(string: "http://localhost:8000/cluster/login")
+        let url = NSURL(string: "http://localhost:8000/cluster/login/")
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "GET"
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
@@ -46,7 +49,7 @@ class AppManager {
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {(data, response, error) in
             let status = (response as? NSHTTPURLResponse)?.statusCode
             println(status)
-            println(NSString(data: data, encoding: NSUTF8StringEncoding))
+            // println(NSString(data: data, encoding: NSUTF8StringEncoding))
             // println(response)
             // println(error)
         }
