@@ -20,20 +20,26 @@ class AppManager {
     
     // MARK: Instance properties
     private let persistencyManager: PersistencyManager
-    let ws: WebSocketClient
-    let http: HttpClient
+    private let ws: WebSocketClient
+    private let http: HttpClient
+    private var loggedIn: Bool
+    private var username: String
+    private var password: String
     
     init() {
         persistencyManager = PersistencyManager()
         http = HttpClient(host: SyncopateConfig.httpHost)
         ws = WebSocketClient()
+        loggedIn = false
+        username = ""
+        password = ""
     }
     
     func isLoggedIn() -> Bool {
-        return false
+        return loggedIn
     }
     
-    func login(username: String, password: String) {
+    func login(username: String, password: String, callback: Bool -> Void) {
         http.get(
             username,
             password: password,
@@ -41,6 +47,14 @@ class AppManager {
             callback: {(data, response, error) in
                 let status = (response as? NSHTTPURLResponse)?.statusCode
                 println(status)
+                if status != nil && status! >= 200 && status! < 300 {
+                    self.loggedIn = true
+                    self.username = username
+                    self.password = password
+                    callback(true)
+                } else {
+                    callback(false)
+                }
         })
     }
     

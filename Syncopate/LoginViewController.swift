@@ -64,11 +64,9 @@ class LoginViewController: UIViewController {
         
         println("Logging in with \(usernameTextField.text):\(passwordTextField.text)")
         checkLogin(usernameTextField.text, password: passwordTextField.text)
-        loginCallback("", error: nil)
     }
     
-    func loginCallback(data: String, error: String?) {
-        let success = true
+    func loginCallback(success: Bool) {
         if success {
             // Send notification
             let notification = NSNotification(name: "loginSuccessful", object: self)
@@ -87,7 +85,7 @@ class LoginViewController: UIViewController {
     }
     
     func checkLogin(username: String, password: String) -> Bool {
-        AppManager.sharedInstance.login(username, password: password)
+        AppManager.sharedInstance.login(username, password: password, callback: loginCallback)
         if username != "" {
             NSUserDefaults.standardUserDefaults().setValue(username, forKey: "username")
             NSUserDefaults.standardUserDefaults().synchronize()
