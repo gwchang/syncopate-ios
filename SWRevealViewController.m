@@ -739,7 +739,7 @@ const int FrontViewPositionNone = 0xff;
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"viewDidAppear()");
+    // NSLog(@"viewDidAppear()");
     [super viewDidAppear:animated];
 
     // Uncomment the following code if you want the child controllers

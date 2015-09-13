@@ -48,6 +48,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginAction(sender: AnyObject) {
         // 1.
+        /*
         if (usernameTextField.text == "" || passwordTextField.text == "") {
             var alert = UIAlertView()
             alert.title = "Please enter both a username and password!"
@@ -55,6 +56,7 @@ class LoginViewController: UIViewController {
             alert.show()
             // return;
         }
+        */
         
         // 2.
         usernameTextField.resignFirstResponder()
@@ -67,7 +69,8 @@ class LoginViewController: UIViewController {
             NSNotificationCenter.defaultCenter().postNotification(notification)
             
             // Dismiss login screen
-            self.dismissViewControllerAnimated(true, completion: nil)
+            // self.dismissViewControllerAnimated(true, completion: nil)
+            performSegueWithIdentifier("showMainView", sender: self)
         }
     }
     

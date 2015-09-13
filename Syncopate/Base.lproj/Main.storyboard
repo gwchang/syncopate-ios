@@ -307,6 +307,7 @@
                         <outlet property="passwordTextField" destination="9ej-Hu-Hdl" id="ecy-Z1-Aru"/>
                         <outlet property="usernameTextField" destination="5ae-V9-HdF" id="0gS-2E-xLJ"/>
                         <outlet property="welcomeLabel" destination="iZz-fP-hNs" id="wPm-Zq-cLV"/>
+                        <segue destination="iMn-qH-y5Z" kind="show" identifier="showMainView" id="e8U-bm-GSa"/>
                     </connections>
                 </viewController>
             </objects>
