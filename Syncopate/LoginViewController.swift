@@ -63,11 +63,17 @@ class LoginViewController: UIViewController {
         passwordTextField.resignFirstResponder()
         
         println("Logging in with \(usernameTextField.text):\(passwordTextField.text)")
-        checkLogin(usernameTextField.text, password: passwordTextField.text)
+        AppManager.sharedInstance.login(usernameTextField.text,
+            password: passwordTextField.text,
+            callback: loginCallback)
     }
     
     func loginCallback(success: Bool) {
         if success {
+            // Save usernmae
+            NSUserDefaults.standardUserDefaults().setValue(usernameTextField.text, forKey: "username")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
             // Send notification
             let notification = NSNotification(name: "loginSuccessful", object: self)
             NSNotificationCenter.defaultCenter().postNotification(notification)
@@ -83,16 +89,6 @@ class LoginViewController: UIViewController {
             alert.show()
         }
     }
-    
-    func checkLogin(username: String, password: String) -> Bool {
-        AppManager.sharedInstance.login(username, password: password, callback: loginCallback)
-        if username != "" {
-            NSUserDefaults.standardUserDefaults().setValue(username, forKey: "username")
-            NSUserDefaults.standardUserDefaults().synchronize()
-        }
-        return true
-    }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
