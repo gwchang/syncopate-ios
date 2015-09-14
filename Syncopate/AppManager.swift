@@ -46,7 +46,7 @@ class AppManager {
             urlpath: "/cluster/login/",
             callback: {(data, response, error) in
                 let status = (response as? NSHTTPURLResponse)?.statusCode
-                println(status)
+                // println(status)
                 if status != nil && status! >= 200 && status! < 300 {
                     self.loggedIn = true
                     self.username = username
@@ -63,7 +63,20 @@ class AppManager {
         var error: NSError?
         if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error) {
             if let dict = json as? NSDictionary {
-                println(dict)
+                if let name = dict["name"] as? String {
+                    setSelectedCluster(name)
+                    
+                    var channels = [ChannelState]()
+                    if let channelList = dict["channels"] as? Array<Dictionary<String,String>> {
+                        for c in channelList {
+                            if let channelState = ChannelState(group: c["group"]!, topic: c["topic"]!) {
+                                channels.append(channelState)
+                                // println(c)
+                            }
+                        }
+                    }
+                    persistencyManager.channels[name] = channels
+                }
             }
         }
     }
