@@ -125,7 +125,8 @@ class AppManager {
                             name: c["name"]! as! String,
                             token: c["token"]! as! String,
                             id: c["id"]! as! Int)
-                        clusters.append(cluster)
+                        clusters.insert(cluster, atIndex: 0)
+                        // clusters.append(cluster)
                         // println(cluster)
                     }
                 }
