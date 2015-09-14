@@ -48,7 +48,7 @@ class ClusterTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell number: \(indexPath.row)!")
-        // performSegueWithIdentifier("yourIdentifier", sender: self)
+        performSegueWithIdentifier("showChannelTableView", sender: self)
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

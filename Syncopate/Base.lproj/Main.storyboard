@@ -128,7 +128,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="yfk-1k-k4o" id="FlD-3h-g4E"/>
-                                    <segue destination="MBH-zz-AZb" kind="custom" identifier="showChannelTableView" customClass="SWRevealViewControllerSeguePushController" id="Xgf-kg-XyL"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -137,6 +136,9 @@
                             <outlet property="delegate" destination="Ikf-Pk-pes" id="BIN-Xp-oL8"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="MBH-zz-AZb" kind="custom" identifier="showChannelTableView" customClass="SWRevealViewControllerSeguePushController" id="M2Q-V8-EbG"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FCF-1C-jAQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -338,7 +340,7 @@
         <!--Navigation Controller-->
         <scene sceneID="uew-A2-3MH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MBH-zz-AZb" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="channelTableViewNavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MBH-zz-AZb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="c9X-ia-ljH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -376,6 +378,6 @@
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xgf-kg-XyL"/>
+        <segue reference="M2Q-V8-EbG"/>
     </inferredMetricsTieBreakers>
 </document>
