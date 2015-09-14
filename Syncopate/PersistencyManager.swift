@@ -58,6 +58,8 @@ class PersistencyManager {
                 c.setValue(value)
                 // println(value)
             }
+        } else {
+            println("Unable to find \(selectedCluster!.name)")
         }
     }
 
