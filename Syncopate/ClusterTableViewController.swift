@@ -55,6 +55,7 @@ class ClusterTableViewController: UITableViewController {
     
     func showCallback(success: Bool) {
         if success {
+            // NOTE: prepareSeque MUST be in the main thread, otherwise does not work in callback!!!
             dispatch_async(dispatch_get_main_queue()) {
                 self.performSegueWithIdentifier("showChannelTableView", sender: self)
             }
