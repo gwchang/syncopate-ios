@@ -22,11 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.showLoginScreen(false)
         }
         */
-        test(false)
+        showLoginScreen(false)
         return true
     }
     
-    func test(animated: Bool) {
+    func showLoginScreen(animated: Bool) {
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let identifier = AppManager.sharedInstance.isLoggedIn() ? "mainView" : "loginView"
         
@@ -40,18 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 animated: animated,
                 completion: nil)
             */
-        }
-    }
-    
-    func showLoginScreen(animated: Bool) {
-        // Get login screen from storyboard and present it
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        if let viewController = storyboard.instantiateViewControllerWithIdentifier("loginView") as? LoginViewController {
-            self.window?.makeKeyAndVisible()
-            self.window?.rootViewController?.presentViewController(
-                viewController,
-                animated: animated,
-                completion: nil)
         }
     }
     

@@ -48,7 +48,20 @@ class ClusterTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell number: \(indexPath.row)!")
-        performSegueWithIdentifier("showChannelTableView", sender: self)
+        // AppManager.sharedInstance.setSelectedCluster(clusters[indexPath.row].name)
+        // performSegueWithIdentifier("showChannelTableView", sender: self)
+        AppManager.sharedInstance.updateClusterDetail(clusters[indexPath.row].id, callback: showCallback)
+    }
+    
+    func showCallback(success: Bool) {
+        if success {
+            dispatch_async(dispatch_get_main_queue()) {
+                self.performSegueWithIdentifier("showChannelTableView", sender: self)
+            }
+        } else {
+            // TODO: Logout
+            println("updateClusterDetail failed")
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -113,6 +126,7 @@ class ClusterTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    /*
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
@@ -127,5 +141,5 @@ class ClusterTableViewController: UITableViewController {
             }
         }
     }
-
+    */
 }
