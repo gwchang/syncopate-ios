@@ -35,7 +35,7 @@ class WebSocketClient: WebSocketDelegate {
         self.path = path
         self.socket = WebSocket(url: NSURL(scheme: "ws",
             host: self.host,
-            path: self.path)!);
+            path: self.path)!)
         self.socket?.delegate = self;
         self.socket?.connect();
         self.onMessageCallback = onMessageCallback
@@ -43,9 +43,14 @@ class WebSocketClient: WebSocketDelegate {
         println("Connecting to websocket: \(self.host)\(self.path)")
     }
     
-    func connectWithToken(token: String, onMessageCallback: WebSocketOnMessageCallback) {
-        let path = "/ws?token=\(token)"
-        connect(path, onMessageCallback: onMessageCallback)
+    func connectWithTokenAndSeries(token: String, series: [String], onMessageCallback: WebSocketOnMessageCallback) {
+        if series.count > 0 {
+            let seriesJoin = "&".join(series)
+            let path = "/ws?token=\(token)&\(seriesJoin)"
+            connect(path, onMessageCallback: onMessageCallback)
+        } else {
+            println("Websocket url has not series requested.")
+        }
     }
     
     func disconnect() {
@@ -73,6 +78,7 @@ class WebSocketClient: WebSocketDelegate {
     func websocketDidReceiveMessage(ws: WebSocket, text: String) {
         self.received++
         println(self.received)
+        
         if let data = text.dataUsingEncoding(NSUTF8StringEncoding) {
             var error: NSError?;
             let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data,

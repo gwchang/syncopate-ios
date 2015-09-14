@@ -29,4 +29,8 @@ class ChannelState {
     convenience init?(group: String, topic: String) {
         self.init(group: group, topic: topic, value: "")
     }
+    
+    func url() -> String {
+        return "series=\(group).\(topic)"
+    }
 }
