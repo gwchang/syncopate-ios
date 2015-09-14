@@ -78,6 +78,9 @@ class LoginViewController: UIViewController {
             let notification = NSNotification(name: "loginSuccessful", object: self)
             NSNotificationCenter.defaultCenter().postNotification(notification)
             
+            // TODO: Not sure if this the best place for this function
+            AppManager.sharedInstance.updateClusterList()
+            
             // Dismiss login screen
             // self.dismissViewControllerAnimated(true, completion: nil)
             performSegueWithIdentifier("showMainView", sender: self)

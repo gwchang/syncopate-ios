@@ -43,7 +43,7 @@ class AppManager {
         http.get(
             username,
             password: password,
-            urlpath: "/cluster/login/",
+            urlpath: "/cluster-login/",
             callback: {(data, response, error) in
                 let status = (response as? NSHTTPURLResponse)?.statusCode
                 // println(status)
@@ -51,7 +51,7 @@ class AppManager {
                     self.loggedIn = true
                     self.username = username
                     self.password = password
-                    self.parseClusterData(data)
+                    self.parseClusterDetailData(data)
                     callback(true)
                 } else {
                     callback(false)
@@ -59,7 +59,7 @@ class AppManager {
         })
     }
     
-    func parseClusterData(data: NSData) {
+    func parseClusterDetailData(data: NSData) {
         var error: NSError?
         if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error) {
             if let dict = json as? NSDictionary {
@@ -79,6 +79,42 @@ class AppManager {
                 }
             }
         }
+    }
+    
+    func updateClusterList() {
+        http.get(
+            self.username,
+            password: self.password,
+            urlpath: "/cluster-list/",
+            callback: {(data, response, error) in
+                let status = (response as? NSHTTPURLResponse)?.statusCode
+                // println(status)
+                if status != nil && status! >= 200 && status! < 300 {
+                    self.parseClusterListData(data)
+                }
+        })
+    }
+    
+    func parseClusterListData(data: NSData) {
+        var clusters = [ClusterState]()
+        var error: NSError?
+        if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error) {
+            if let array = json as? NSArray {
+                // println(array)
+                for elem in array {
+                    
+                    if let c = elem as? Dictionary<String,AnyObject> {
+                        let cluster = ClusterState(
+                            name: c["name"]! as! String,
+                            token: c["token"]! as! String,
+                            id: c["id"]! as! Int)
+                        clusters.append(cluster)
+                        // println(cluster)
+                    }
+                }
+            }
+        }
+        persistencyManager.clusters = clusters
     }
     
     func clearData() {

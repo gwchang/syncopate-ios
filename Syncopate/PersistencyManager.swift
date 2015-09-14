@@ -18,12 +18,12 @@ class PersistencyManager {
     var selectedChannelTopic: String = ""
     
     init() {
-        loadSampleData()
+        // loadSampleData()
     }
     
     func loadSampleData() {
-        let cluster1 = ClusterState(name: "cluster1", token: "abc")
-        let cluster2 = ClusterState(name: "cluster2", token: "def")
+        let cluster1 = ClusterState(name: "a", token: "abc", id: 1)
+        let cluster2 = ClusterState(name: "b", token: "def", id: 2)
         self.clusters += [ cluster1, cluster2 ]
         
         self.selectedClusterName = clusters[0].name

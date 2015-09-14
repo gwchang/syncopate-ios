@@ -14,14 +14,18 @@ class ClusterState {
     
     var name: String
     var token: String
+    var id: Int
+    
+    
     var wsHost: String
     var wsPath: String
     
     // MARK: Initialization
     
-    init(name: String, token: String) {
+    init(name: String, token: String, id: Int) {
         self.name = name
         self.token = token
+        self.id = id
         
         self.wsHost = SyncopateConfig.wsHost
         self.wsPath = "/ws?token=" + self.token
