@@ -59,7 +59,7 @@ struct SyncopateStyle {
 }
 
 struct SyncopateConfig {
-    static let wsHost = "api.blub.io:32798"
+    static let wsHost = "45.33.39.21:8080"
     static let httpHost = "localhost:8000"
     static let debugClusterName = "__debug__"
     static let debugClusterToken = "asdf"

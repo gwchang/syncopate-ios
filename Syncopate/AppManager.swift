@@ -29,7 +29,7 @@ class AppManager {
     init() {
         persistencyManager = PersistencyManager()
         http = HttpClient(host: SyncopateConfig.httpHost)
-        ws = WebSocketClient()
+        ws = WebSocketClient(host: SyncopateConfig.wsHost)
         loggedIn = false
         username = ""
         password = ""
@@ -168,6 +168,12 @@ class AppManager {
     
     func setSelectedCluster(name: String, token: String, id: Int) {
         persistencyManager.selectedCluster = ClusterState(name: name, token: token, id: id)
+        
+        ws.connectWithToken(token, onMessageCallback: self.parseWebSocketMessage)
+    }
+    
+    func parseWebSocketMessage(data: NSDictionary) {
+        println(data)
     }
     
     // Selected channel
