@@ -40,7 +40,7 @@ class WebSocketClient: WebSocketDelegate {
         self.socket?.connect();
         self.onMessageCallback = onMessageCallback
         
-        println("Connecting to websocket: \(self.host)\(self.path)")
+        println("Connecting to websocket: \(self.host)")
     }
     
     func connectWithTokenAndSeries(token: String, series: [String], onMessageCallback: WebSocketOnMessageCallback) {
@@ -57,21 +57,21 @@ class WebSocketClient: WebSocketDelegate {
         self.received = 0
         if let s = self.socket {
             s.disconnect()
-            println("Disconnecting to websocket: \(self.host)\(self.path)")
+            println("Disconnecting to websocket: \(self.host)")
             self.socket = nil
         }
     }
     
     // MARK: Websocket delegate methods
     func websocketDidConnect(ws: WebSocket) {
-        println("Websocket is connected: \(self.host)\(self.path)")
+        println("Websocket is connected: \(self.host)")
     }
     
     func websocketDidDisconnect(ws: WebSocket, error: NSError?) {
         if let e = error {
             println("Websocket is disconnected: \(e.localizedDescription)")
         } else {
-            println("Websocket disconnected: \(self.host)\(self.path)")
+            println("Websocket disconnected: \(self.host)")
         }
     }
     

@@ -45,6 +45,7 @@ class ChannelTableViewController: UITableViewController {
         self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
         AppManager.sharedInstance.onSocketCallback = {(success: Bool) -> Void in
             if success {
+                println("reloadData")
                 self.tableView.reloadData()
             }
         }
@@ -60,7 +61,7 @@ class ChannelTableViewController: UITableViewController {
             if success {
                 self.tableView.reloadData()
                 self.refreshControl?.endRefreshing()
-                // println("refreshed")
+                println("refreshed")
             }
         })
     }

@@ -179,6 +179,7 @@ class AppManager {
                             s["k"]! as! String,
                             value: s["v"]! as! String)
                     }
+                    println(series)
                     if series.count > 0 {
                         self.onSocketCallback?(true)
                     }
