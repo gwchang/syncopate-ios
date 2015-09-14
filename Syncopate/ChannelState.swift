@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ChannelState {
     
@@ -14,6 +15,7 @@ class ChannelState {
     var group: String
     var topic: String
     var value: String
+    var valueLabel: UILabel?
     
     // MARK: Initialization
     init?(group: String, topic: String, value: String) {
@@ -36,5 +38,14 @@ class ChannelState {
     
     func url() -> String {
         return "series=\(key())"
+    }
+    
+    func setValueLabel(label: UILabel) {
+        valueLabel = label
+    }
+    
+    func setValue(value: String) {
+        self.value = value
+        self.valueLabel?.setNeedsDisplay()
     }
 }

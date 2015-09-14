@@ -55,7 +55,7 @@ class PersistencyManager {
     func updateChannel(key: String, value: String) {
         if let channelDict = channels[selectedCluster!.name] {
             if let c = channelDict[key] {
-                c.value = value
+                c.setValue(value)
                 // println(value)
             }
         }

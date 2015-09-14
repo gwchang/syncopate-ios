@@ -79,7 +79,7 @@ class ChannelTableViewController: UITableViewController {
         let cellIdentifier = "ChannelTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ChannelTableViewCell
 
-        let channel = channels[indexPath.row]
+        var channel = channels[indexPath.row]
         
         // Assign text
         cell.groupLabel.text = channel.group
@@ -96,6 +96,7 @@ class ChannelTableViewController: UITableViewController {
         
         cell.valueLabel.textColor = SyncopateStyle.mainTextColor
         cell.valueLabel.font = cell.valueLabel.font.fontWithSize(60)
+        channel.setValueLabel(cell.valueLabel)
         
         // Selection colors
         cell.selectionStyle = UITableViewCellSelectionStyle.Default
