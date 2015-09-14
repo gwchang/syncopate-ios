@@ -27,7 +27,7 @@ class ChannelTableViewController: UITableViewController {
         self.tableView.separatorInset = UIEdgeInsetsZero
         
         // Initialize navigation bar
-        self.navigationItem.title = AppManager.sharedInstance.getSelectedClusterName()
+        self.navigationItem.title = AppManager.sharedInstance.getSelectedCluster()
         var navBar = self.navigationController?.navigationBar
         navBar?.barTintColor = SyncopateStyle.mainNavColor
         let titleProp: NSDictionary = [NSForegroundColorAttributeName: SyncopateStyle.mainTextColor]

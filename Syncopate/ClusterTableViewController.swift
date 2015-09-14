@@ -116,7 +116,7 @@ class ClusterTableViewController: UITableViewController {
                 if var vc = navController.topViewController as? ChannelTableViewController {
                     if let indexPath = self.tableView.indexPathForSelectedRow() {
                         // vc.navTitle = clusters[indexPath.row].name
-                        AppManager.sharedInstance.setSelectedClusterName(clusters[indexPath.row].name)
+                        AppManager.sharedInstance.setSelectedCluster(clusters[indexPath.row].name)
                     }
                 }
             }

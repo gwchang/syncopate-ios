@@ -51,11 +51,21 @@ class AppManager {
                     self.loggedIn = true
                     self.username = username
                     self.password = password
+                    self.parseClusterData(data)
                     callback(true)
                 } else {
                     callback(false)
                 }
         })
+    }
+    
+    func parseClusterData(data: NSData) {
+        var error: NSError?
+        if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error) {
+            if let dict = json as? NSDictionary {
+                println(dict)
+            }
+        }
     }
     
     func clearData() {
@@ -76,11 +86,11 @@ class AppManager {
     }
     
     // Selected cluster
-    func getSelectedClusterName() -> String {
+    func getSelectedCluster() -> String {
         return persistencyManager.selectedClusterName
     }
     
-    func setSelectedClusterName(name: String) {
+    func setSelectedCluster(name: String) {
         persistencyManager.selectedClusterName = name
     }
     
