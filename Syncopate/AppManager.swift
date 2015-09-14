@@ -153,11 +153,7 @@ class AppManager {
     }
     
     func getChannels() -> [ChannelState] {
-        if let val = persistencyManager.channels[persistencyManager.selectedCluster!.name] {
-            return val
-        } else {
-            return []
-        }
+        return persistencyManager.getChannelList()
     }
     
     // Selected cluster
@@ -166,8 +162,7 @@ class AppManager {
     }
     
     func setSelectedCluster(name: String, token: String, id: Int, channels: [ChannelState]) {
-        persistencyManager.selectedCluster = ClusterState(name: name, token: token, id: id)
-        persistencyManager.channels[name] = channels
+        persistencyManager.setCluster(name, token: token, id: id, channels: channels)
         
         if channels.count > 0 {
             var series = [String]()

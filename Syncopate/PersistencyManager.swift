@@ -10,9 +10,11 @@ import Foundation
 
 class PersistencyManager {
     
+    typealias ChannelStateDict = Dictionary<String,ChannelState>
+    
     // MARK: Instance properties
     var clusters = [ClusterState]()
-    var channels = Dictionary<String, Array<ChannelState>>()
+    var channels = Dictionary<String, ChannelStateDict>()
     var selectedCluster: ClusterState?
     var selectedChannelGroup: String = ""
     var selectedChannelTopic: String = ""
@@ -21,29 +23,33 @@ class PersistencyManager {
         // loadSampleData()
     }
     
-    func loadSampleData() {
-        let cluster1 = ClusterState(name: "a", token: "abc", id: 1)
-        let cluster2 = ClusterState(name: "b", token: "def", id: 2)
-        self.clusters += [ cluster1, cluster2 ]
-        
-        self.selectedCluster = ClusterState(name: "a", token: "abc", id: 1)
-
-        let channel1 = ChannelState(
-            group: "top",
-            topic: "cpu_usage_user",
-            value: "25%")!
-        let channel2 = ChannelState(
-            group: "top",
-            topic:"cpu_usage_sys",
-            value: "75%")!
-        self.channels[selectedCluster!.name] = [ channel1, channel2 ]
-    }
-    
     func reset() {
         clusters = [ClusterState]()
-        channels = Dictionary<String, Array<ChannelState>>()
+        channels = Dictionary<String, ChannelStateDict>()
         selectedCluster = nil
         selectedChannelGroup = ""
         selectedChannelTopic = ""
     }
+    
+    func setCluster(name: String, token: String, id: Int, channels: [ChannelState]) {
+        selectedCluster = ClusterState(name: name, token: token, id: id)
+        var channelDict = ChannelStateDict()
+        for c in channels {
+            channelDict[c.key()] = c
+        }
+        self.channels[name] = channelDict
+    }
+    
+    func getChannelList() -> [ChannelState] {
+        if let channelDict = channels[selectedCluster!.name] {
+            var channelList = [ChannelState]()
+            for (key, value) in channelDict {
+                channelList.append(value)
+            }
+            return channelList
+        } else {
+            return []
+        }
+    }
+
 }

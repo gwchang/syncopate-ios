@@ -30,7 +30,11 @@ class ChannelState {
         self.init(group: group, topic: topic, value: "")
     }
     
+    func key() -> String {
+        return "\(group).\(topic)"
+    }
+    
     func url() -> String {
-        return "series=\(group).\(topic)"
+        return "series=\(key())"
     }
 }
