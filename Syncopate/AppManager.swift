@@ -174,7 +174,13 @@ class AppManager {
     }
     
     func parseWebSocketMessage(data: NSDictionary) {
-        println(data)
+        if let series = data["Series"] as? [Dictionary<String,AnyObject>] {
+            for s in series {
+                persistencyManager.updateChannel(
+                    s["k"]! as! String,
+                    value: s["v"]! as! String)
+            }
+        }
     }
     
     // Selected channel

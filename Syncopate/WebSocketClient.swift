@@ -77,7 +77,7 @@ class WebSocketClient: WebSocketDelegate {
     
     func websocketDidReceiveMessage(ws: WebSocket, text: String) {
         self.received++
-        println(self.received)
+        // println(self.received)
         
         if let data = text.dataUsingEncoding(NSUTF8StringEncoding) {
             var error: NSError?;
