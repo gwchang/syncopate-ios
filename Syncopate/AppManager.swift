@@ -10,6 +10,8 @@ import Foundation
 
 class AppManager {
     
+    typealias Callback = (Bool) -> Void
+    
     // MARK: Class properties
     class var sharedInstance: AppManager {
         struct Singleton {
@@ -25,6 +27,7 @@ class AppManager {
     private var loggedIn: Bool
     private var username: String
     private var password: String
+    var onSocketCallback: Callback?
     
     init() {
         persistencyManager = PersistencyManager()
@@ -169,17 +172,18 @@ class AppManager {
             for c in channels {
                 series.append(c.url())
             }
-            ws.connectWithTokenAndSeries(token, series: series, onMessageCallback: self.parseWebSocketMessage)
-        }
-    }
-    
-    func parseWebSocketMessage(data: NSDictionary) {
-        if let series = data["Series"] as? [Dictionary<String,AnyObject>] {
-            for s in series {
-                persistencyManager.updateChannel(
-                    s["k"]! as! String,
-                    value: s["v"]! as! String)
-            }
+            ws.connectWithTokenAndSeries(token, series: series, onMessageCallback: {(data: NSDictionary) in
+                if let series = data["Series"] as? [Dictionary<String,AnyObject>] {
+                    for s in series {
+                        self.persistencyManager.updateChannel(
+                            s["k"]! as! String,
+                            value: s["v"]! as! String)
+                    }
+                    if series.count > 0 {
+                        self.onSocketCallback?(true)
+                    }
+                }
+            })
         }
     }
     

@@ -47,5 +47,6 @@ class ChannelState {
     func setValue(value: String) {
         self.value = value
         self.valueLabel?.setNeedsDisplay()
+        // println(value)
     }
 }

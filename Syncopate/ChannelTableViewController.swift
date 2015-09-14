@@ -43,6 +43,11 @@ class ChannelTableViewController: UITableViewController {
         
         // Initialize refresh controller
         self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+        AppManager.sharedInstance.onSocketCallback = {(success: Bool) -> Void in
+            if success {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
