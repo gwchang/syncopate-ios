@@ -97,13 +97,13 @@ class ChannelTableViewController: UITableViewController {
         // Set color and font size
         cell.contentView.backgroundColor = SyncopateStyle.mainBackgroundColor
         cell.groupLabel.textColor = SyncopateStyle.mainTextColor
-        cell.groupLabel.font = cell.groupLabel.font.fontWithSize(20)
+        cell.groupLabel.font = cell.groupLabel.font.fontWithSize(SyncopateStyle.mainGroupFontSize)
         
         cell.topicLabel.textColor = SyncopateStyle.mainHighlightColor
-        cell.topicLabel.font = cell.topicLabel.font.fontWithSize(20)
+        cell.topicLabel.font = cell.topicLabel.font.fontWithSize(SyncopateStyle.mainTopicFontSize)
         
         cell.valueLabel.textColor = SyncopateStyle.mainTextColor
-        cell.valueLabel.font = cell.valueLabel.font.fontWithSize(60)
+        cell.valueLabel.font = cell.valueLabel.font.fontWithSize(SyncopateStyle.mainValueFontSize)
         channel.setValueLabel(cell.valueLabel)
         
         // Selection colors

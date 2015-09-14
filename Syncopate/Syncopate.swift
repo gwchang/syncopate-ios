@@ -56,6 +56,10 @@ struct SyncopateStyle {
     static let menuSelectedColor    = SyncopateTheme.color4
     
     static let topicBackgroundColor = SyncopateTheme.color5
+    
+    static let mainValueFontSize: CGFloat = 40
+    static let mainGroupFontSize: CGFloat = 20
+    static let mainTopicFontSize: CGFloat = 20
 }
 
 struct SyncopateConfig {
