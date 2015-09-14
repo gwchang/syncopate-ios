@@ -18,6 +18,7 @@ class WebSocketClient: WebSocketDelegate {
     var socket: WebSocket?
     var received: Int64
     var onMessageCallback: WebSocketOnMessageCallback?
+    var isConnected: Bool
     
     init(host: String) {
         self.received = 0
@@ -25,9 +26,11 @@ class WebSocketClient: WebSocketDelegate {
         self.path = ""
         self.socket = nil
         self.onMessageCallback = nil
+        self.isConnected = false
     }
     
     func connect(path: String, onMessageCallback: WebSocketOnMessageCallback) {
+        // if (path != self.path) || !isConnected {
         // Disconnect previous connection
         disconnect()
         
@@ -41,6 +44,7 @@ class WebSocketClient: WebSocketDelegate {
         self.onMessageCallback = onMessageCallback
         
         println("Connecting to websocket: \(self.host)")
+        // }
     }
     
     func connectWithTokenAndSeries(token: String, series: [String], onMessageCallback: WebSocketOnMessageCallback) {
@@ -65,6 +69,7 @@ class WebSocketClient: WebSocketDelegate {
     // MARK: Websocket delegate methods
     func websocketDidConnect(ws: WebSocket) {
         println("Websocket is connected: \(self.host)")
+        isConnected = true
     }
     
     func websocketDidDisconnect(ws: WebSocket, error: NSError?) {
@@ -73,6 +78,7 @@ class WebSocketClient: WebSocketDelegate {
         } else {
             println("Websocket disconnected: \(self.host)")
         }
+        isConnected = false
     }
     
     func websocketDidReceiveMessage(ws: WebSocket, text: String) {
@@ -91,10 +97,12 @@ class WebSocketClient: WebSocketDelegate {
                 println("ERROR: Unable to parse text: \(text)");
             }
         }
+        isConnected = true
     }
     
     func websocketDidReceiveData(ws: WebSocket, data: NSData) {
         println("Received data: \(data.length)")
+        isConnected = true
     }
 
 }
