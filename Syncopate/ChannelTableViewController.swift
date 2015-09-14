@@ -50,10 +50,14 @@ class ChannelTableViewController: UITableViewController {
         // Fetch more objects from a web service, for example...
         
         // Simply adding an object to the data source for this example
-        println("refreshing channel view table")
-        
-        self.tableView.reloadData()
-        refreshControl.endRefreshing()
+        // println("refreshing channel view table")
+        AppManager.sharedInstance.refreshClusterDetail({(success: Bool) -> Void in
+            if success {
+                self.tableView.reloadData()
+                self.refreshControl?.endRefreshing()
+                // println("refreshed")
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {

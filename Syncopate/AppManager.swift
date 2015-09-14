@@ -84,6 +84,12 @@ class AppManager {
         }
     }
     
+    func refreshClusterDetail(callback: Bool -> Void) {
+        if let s = persistencyManager.selectedCluster {
+            updateClusterDetail(s.id, callback: callback)
+        }
+    }
+    
     func updateClusterDetail(id: Int, callback: Bool -> Void) {
         http.get(
             self.username,
