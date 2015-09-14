@@ -70,6 +70,9 @@
                         <barButtonItem key="leftBarButtonItem" image="menu" id="IaL-ai-FCI"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="NRi-6K-9Ns">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <outlet property="menuButton" destination="IaL-ai-FCI" id="rff-JH-rFz"/>
                     </connections>

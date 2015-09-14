@@ -40,6 +40,20 @@ class ChannelTableViewController: UITableViewController {
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        // Initialize refresh controller
+        self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+    }
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        // Do some reloading of data and update the table view's data source
+        // Fetch more objects from a web service, for example...
+        
+        // Simply adding an object to the data source for this example
+        println("refreshing channel view table")
+        
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
