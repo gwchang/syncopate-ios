@@ -64,7 +64,10 @@ class AppManager {
         if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error) {
             if let dict = json as? NSDictionary {
                 if let name = dict["name"] as? String {
-                    setSelectedCluster(name)
+                    setSelectedCluster(
+                        name,
+                        token: dict["token"] as! String,
+                        id: dict["id"] as! Int)
                     
                     var channels = [ChannelState]()
                     if let channelList = dict["channels"] as? Array<Dictionary<String,String>> {
@@ -145,7 +148,7 @@ class AppManager {
     }
     
     func getChannels() -> [ChannelState] {
-        if let val = persistencyManager.channels[persistencyManager.selectedClusterName] {
+        if let val = persistencyManager.channels[persistencyManager.selectedCluster!.name] {
             return val
         } else {
             return []
@@ -154,11 +157,11 @@ class AppManager {
     
     // Selected cluster
     func getSelectedCluster() -> String {
-        return persistencyManager.selectedClusterName
+        return persistencyManager.selectedCluster!.name
     }
     
-    func setSelectedCluster(name: String) {
-        persistencyManager.selectedClusterName = name
+    func setSelectedCluster(name: String, token: String, id: Int) {
+        persistencyManager.selectedCluster = ClusterState(name: name, token: token, id: id)
     }
     
     // Selected channel

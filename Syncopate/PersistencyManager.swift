@@ -13,7 +13,7 @@ class PersistencyManager {
     // MARK: Instance properties
     var clusters = [ClusterState]()
     var channels = Dictionary<String, Array<ChannelState>>()
-    var selectedClusterName: String = ""
+    var selectedCluster: ClusterState?
     var selectedChannelGroup: String = ""
     var selectedChannelTopic: String = ""
     
@@ -26,7 +26,7 @@ class PersistencyManager {
         let cluster2 = ClusterState(name: "b", token: "def", id: 2)
         self.clusters += [ cluster1, cluster2 ]
         
-        self.selectedClusterName = clusters[0].name
+        self.selectedCluster = ClusterState(name: "a", token: "abc", id: 1)
 
         let channel1 = ChannelState(
             group: "top",
@@ -36,13 +36,13 @@ class PersistencyManager {
             group: "top",
             topic:"cpu_usage_sys",
             value: "75%")!
-        self.channels[selectedClusterName] = [ channel1, channel2 ]
+        self.channels[selectedCluster!.name] = [ channel1, channel2 ]
     }
     
     func reset() {
         clusters = [ClusterState]()
         channels = Dictionary<String, Array<ChannelState>>()
-        selectedClusterName = ""
+        selectedCluster = nil
         selectedChannelGroup = ""
         selectedChannelTopic = ""
     }
