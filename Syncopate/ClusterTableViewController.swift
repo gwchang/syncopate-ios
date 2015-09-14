@@ -46,6 +46,11 @@ class ClusterTableViewController: UITableViewController {
         return clusters.count
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("You selected cell number: \(indexPath.row)!")
+        // performSegueWithIdentifier("yourIdentifier", sender: self)
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "ClusterTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ClusterTableViewCell
