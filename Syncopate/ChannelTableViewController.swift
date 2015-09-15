@@ -64,6 +64,12 @@ class ChannelTableViewController: UITableViewController {
                 self.tableView.reloadData()
                 self.refreshControl?.endRefreshing()
                 println("refreshed")
+            } else {
+                if HttpClient.isAccessDeniedCode(status) {
+                    AppManager.sharedInstance.logout()
+                    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.showLoginScreen(false)
+                }
             }
         })
     }

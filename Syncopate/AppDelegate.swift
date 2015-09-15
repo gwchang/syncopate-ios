@@ -42,19 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             */
         }
     }
-    
-    func logout() {
-        // Remove data from singleton
-        AppManager.sharedInstance.clearData()
-    
-        // Reset view controller (this will quickly clear all the views)
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        if let viewController = storyboard.instantiateViewControllerWithIdentifier("mainView") as?
-            ViewController {
-            self.window?.rootViewController = viewController
-        }
-        self.showLoginScreen(false)
-    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

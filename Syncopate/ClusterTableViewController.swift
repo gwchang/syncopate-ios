@@ -60,8 +60,12 @@ class ClusterTableViewController: UITableViewController {
                 self.performSegueWithIdentifier("showChannelTableView", sender: self)
             }
         } else {
-            // TODO: Logout
             println("updateClusterDetail failed")
+            if HttpClient.isAccessDeniedCode(status) {
+                AppManager.sharedInstance.logout()
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.showLoginScreen(false)
+            }
         }
     }
     

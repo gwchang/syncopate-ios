@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class AppManager {
     
@@ -58,6 +59,13 @@ class AppManager {
                 }
                 callback(success, status)
         })
+    }
+    
+    func logout() {
+        clearData()
+        loggedIn = false
+        // let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        // appDelegate.showLoginScreen(false)
     }
     
     func parseClusterDetailData(data: NSData) {
