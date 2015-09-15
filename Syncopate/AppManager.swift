@@ -99,13 +99,11 @@ class AppManager {
             urlpath: "/cluster/\(id)/",
             callback: {(data, response, error) in
                 let status = (response as? NSHTTPURLResponse)?.statusCode
-                // println(status)
-                if status != nil && status! >= 200 && status! < 300 {
+                let success = HttpClient.isSuccessCode(status)
+                if success {
                     self.parseClusterDetailData(data)
-                    callback(true)
-                } else {
-                    callback(false)
                 }
+                callback(success)
         })
     }
     
@@ -117,7 +115,8 @@ class AppManager {
             callback: {(data, response, error) in
                 let status = (response as? NSHTTPURLResponse)?.statusCode
                 // println(status)
-                if status != nil && status! >= 200 && status! < 300 {
+                let success = HttpClient.isSuccessCode(status)
+                if success {
                     self.parseClusterListData(data)
                 }
         })

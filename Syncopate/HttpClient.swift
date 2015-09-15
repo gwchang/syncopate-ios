@@ -36,4 +36,12 @@ class HttpClient {
         
         task.resume()
     }
+    
+    static func isSuccessCode(status: Int?) -> Bool {
+        return status != nil && status! >= 200 && status! < 300
+    }
+    
+    static func isAccessDeniedCode(status: Int?) -> Bool {
+        return status != nil && status! >= 400 && status! < 500
+    }
 }
