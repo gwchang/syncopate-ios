@@ -59,7 +59,7 @@ class ChannelTableViewController: UITableViewController {
         
         // Simply adding an object to the data source for this example
         // println("refreshing channel view table")
-        AppManager.sharedInstance.refreshClusterDetail({(success: Bool) -> Void in
+        AppManager.sharedInstance.refreshClusterDetail({(success: Bool, status: Int?) -> Void in
             if success {
                 self.tableView.reloadData()
                 self.refreshControl?.endRefreshing()

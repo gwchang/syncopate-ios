@@ -68,7 +68,7 @@ class LoginViewController: UIViewController {
             callback: loginCallback)
     }
     
-    func loginCallback(success: Bool) {
+    func loginCallback(success: Bool, status: Int?) {
         if success {
             // Save usernmae
             NSUserDefaults.standardUserDefaults().setValue(usernameTextField.text, forKey: "username")

@@ -42,23 +42,21 @@ class AppManager {
         return loggedIn
     }
     
-    func login(username: String, password: String, callback: Bool -> Void) {
+    func login(username: String, password: String, callback: HttpStatusCallback) {
         http.get(
             username,
             password: password,
             urlpath: "/cluster-login/",
             callback: {(data, response, error) in
                 let status = (response as? NSHTTPURLResponse)?.statusCode
-                // println(status)
-                if status != nil && status! >= 200 && status! < 300 {
+                let success = HttpClient.isSuccessCode(status)
+                if success {
                     self.loggedIn = true
                     self.username = username
                     self.password = password
                     self.parseClusterDetailData(data)
-                    callback(true)
-                } else {
-                    callback(false)
                 }
+                callback(success, status)
         })
     }
     
@@ -86,13 +84,13 @@ class AppManager {
         }
     }
     
-    func refreshClusterDetail(callback: Bool -> Void) {
+    func refreshClusterDetail(callback: HttpStatusCallback) {
         if let s = persistencyManager.selectedCluster {
             updateClusterDetail(s.id, callback: callback)
         }
     }
     
-    func updateClusterDetail(id: Int, callback: Bool -> Void) {
+    func updateClusterDetail(id: Int, callback: HttpStatusCallback) {
         http.get(
             self.username,
             password: self.password,
@@ -103,7 +101,7 @@ class AppManager {
                 if success {
                     self.parseClusterDetailData(data)
                 }
-                callback(success)
+                callback(success, status)
         })
     }
     

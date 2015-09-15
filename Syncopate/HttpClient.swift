@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias HttpStatusCallback = (Bool, Int?) -> Void
+
 class HttpClient {
     
     typealias HttpCallback = (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void

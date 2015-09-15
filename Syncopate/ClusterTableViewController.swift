@@ -53,7 +53,7 @@ class ClusterTableViewController: UITableViewController {
         AppManager.sharedInstance.updateClusterDetail(clusters[indexPath.row].id, callback: showCallback)
     }
     
-    func showCallback(success: Bool) {
+    func showCallback(success: Bool, status: Int?) {
         if success {
             // NOTE: prepareSeque MUST be in the main thread, otherwise does not work in callback!!!
             dispatch_async(dispatch_get_main_queue()) {
