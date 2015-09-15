@@ -57,9 +57,9 @@ struct SyncopateStyle {
     
     static let topicBackgroundColor = SyncopateTheme.color5
     
-    static let mainValueFontSize: CGFloat = 40
-    static let mainGroupFontSize: CGFloat = 20
-    static let mainTopicFontSize: CGFloat = 20
+    static let mainValueFontSize: CGFloat = 30
+    static let mainGroupFontSize: CGFloat = 15
+    static let mainTopicFontSize: CGFloat = 15
 }
 
 struct SyncopateConfig {

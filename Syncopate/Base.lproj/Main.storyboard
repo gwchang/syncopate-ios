@@ -8,7 +8,7 @@
         <scene sceneID="eXW-Sj-lAO">
             <objects>
                 <tableViewController title="Channel Table View Controller Scene" id="dwx-3R-8qG" customClass="ChannelTableViewController" customModule="Syncopate" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="6m2-X6-6gi">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="6m2-X6-6gi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.24313725489999999" green="0.27058823529999998" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -16,25 +16,19 @@
                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexTrackingBackgroundColor" red="0.098039215686274508" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChannelTableViewCell" rowHeight="90" id="SZM-u8-DBO" customClass="ChannelTableViewCell" customModule="Syncopate" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChannelTableViewCell" rowHeight="50" id="SZM-u8-DBO" customClass="ChannelTableViewCell" customModule="Syncopate" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SZM-u8-DBO" id="2fh-Bb-ruz">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="topic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mn-uG-pwr">
-                                            <rect key="frame" x="8" y="46" width="208" height="36"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICv-ZD-QT7">
-                                            <rect key="frame" x="428" y="8" width="157" height="73.5"/>
+                                            <rect key="frame" x="439" y="10" width="146" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="group" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65H-9Q-xDf">
-                                            <rect key="frame" x="8" y="8" width="208" height="30"/>
+                                            <rect key="frame" x="8" y="3" width="208" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="yeb-hy-w6I"/>
                                             </constraints>
@@ -42,15 +36,21 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="topic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mn-uG-pwr">
+                                            <rect key="frame" x="8" y="19" width="208" height="26"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="ICv-ZD-QT7" firstAttribute="top" secondItem="2fh-Bb-ruz" secondAttribute="top" constant="8" id="8XN-cd-7Is"/>
-                                        <constraint firstItem="0Mn-uG-pwr" firstAttribute="top" secondItem="65H-9Q-xDf" secondAttribute="bottom" constant="8" id="GAe-ai-pc6"/>
-                                        <constraint firstAttribute="trailing" secondItem="ICv-ZD-QT7" secondAttribute="trailing" constant="10" id="OO7-pH-IqK"/>
+                                        <constraint firstItem="ICv-ZD-QT7" firstAttribute="top" secondItem="2fh-Bb-ruz" secondAttribute="top" constant="4" id="8XN-cd-7Is"/>
+                                        <constraint firstItem="0Mn-uG-pwr" firstAttribute="top" secondItem="65H-9Q-xDf" secondAttribute="bottom" constant="6" id="GAe-ai-pc6"/>
+                                        <constraint firstAttribute="trailing" secondItem="ICv-ZD-QT7" secondAttribute="trailing" constant="8" id="OO7-pH-IqK"/>
                                         <constraint firstItem="0Mn-uG-pwr" firstAttribute="leading" secondItem="2fh-Bb-ruz" secondAttribute="leading" constant="8" id="R4z-9m-5a6"/>
                                         <constraint firstItem="65H-9Q-xDf" firstAttribute="leading" secondItem="2fh-Bb-ruz" secondAttribute="leading" constant="8" id="X1b-sD-cHE"/>
                                         <constraint firstAttribute="bottom" secondItem="0Mn-uG-pwr" secondAttribute="bottom" constant="7.5" id="sHo-qW-WRW"/>
-                                        <constraint firstAttribute="bottom" secondItem="ICv-ZD-QT7" secondAttribute="bottom" constant="8" id="wge-xn-Ibc"/>
+                                        <constraint firstAttribute="bottom" secondItem="ICv-ZD-QT7" secondAttribute="bottom" constant="4" id="wge-xn-Ibc"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
