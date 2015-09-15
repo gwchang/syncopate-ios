@@ -68,6 +68,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Channels" id="lUR-2u-nAQ">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="IaL-ai-FCI"/>
+                        <barButtonItem key="rightBarButtonItem" image="logout" id="cik-Kf-Kmv"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="NRi-6K-9Ns">
@@ -378,6 +379,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="logout" width="50" height="50"/>
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>

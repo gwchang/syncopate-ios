@@ -153,6 +153,7 @@ class AppManager {
     
     func clearData() {
         // Clear user data on logout
+        persistencyManager.reset()
     }
     
     
