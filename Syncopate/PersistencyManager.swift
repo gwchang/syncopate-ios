@@ -14,7 +14,7 @@ class PersistencyManager {
     
     // MARK: Instance properties
     var clusters = [ClusterState]()
-    var channels = Dictionary<String, ChannelStateDict>()
+    var channels = ChannelStateDict()
     var selectedCluster: ClusterState?
     var selectedChannelGroup: String = ""
     var selectedChannelTopic: String = ""
@@ -25,7 +25,7 @@ class PersistencyManager {
     
     func reset() {
         clusters = [ClusterState]()
-        channels = Dictionary<String, ChannelStateDict>()
+        channels = ChannelStateDict()
         selectedCluster = nil
         selectedChannelGroup = ""
         selectedChannelTopic = ""
@@ -33,33 +33,23 @@ class PersistencyManager {
     
     func setCluster(name: String, token: String, id: Int, channels: [ChannelState]) {
         selectedCluster = ClusterState(name: name, token: token, id: id)
-        var channelDict = ChannelStateDict()
+        self.channels = ChannelStateDict()
         for c in channels {
-            channelDict[c.key()] = c
+            self.channels[c.key()] = c
         }
-        self.channels[name] = channelDict
     }
     
     func getChannelList() -> [ChannelState] {
-        if let channelDict = channels[selectedCluster!.name] {
-            var channelList = [ChannelState]()
-            for (key, value) in channelDict {
-                channelList.append(value)
-            }
-            return channelList
-        } else {
-            return []
+        var channelList = [ChannelState]()
+        for (key, value) in self.channels {
+            channelList.append(value)
         }
+        return channelList
     }
     
     func updateChannel(key: String, value: String) {
-        if let channelDict = channels[selectedCluster!.name] {
-            if let c = channelDict[key] {
-                c.setValue(value)
-                // println(value)
-            }
-        } else {
-            println("Unable to find \(selectedCluster!.name)")
+        if let c = self.channels[key] {
+            c.setValue(value)
         }
     }
 
