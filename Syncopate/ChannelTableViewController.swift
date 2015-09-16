@@ -116,14 +116,15 @@ class ChannelTableViewController: UITableViewController {
         var channel = AppManager.sharedInstance.getChannelAtIndex(indexPath.row)!
         
         // Assign text
-        cell.groupLabel.text = channel.group
+        // cell.groupLabel.text = channel.group
+        // cell.topicLabel.text = "\(channel.group).\(channel.topic)"
         cell.topicLabel.text = channel.topic
         cell.valueLabel.text = channel.value
         
         // Set color and font size
         cell.contentView.backgroundColor = SyncopateStyle.mainBackgroundColor
-        cell.groupLabel.textColor = SyncopateStyle.mainTextColor
-        cell.groupLabel.font = cell.groupLabel.font.fontWithSize(SyncopateStyle.mainGroupFontSize)
+        // cell.groupLabel.textColor = SyncopateStyle.mainTextColor
+        // cell.groupLabel.font = cell.groupLabel.font.fontWithSize(SyncopateStyle.mainGroupFontSize)
         
         cell.topicLabel.textColor = SyncopateStyle.mainHighlightColor
         cell.topicLabel.font = cell.topicLabel.font.fontWithSize(SyncopateStyle.mainTopicFontSize)
@@ -147,6 +148,9 @@ class ChannelTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return SyncopateStyle.mainRowHeight
+    }
 
     /*
     // Override to support conditional editing of the table view.

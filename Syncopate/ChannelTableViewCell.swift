@@ -12,7 +12,7 @@ class ChannelTableViewCell: UITableViewCell {
     
     // MARK: Prooperties
     @IBOutlet weak var valueLabel: UILabel!
-    @IBOutlet weak var groupLabel: UILabel!
+    // @IBOutlet weak var groupLabel: UILabel!
     @IBOutlet weak var topicLabel: UILabel!
 
     override func awakeFromNib() {
