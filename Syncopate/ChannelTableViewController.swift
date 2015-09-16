@@ -78,7 +78,9 @@ class ChannelTableViewController: UITableViewController {
         AppManager.sharedInstance.refreshClusterDetail({(success: Bool, status: Int?) -> Void in
             if success {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.tableView.reloadData()
+                    // NOTE: Wait for websocket message to call reloadData(), otherwise user will see
+                    //       list with blank values
+                    // self.tableView.reloadData()
                     self.refreshControl?.endRefreshing()
                     println("refreshed")
                 }
