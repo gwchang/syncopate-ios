@@ -44,7 +44,7 @@ class ChannelTableViewController: UITableViewController {
         AppManager.sharedInstance.onSocketCallback = {(success: Bool) -> Void in
             if success {
                 dispatch_async(dispatch_get_main_queue()) {
-                    println("reloadData")
+                    // println("reloadData")
                     self.tableView.reloadData()
                 }
             }
@@ -129,7 +129,7 @@ class ChannelTableViewController: UITableViewController {
         cell.valueLabel.textColor = SyncopateStyle.mainTextColor
         cell.valueLabel.font = cell.valueLabel.font.fontWithSize(SyncopateStyle.mainValueFontSize)
         channel.setValueLabel(cell.valueLabel)
-        println("\(indexPath.row): \(channel.description())")
+        // println("\(indexPath.row): \(channel.description())")
         
         // Selection colors
         cell.selectionStyle = UITableViewCellSelectionStyle.Default
