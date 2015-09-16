@@ -54,9 +54,21 @@ class ChannelTableViewController: UITableViewController {
     }
     
     @IBAction func logoutAction(sender: UIBarButtonItem) {
-        AppManager.sharedInstance.logout()
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.showLoginScreen(false)
+        var logoutAlert = UIAlertController(title: "Logout", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        logoutAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            println("Handle Ok logic here")
+            AppManager.sharedInstance.logout()
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.showLoginScreen(false)
+        }))
+        
+        logoutAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+            // println("Handle Cancel Logic here")
+            // Do nothing
+        }))
+        
+        presentViewController(logoutAlert, animated: true, completion: nil)
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
