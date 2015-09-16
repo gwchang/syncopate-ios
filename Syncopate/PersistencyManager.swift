@@ -48,8 +48,11 @@ class PersistencyManager {
     }
     
     func updateChannel(key: String, value: String) {
+        // println("updateChannel, key: \(key), value: \(value)")
         if let c = self.channels[key] {
             c.setValue(value)
+        } else {
+            println("ERROR: PersistencyManager unable to find \(key) in channel dictionary.")
         }
     }
 

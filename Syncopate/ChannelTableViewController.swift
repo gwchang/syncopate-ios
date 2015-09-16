@@ -18,6 +18,8 @@ class ChannelTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.dataSource = self
+        
         channels = AppManager.sharedInstance.getChannels()
         
         // Initialize background and separator color
@@ -79,9 +81,11 @@ class ChannelTableViewController: UITableViewController {
         // println("refreshing channel view table")
         AppManager.sharedInstance.refreshClusterDetail({(success: Bool, status: Int?) -> Void in
             if success {
-                self.tableView.reloadData()
-                self.refreshControl?.endRefreshing()
-                println("refreshed")
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
+                    println("refreshed")
+                }
             } else {
                 if HttpClient.isAccessDeniedCode(status) {
                     AppManager.sharedInstance.logout()
@@ -108,6 +112,7 @@ class ChannelTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // println("ChannelTableViewController::tableView()")
         let cellIdentifier = "ChannelTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ChannelTableViewCell
 

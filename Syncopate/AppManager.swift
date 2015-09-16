@@ -173,6 +173,7 @@ class AppManager {
     }
     
     func setSelectedCluster(name: String, token: String, id: Int, channels: [ChannelState]) {
+        println("setSelectedCluster")
         persistencyManager.setCluster(name, token: token, id: id, channels: channels)
         
         if channels.count > 0 {

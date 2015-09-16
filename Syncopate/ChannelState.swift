@@ -46,7 +46,10 @@ class ChannelState {
     
     func setValue(value: String) {
         self.value = value
-        self.valueLabel?.setNeedsDisplay()
-        // println(value)
+        if let label = self.valueLabel {
+            label.setNeedsDisplay()
+        } else {
+            // println("ChannelState \(key()) missing UILabel on setValue")
+        }
     }
 }
