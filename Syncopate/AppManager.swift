@@ -94,6 +94,7 @@ class AppManager {
     }
     
     func refreshClusterDetail(callback: HttpStatusCallback) {
+        ws.disconnect()
         if let s = persistencyManager.selectedCluster {
             updateClusterDetail(s.id, callback: callback)
         }
@@ -189,7 +190,7 @@ class AppManager {
                             s["k"]! as! String,
                             value: s["v"]! as! String)
                     }
-                    println(series)
+                    // println(series)
                     if series.count > 0 {
                         self.onSocketCallback?(true)
                     }

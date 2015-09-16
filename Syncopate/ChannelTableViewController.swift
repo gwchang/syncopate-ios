@@ -46,7 +46,7 @@ class ChannelTableViewController: UITableViewController {
         AppManager.sharedInstance.onSocketCallback = {(success: Bool) -> Void in
             if success {
                 dispatch_async(dispatch_get_main_queue()) {
-                    println("reloadData")
+                    // println("reloadData")
                     self.tableView.reloadData()
                 }
             }
