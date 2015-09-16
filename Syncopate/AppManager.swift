@@ -161,13 +161,13 @@ class AppManager {
     func getClusters() -> [ClusterState] {
         return persistencyManager.clusters
     }
-    
-    func getChannels() -> [ChannelState] {
-        return persistencyManager.getChannelList()
-    }
-    
+        
     func getChannelAtIndex(index: Int) -> ChannelState? {
         return persistencyManager.getChannelAtIndex(index)
+    }
+    
+    func getChannelsCount() -> Int {
+        return persistencyManager.channelsOrder.count
     }
     
     // Selected cluster

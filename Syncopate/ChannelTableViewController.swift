@@ -13,15 +13,11 @@ class ChannelTableViewController: UITableViewController {
     // MARK: Properties
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    var channels = [ChannelState]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.dataSource = self
-        
-        channels = AppManager.sharedInstance.getChannels()
-        
+        // self.tableView.dataSource = self
+
         // Initialize background and separator color
         self.tableView.backgroundColor = SyncopateStyle.mainBackgroundColor
         self.tableView.separatorColor = SyncopateStyle.mainSeparatorColor
@@ -108,14 +104,14 @@ class ChannelTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return channels.count
+        return AppManager.sharedInstance.getChannelsCount()
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "ChannelTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ChannelTableViewCell
 
-        var channel = channels[indexPath.row]
+        var channel = AppManager.sharedInstance.getChannelAtIndex(indexPath.row)!
         
         // Assign text
         cell.groupLabel.text = channel.group
@@ -195,7 +191,7 @@ class ChannelTableViewController: UITableViewController {
             if let navController = segue.destinationViewController as? UINavigationController {
                 if var vc = navController.topViewController as? TopicViewController {
                     if let indexPath = self.tableView.indexPathForSelectedRow() {
-                        let c = channels[indexPath.row]
+                        let c = AppManager.sharedInstance.getChannelAtIndex(indexPath.row)!
                         AppManager.sharedInstance.setSelectedChannel(c.group, topic: c.topic)
                     }
                 }

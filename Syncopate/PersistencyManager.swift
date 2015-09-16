@@ -43,14 +43,6 @@ class PersistencyManager {
         }
     }
     
-    func getChannelList() -> [ChannelState] {
-        var channelList = [ChannelState]()
-        for (key, value) in self.channels {
-            channelList.append(value)
-        }
-        return channelList
-    }
-    
     func getChannelAtIndex(index: Int) -> ChannelState? {
         if index >= 0 && index < channelsOrder.count {
             if let c = channels[channelsOrder[index]] {
