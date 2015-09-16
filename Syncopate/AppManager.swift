@@ -131,7 +131,7 @@ class AppManager {
     }
     
     func parseClusterListData(data: NSData) {
-        var clusters = [ClusterState]()
+        persistencyManager.clusters = [ClusterState]()
         var error: NSError?
         if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error) {
             if let array = json as? NSArray {
@@ -143,14 +143,13 @@ class AppManager {
                             name: c["name"]! as! String,
                             token: c["token"]! as! String,
                             id: c["id"]! as! Int)
-                        clusters.insert(cluster, atIndex: 0)
+                        persistencyManager.clusters.insert(cluster, atIndex: 0)
                         // clusters.append(cluster)
                         // println(cluster)
                     }
                 }
             }
         }
-        persistencyManager.clusters = clusters
     }
     
     func clearData() {
@@ -165,6 +164,10 @@ class AppManager {
     
     func getChannels() -> [ChannelState] {
         return persistencyManager.getChannelList()
+    }
+    
+    func getChannelAtIndex(index: Int) -> ChannelState? {
+        return persistencyManager.getChannelAtIndex(index)
     }
     
     // Selected cluster
