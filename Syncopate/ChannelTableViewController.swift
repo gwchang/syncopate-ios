@@ -53,6 +53,12 @@ class ChannelTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func logoutAction(sender: UIBarButtonItem) {
+        AppManager.sharedInstance.logout()
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.showLoginScreen(false)
+    }
+    
     func handleRefresh(refreshControl: UIRefreshControl) {
         // Do some reloading of data and update the table view's data source
         // Fetch more objects from a web service, for example...

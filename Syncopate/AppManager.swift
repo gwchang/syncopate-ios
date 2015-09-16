@@ -64,6 +64,7 @@ class AppManager {
     func logout() {
         clearData()
         loggedIn = false
+        ws.disconnect()
         // let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         // appDelegate.showLoginScreen(false)
     }
@@ -179,6 +180,9 @@ class AppManager {
                 series.append(c.url())
             }
             ws.connectWithTokenAndSeries(token, series: series, onMessageCallback: {(data: NSDictionary) in
+                if !self.isLoggedIn() {
+                    return
+                }
                 if let series = data["Series"] as? [Dictionary<String,AnyObject>] {
                     for s in series {
                         self.persistencyManager.updateChannel(

@@ -68,7 +68,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Channels" id="lUR-2u-nAQ">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="IaL-ai-FCI"/>
-                        <barButtonItem key="rightBarButtonItem" image="logout" id="cik-Kf-Kmv"/>
+                        <barButtonItem key="rightBarButtonItem" image="logout" id="cik-Kf-Kmv">
+                            <connections>
+                                <action selector="logoutAction:" destination="dwx-3R-8qG" id="aU9-tv-wja"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="NRi-6K-9Ns">
@@ -234,7 +238,6 @@
         <!--loginView-->
         <scene sceneID="fzG-u2-b1r">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="snA-9b-Kk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="loginView" title="loginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mP0-Fu-ycc" customClass="LoginViewController" customModule="Syncopate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qfb-q0-wkQ"/>
@@ -316,6 +319,7 @@
                         <segue destination="iMn-qH-y5Z" kind="show" identifier="showMainView" id="e8U-bm-GSa"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="snA-9b-Kk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-394" y="1043"/>
         </scene>
@@ -379,7 +383,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logout" width="50" height="50"/>
+        <image name="logout" width="25" height="25"/>
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
