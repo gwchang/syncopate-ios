@@ -52,4 +52,9 @@ class ChannelState {
             // println("ChannelState \(key()) missing UILabel on setValue")
         }
     }
+    
+    func description() -> String {
+        let label: String = valueLabel != nil ? "*" : "nil"
+        return "\(group).\(topic) = \(value) \(label)"
+    }
 }

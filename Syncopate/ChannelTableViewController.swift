@@ -48,7 +48,7 @@ class ChannelTableViewController: UITableViewController {
         AppManager.sharedInstance.onSocketCallback = {(success: Bool) -> Void in
             if success {
                 dispatch_async(dispatch_get_main_queue()) {
-                    // println("reloadData")
+                    println("reloadData")
                     self.tableView.reloadData()
                 }
             }
@@ -78,7 +78,7 @@ class ChannelTableViewController: UITableViewController {
         // Fetch more objects from a web service, for example...
         
         // Simply adding an object to the data source for this example
-        // println("refreshing channel view table")
+        println("handleRefresh")
         AppManager.sharedInstance.refreshClusterDetail({(success: Bool, status: Int?) -> Void in
             if success {
                 dispatch_async(dispatch_get_main_queue()) {
@@ -112,7 +112,6 @@ class ChannelTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // println("ChannelTableViewController::tableView()")
         let cellIdentifier = "ChannelTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ChannelTableViewCell
 
@@ -134,6 +133,7 @@ class ChannelTableViewController: UITableViewController {
         cell.valueLabel.textColor = SyncopateStyle.mainTextColor
         cell.valueLabel.font = cell.valueLabel.font.fontWithSize(SyncopateStyle.mainValueFontSize)
         channel.setValueLabel(cell.valueLabel)
+        println("\(indexPath.row): \(channel.description())")
         
         // Selection colors
         cell.selectionStyle = UITableViewCellSelectionStyle.Default
