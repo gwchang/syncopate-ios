@@ -1,0 +1,151 @@
+{
+  "token": 1410395420,
+  "sections": [
+    {
+      "header": "Processes",
+      "cells": [
+        {
+          "type": "kv_row",
+          "label": "Total",
+          "key": "top.proc_total"
+        },
+        {
+          "type": "kv_row",
+          "label": "Running",
+          "key": "top.proc_running"
+        },
+        {
+          "type": "kv_row",
+          "label": "Stuck",
+          "key": "top.proc_stuck"
+        },
+        {
+          "type": "kv_row",
+          "label": "Sleeping",
+          "key": "top.proc_sleeping"
+        },
+        {
+          "type": "kv_row",
+          "label": "Threads",
+          "key": "top.proc_threads"
+        }
+      ]
+    },
+    {
+      "header": "CPU Usage",
+      "cells": [
+        {
+          "type": "kv_row",
+          "label": "User",
+          "key": "top.cpu_usage_user"
+        },
+        {
+          "type": "kv_row",
+          "label": "Sys",
+          "key": "top.cpu_usage_sys"
+        },
+        {
+          "type": "kv_row",
+          "label": "Idle",
+          "key": "top.cpu_usage_idle"
+        }
+      ]
+    },
+    {
+      "header": "Memory",
+      "cells": [
+        {
+          "type": "kv_row",
+          "label": "Used",
+          "key": "top.phys_used"
+        },
+        {
+          "type": "kv_row",
+          "label": "Wired",
+          "key": "top.phys_wired"
+        },
+        {
+          "type": "kv_row",
+          "label": "Unused",
+          "key": "top.phys_unused"
+        }
+      ]
+    },
+    {
+      "header": "Command 0",
+      "cells": [
+        {
+          "type": "kv_row",
+          "label": "PID",
+          "key": "top.pid_0"
+        },
+        {
+          "type": "kv_row",
+          "label": "Command",
+          "key": "top.command_0"
+        },
+        {
+          "type": "kv_row",
+          "label": "%CPU",
+          "key": "top.pct_cpu_0"
+        },
+        {
+          "type": "kv_row",
+          "label": "Mem",
+          "key": "top.mem_0"
+        }
+      ]
+    },
+    {
+      "header": "Command 1",
+      "cells": [
+        {
+          "type": "kv_row",
+          "label": "PID",
+          "key": "top.pid_1"
+        },
+        {
+          "type": "kv_row",
+          "label": "Command",
+          "key": "top.command_1"
+        },
+        {
+          "type": "kv_row",
+          "label": "%CPU",
+          "key": "top.pct_cpu_1"
+        },
+        {
+          "type": "kv_row",
+          "label": "Mem",
+          "key": "top.mem_1"
+        }
+      ]
+    },
+    {
+      "header": "Command 2",
+      "cells": [
+        {
+          "type": "kv_row",
+          "label": "PID",
+          "key": "top.pid_2"
+        },
+        {
+          "type": "kv_row",
+          "label": "Command",
+          "key": "top.command_2"
+        },
+        {
+          "type": "kv_row",
+          "label": "%CPU",
+          "key": "top.pct_cpu_2"
+        },
+        {
+          "type": "kv_row",
+          "label": "Mem",
+          "key": "top.mem_2"
+        }
+      ]
+    }
+  ]
+}
+

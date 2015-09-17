@@ -30,6 +30,7 @@
 		D47C90141BA620EF00212774 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C90131BA620EF00212774 /* HttpClient.swift */; };
 		D47C90151BA6271E00212774 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C90131BA620EF00212774 /* HttpClient.swift */; };
 		D47C90171BAB2B3D00212774 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C90161BAB2B3D00212774 /* HeaderTableViewCell.swift */; };
+		D47C90191BAB34B500212774 /* cluster-detail-example.json in Resources */ = {isa = PBXBuildFile; fileRef = D47C90181BAB34B500212774 /* cluster-detail-example.json */; };
 		D49A2B0A1B71991300127617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A2B091B71991300127617 /* AppDelegate.swift */; };
 		D49A2B0C1B71991300127617 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A2B0B1B71991300127617 /* ViewController.swift */; };
 		D49A2B0F1B71991300127617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49A2B0D1B71991300127617 /* Main.storyboard */; };
@@ -95,6 +96,7 @@
 		D47C900B1BA3A0A000212774 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D47C90131BA620EF00212774 /* HttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		D47C90161BAB2B3D00212774 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		D47C90181BAB34B500212774 /* cluster-detail-example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "cluster-detail-example.json"; sourceTree = "<group>"; };
 		D49A2B041B71991300127617 /* Syncopate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Syncopate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49A2B081B71991300127617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49A2B091B71991300127617 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		D49A2B061B71991300127617 /* Syncopate */ = {
 			isa = PBXGroup;
 			children = (
+				D47C90181BAB34B500212774 /* cluster-detail-example.json */,
 				D49A2B091B71991300127617 /* AppDelegate.swift */,
 				D49A2B0B1B71991300127617 /* ViewController.swift */,
 				D47C8FE11B9A253800212774 /* WebSocketClient.swift */,
@@ -338,6 +341,7 @@
 			files = (
 				D49A2B0F1B71991300127617 /* Main.storyboard in Resources */,
 				D49A2B141B71991300127617 /* LaunchScreen.xib in Resources */,
+				D47C90191BAB34B500212774 /* cluster-detail-example.json in Resources */,
 				D49A2B111B71991300127617 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
