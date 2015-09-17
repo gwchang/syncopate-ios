@@ -12,16 +12,35 @@ import UIKit
 class ChannelState {
     
     // MARK: Properties
+    var label: String
     var group: String
     var topic: String
     var value: String
     var valueLabel: UILabel?
     
     // MARK: Initialization
+    init?(key: String, label: String) {
+        let tokens = key.componentsSeparatedByString(".")
+        
+        self.label = label
+        self.value = ""
+        self.group = tokens[0]
+        self.topic = ""
+        
+        if tokens.count != 2 {
+            return nil
+        } else {
+            self.topic = tokens[1]
+        }
+    }
+    
     init?(group: String, topic: String, value: String) {
         self.group = group
         self.topic = topic
         self.value = value
+        
+        // Default label is topic
+        self.label = topic
         
         if group.isEmpty || topic.isEmpty {
             return nil

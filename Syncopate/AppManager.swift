@@ -75,17 +75,9 @@ class AppManager {
                 if let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary
                 {
                     if let sections = jsonResult["sections"] as? Array<NSDictionary> {
-                        for s in sections {
-                            // (1) Parse header
-                            if let header = s["header"] as? String {
-                                println(header)
-                            }
-                            // (2) Parse cells
-                            if let cells = s["cells"] as? Array<Dictionary<String,String>> {
-                                println(cells)
-                            }
-                            
-                            // (3) Parse footer
+                        for sjson in sections {
+                            let s = ChannelSection(jsonDict: sjson)
+                            println(s.description())
                         }
                     }
                 }

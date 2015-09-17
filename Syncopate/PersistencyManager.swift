@@ -8,6 +8,32 @@
 
 import Foundation
 
+class ChannelSection {
+    
+    var header: String?
+    var cells = [ChannelState]()
+    
+    init(jsonDict: NSDictionary) {
+        // (1) Parse header
+        if let header = jsonDict["header"] as? String {
+            self.header = header
+        }
+        // (2) Parse cells
+        if let cells = jsonDict["cells"] as? Array<Dictionary<String,String>> {
+            for c in cells {
+                
+            }
+        }
+                
+        // (3) Parse footer
+
+    }
+    
+    func description() -> String {
+        return (header == nil) ? "" : header!
+    }
+}
+
 class PersistencyManager {
     
     typealias ChannelStateDict = Dictionary<String,ChannelState>
