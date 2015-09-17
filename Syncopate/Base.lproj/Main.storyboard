@@ -51,6 +51,28 @@
                                     <segue destination="hrX-yc-cs7" kind="show" identifier="showTopicView" id="wWZ-FL-6Yo"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeaderTableViewCell" rowHeight="30" id="WDC-Ar-vOH" customClass="HeaderTableViewCell" customModule="Syncopate" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WDC-Ar-vOH" id="v8c-Ks-ke0">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="header" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfd-qk-9ud">
+                                            <rect key="frame" x="24" y="0.0" width="293" height="29.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="zfd-qk-9ud" secondAttribute="trailing" constant="8" id="Jm1-gN-ms2"/>
+                                        <constraint firstItem="zfd-qk-9ud" firstAttribute="leading" secondItem="v8c-Ks-ke0" secondAttribute="leading" constant="8" id="Yev-y9-LGN"/>
+                                        <constraint firstAttribute="centerY" secondItem="zfd-qk-9ud" secondAttribute="centerY" id="ZU4-PR-SEv"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="headerLabel" destination="zfd-qk-9ud" id="HLR-pt-MDp"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="dwx-3R-8qG" id="ar4-07-Zho"/>
