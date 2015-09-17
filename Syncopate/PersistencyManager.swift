@@ -8,12 +8,34 @@
 
 import Foundation
 
+
+typealias ChannelStateDict = Dictionary<String,ChannelState>
+typealias ChannelLookup = Dictionary<String, ChannelList>
+
+class ChannelList {
+    var list: [ChannelState]
+    
+    init() {
+        list = [ChannelState]()
+    }
+    
+    init(cs: ChannelState) {
+        list = [cs]
+    }
+    
+    func append(cs: ChannelState) {
+        list.append(cs)
+    }
+}
+
 class ChannelSection {
     
     var header: String?
-    var cells = [ChannelState]()
+    var channels: [ChannelState]
     
     init(jsonDict: NSDictionary) {
+        channels = [ChannelState]()
+        
         // (1) Parse header
         if let header = jsonDict["header"] as? String {
             self.header = header
@@ -21,12 +43,12 @@ class ChannelSection {
         // (2) Parse cells
         if let cells = jsonDict["cells"] as? Array<Dictionary<String,String>> {
             for c in cells {
-                
+                let cs = ChannelState(
+                    key: c["key"]!,
+                    label: c["label"]!)!
+                channels.append(cs)
             }
         }
-                
-        // (3) Parse footer
-
     }
     
     func description() -> String {
@@ -36,9 +58,10 @@ class ChannelSection {
 
 class PersistencyManager {
     
-    typealias ChannelStateDict = Dictionary<String,ChannelState>
-    
     // MARK: Instance properties
+    var channelSections = [ChannelSection]()
+    var channelLookup = ChannelStateDict()
+    
     var clusters = [ClusterState]()
     var channels = ChannelStateDict()
     var channelsOrder = [String]()
@@ -51,12 +74,30 @@ class PersistencyManager {
     }
     
     func reset() {
+        channelSections = [ChannelSection]()
+        channelLookup = ChannelStateDict()
+        
         clusters = [ClusterState]()
         channels = ChannelStateDict()
         channelsOrder = [String]()
         selectedCluster = nil
         selectedChannelGroup = ""
         selectedChannelTopic = ""
+    }
+    
+    func setCluster(jsonResult: NSDictionary) {
+        selectedCluster = ClusterState(
+            name: jsonResult["name"]! as! String,
+            token: jsonResult["token"]! as! String,
+            id: jsonResult["id"]! as! Int)
+        
+        if let sections = jsonResult["sections"] as? Array<NSDictionary> {
+            for sjson in sections {
+                let s = ChannelSection(jsonDict: sjson)
+                channelSections.append(s)
+            }
+        }
+
     }
     
     func setCluster(name: String, token: String, id: Int, channels: [ChannelState]) {
