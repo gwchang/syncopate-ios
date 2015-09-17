@@ -115,12 +115,12 @@ class ChannelTableViewController: UITableViewController {
 
         var channel = AppManager.sharedInstance.getChannelAtIndex(indexPath.row)!
         
-        styleChannelCell(cell, channel: channel)
+        initChannelCell(cell, channel: channel)
         
         return cell
     }
     
-    func styleChannelCell(cell: ChannelTableViewCell, channel: ChannelState) {
+    func initChannelCell(cell: ChannelTableViewCell, channel: ChannelState) {
         // Assign text
         // cell.groupLabel.text = channel.group
         // cell.topicLabel.text = "\(channel.group).\(channel.topic)"
