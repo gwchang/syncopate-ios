@@ -33,7 +33,7 @@ class ChannelSection {
     var header: String?
     var channels: [ChannelState]
     
-    init(jsonDict: NSDictionary) {
+    init(jsonDict: NSDictionary, lookup: ChannelLookup) {
         channels = [ChannelState]()
         
         // (1) Parse header
@@ -60,7 +60,7 @@ class PersistencyManager {
     
     // MARK: Instance properties
     var channelSections = [ChannelSection]()
-    var channelLookup = ChannelStateDict()
+    var channelLookup = ChannelLookup()
     
     var clusters = [ClusterState]()
     var channels = ChannelStateDict()
@@ -75,7 +75,7 @@ class PersistencyManager {
     
     func reset() {
         channelSections = [ChannelSection]()
-        channelLookup = ChannelStateDict()
+        channelLookup = ChannelLookup()
         
         clusters = [ClusterState]()
         channels = ChannelStateDict()
@@ -93,7 +93,7 @@ class PersistencyManager {
         
         if let sections = jsonResult["sections"] as? Array<NSDictionary> {
             for sjson in sections {
-                let s = ChannelSection(jsonDict: sjson)
+                let s = ChannelSection(jsonDict: sjson, lookup: channelLookup)
                 channelSections.append(s)
             }
         }

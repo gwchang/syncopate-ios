@@ -74,12 +74,7 @@ class AppManager {
             if let jsonData = NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe, error: nil) {
                 if let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary
                 {
-                    if let sections = jsonResult["sections"] as? Array<NSDictionary> {
-                        for sjson in sections {
-                            let s = ChannelSection(jsonDict: sjson)
-                            println(s.description())
-                        }
-                    }
+                    persistencyManager.setCluster(jsonResult)
                 }
             }
         }
