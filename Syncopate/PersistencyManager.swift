@@ -10,30 +10,14 @@ import Foundation
 
 
 typealias ChannelStateDict = Dictionary<String,ChannelState>
-typealias ChannelLookup = Dictionary<String, ChannelList>
-
-class ChannelList {
-    var list: [ChannelState]
-    
-    init() {
-        list = [ChannelState]()
-    }
-    
-    init(cs: ChannelState) {
-        list = [cs]
-    }
-    
-    func append(cs: ChannelState) {
-        list.append(cs)
-    }
-}
+typealias ChannelLookup = Dictionary<String, Array<ChannelState>>
 
 class ChannelSection {
     
     var header: String?
     var channels: [ChannelState]
     
-    init(jsonDict: NSDictionary, lookup: ChannelLookup) {
+    init(jsonDict: NSDictionary) {
         channels = [ChannelState]()
         
         // (1) Parse header
@@ -93,11 +77,38 @@ class PersistencyManager {
         
         if let sections = jsonResult["sections"] as? Array<NSDictionary> {
             for sjson in sections {
-                let s = ChannelSection(jsonDict: sjson, lookup: channelLookup)
+                let s = ChannelSection(jsonDict: sjson)
                 channelSections.append(s)
+                
+                // Update channel lookup
+                for cs in s.channels {
+                    if var l = channelLookup[cs.key()] {
+                        l.append(cs)
+                    } else {
+                        channelLookup[cs.key()] = [ cs ]
+                    }
+                }
             }
         }
 
+    }
+    
+    func numSections() -> Int {
+        return channelSections.count
+    }
+    
+    func numCellsInSection(section: Int) -> Int {
+        return channelSections[section].channels.count
+    }
+    
+    func getCellInSection(section: Int, index: Int) -> ChannelState? {
+        if section >= 0 && section < channelSections.count {
+            let s = channelSections[section]
+            if index >= 0 && index < s.channels.count {
+                return s.channels[index]
+            }
+        }
+        return nil
     }
     
     func setCluster(name: String, token: String, id: Int, channels: [ChannelState]) {
