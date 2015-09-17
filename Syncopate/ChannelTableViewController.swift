@@ -115,6 +115,12 @@ class ChannelTableViewController: UITableViewController {
 
         var channel = AppManager.sharedInstance.getChannelAtIndex(indexPath.row)!
         
+        styleChannelCell(cell, channel: channel)
+        
+        return cell
+    }
+    
+    func styleChannelCell(cell: ChannelTableViewCell, channel: ChannelState) {
         // Assign text
         // cell.groupLabel.text = channel.group
         // cell.topicLabel.text = "\(channel.group).\(channel.topic)"
@@ -144,8 +150,6 @@ class ChannelTableViewController: UITableViewController {
         // Get rid of inset
         cell.layoutMargins = UIEdgeInsetsZero
         cell.preservesSuperviewLayoutMargins = false
-        
-        return cell
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
