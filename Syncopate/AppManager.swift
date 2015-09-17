@@ -69,6 +69,17 @@ class AppManager {
         // appDelegate.showLoginScreen(false)
     }
     
+    func loadClusterDetailData(path: String) {
+        if let path = NSBundle.mainBundle().pathForResource(path, ofType: "json") {
+            if let jsonData = NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe, error: nil) {
+                if let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary
+                {
+                    
+                }
+            }
+        }
+    }
+    
     func parseClusterDetailData(data: NSData) {
         var error: NSError?
         if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error) {
