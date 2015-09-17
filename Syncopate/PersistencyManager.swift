@@ -69,10 +69,13 @@ class PersistencyManager {
         selectedChannelTopic = ""
     }
     
-    func setCluster(jsonResult: NSDictionary) {
+    func setCluster(jsonResult: NSDictionary) -> (String, [String]) {
+        var seriesUrl = Set<String>()
+
+        let token = jsonResult["token"]! as! String
         selectedCluster = ClusterState(
             name: jsonResult["name"]! as! String,
-            token: jsonResult["token"]! as! String,
+            token: token,
             id: jsonResult["id"]! as! Int)
         
         if let sections = jsonResult["sections"] as? Array<NSDictionary> {
@@ -87,10 +90,11 @@ class PersistencyManager {
                     } else {
                         channelLookup[cs.key()] = [ cs ]
                     }
+                    seriesUrl.insert(cs.url())
                 }
             }
         }
-
+        return (token, Array(seriesUrl))
     }
     
     func numSections() -> Int {
@@ -101,12 +105,20 @@ class PersistencyManager {
         return channelSections[section].channels.count
     }
     
-    func getCellInSection(section: Int, index: Int) -> ChannelState? {
+    func getCellInSectionAtIndex(section: Int, index: Int) -> ChannelState? {
         if section >= 0 && section < channelSections.count {
             let s = channelSections[section]
             if index >= 0 && index < s.channels.count {
                 return s.channels[index]
             }
+        }
+        return nil
+    }
+    
+    func getHeaderInSection(section: Int) -> String? {
+        if section >= 0 && section < channelSections.count {
+            let s = channelSections[section]
+            return s.header
         }
         return nil
     }
@@ -136,6 +148,16 @@ class PersistencyManager {
             c.setValue(value)
         } else {
             println("ERROR: PersistencyManager unable to find \(key) in channel dictionary.")
+        }
+    }
+    
+    func updateChannelWithKey(key: String, value: String) {
+        if let cl = self.channelLookup[key] {
+            for c in cl {
+                c.setValue(value)
+            }
+        } else {
+            println("ERROR: PersistencyManager unable to find \(key) in channel lookup.")
         }
     }
 

@@ -102,29 +102,44 @@ class ChannelTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return AppManager.sharedInstance.numSections()
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AppManager.sharedInstance.getChannelsCount()
+        return AppManager.sharedInstance.numCellsInSection(section)
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "ChannelTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ChannelTableViewCell
 
-        var channel = AppManager.sharedInstance.getChannelAtIndex(indexPath.row)!
+        var channel = AppManager.sharedInstance.getChannelInSectionAtIndex(
+            indexPath.section,
+            index: indexPath.row)!
         
         initChannelCell(cell, channel: channel)
         
         return cell
     }
     
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCellWithIdentifier("HeaderTableViewCell") as! HeaderTableViewCell
+        
+        if let header = AppManager.sharedInstance.getHeaderInSection(section) {
+            cell.headerLabel.text = header
+            cell.headerLabel.textColor = SyncopateStyle.mainTextColor
+            cell.backgroundColor = SyncopateStyle.mainSeparatorColor
+            return cell
+        }
+        
+        return nil
+    }
+    
     func initChannelCell(cell: ChannelTableViewCell, channel: ChannelState) {
         // Assign text
         // cell.groupLabel.text = channel.group
         // cell.topicLabel.text = "\(channel.group).\(channel.topic)"
-        cell.topicLabel.text = channel.topic
+        cell.topicLabel.text = channel.label
         cell.valueLabel.text = channel.value
         
         // Set color and font size
