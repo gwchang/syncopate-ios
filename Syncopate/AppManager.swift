@@ -72,28 +72,34 @@ class AppManager {
     func loadClusterDetailData(path: String) {
         if let path = NSBundle.mainBundle().pathForResource(path, ofType: "json") {
             if let jsonData = NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe, error: nil) {
-                if let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary
-                {
-                    let (token, seriesUrl) = persistencyManager.setCluster(jsonResult)
-                    if seriesUrl.count > 0 {
-                        ws.connectWithTokenAndSeries(token, series: seriesUrl, onMessageCallback: {(data: NSDictionary) in
-                            if !self.isLoggedIn() {
-                                return
-                            }
-                            if let series = data["Series"] as? [Dictionary<String,AnyObject>] {
-                                for s in series {
-                                    self.persistencyManager.updateChannelWithKey(
-                                        s["k"]! as! String,
-                                        value: s["v"]! as! String)
-                                }
-                                // println(series)
-                                if series.count > 0 {
-                                    self.onSocketCallback?(true)
-                                }
-                            }
-                        })
+                parseClusterDetailData2(jsonData)
+            }
+        }
+    }
+    
+    func parseClusterDetailData2(data: NSData) {
+        if let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(
+            data,
+            options: NSJSONReadingOptions.MutableContainers,
+            error: nil) as? NSDictionary {
+            let (token, seriesUrl) = persistencyManager.setCluster(jsonResult)
+            if seriesUrl.count > 0 {
+                ws.connectWithTokenAndSeries(token, series: seriesUrl, onMessageCallback: {(data: NSDictionary) in
+                    if !self.isLoggedIn() {
+                        return
                     }
-                }
+                    if let series = data["Series"] as? [Dictionary<String,AnyObject>] {
+                        for s in series {
+                            self.persistencyManager.updateChannelWithKey(
+                                s["k"]! as! String,
+                                value: s["v"]! as! String)
+                        }
+                        // println(series)
+                        if series.count > 0 {
+                            self.onSocketCallback?(true)
+                        }
+                    }
+                })
             }
         }
     }
