@@ -29,7 +29,7 @@
         {
           "type": "kv_row",
           "label": "Threads",
-          "key": "top.proc_threads"
+          "key": "top.num_threads"
         }
       ]
     },
