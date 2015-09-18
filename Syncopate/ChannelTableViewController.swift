@@ -126,13 +126,18 @@ class ChannelTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("HeaderTableViewCell") as! HeaderTableViewCell
         
         if let header = AppManager.sharedInstance.getHeaderInSection(section) {
-            cell.headerLabel.text = header
-            cell.headerLabel.textColor = SyncopateStyle.mainTextColor
-            cell.backgroundColor = SyncopateStyle.mainSeparatorColor
+            initHeaderCell(cell, header: header)
             return cell
         }
         
         return nil
+    }
+    
+    func initHeaderCell(cell: HeaderTableViewCell, header: String) {
+        cell.headerLabel.text = header
+        cell.headerLabel.textColor = SyncopateStyle.mainTextColor
+        cell.headerLabel.font = cell.headerLabel.font.fontWithSize(SyncopateStyle.mainHeaderFontSize)
+        cell.backgroundColor = SyncopateStyle.mainSeparatorColor
     }
     
     func initChannelCell(cell: ChannelTableViewCell, channel: ChannelState) {
@@ -169,6 +174,10 @@ class ChannelTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return SyncopateStyle.mainRowHeight
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: NSInteger) -> CGFloat {
+        return SyncopateStyle.mainHeaderHeight
     }
 
     /*

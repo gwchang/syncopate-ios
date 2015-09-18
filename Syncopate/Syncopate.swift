@@ -60,7 +60,9 @@ struct SyncopateStyle {
     static let mainValueFontSize: CGFloat = 20
     static let mainGroupFontSize: CGFloat = 15
     static let mainTopicFontSize: CGFloat = 15
+    static let mainHeaderFontSize: CGFloat = 15
     static let mainRowHeight: CGFloat = 30
+    static let mainHeaderHeight: CGFloat = 20
 }
 
 struct SyncopateConfig {
