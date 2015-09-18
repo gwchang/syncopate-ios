@@ -47,8 +47,8 @@ class PersistencyManager {
     var channelLookup = ChannelLookup()
     
     var clusters = [ClusterState]()
-    var channels = ChannelStateDict()
-    var channelsOrder = [String]()
+    // var channels = ChannelStateDict()
+    // var channelsOrder = [String]()
     var selectedCluster: ClusterState?
     var selectedChannelGroup: String = ""
     var selectedChannelTopic: String = ""
@@ -62,8 +62,8 @@ class PersistencyManager {
         channelLookup = ChannelLookup()
         
         clusters = [ClusterState]()
-        channels = ChannelStateDict()
-        channelsOrder = [String]()
+        // channels = ChannelStateDict()
+        // channelsOrder = [String]()
         selectedCluster = nil
         selectedChannelGroup = ""
         selectedChannelTopic = ""
@@ -123,6 +123,7 @@ class PersistencyManager {
         return nil
     }
     
+    /*
     func setCluster(name: String, token: String, id: Int, channels: [ChannelState]) {
         selectedCluster = ClusterState(name: name, token: token, id: id)
         self.channels = ChannelStateDict()
@@ -150,6 +151,7 @@ class PersistencyManager {
             println("ERROR: PersistencyManager unable to find \(key) in channel dictionary.")
         }
     }
+    */
     
     func updateChannelWithKey(key: String, value: String) {
         if let cl = self.channelLookup[key] {

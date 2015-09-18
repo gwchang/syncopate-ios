@@ -216,7 +216,7 @@ class ChannelTableViewController: UITableViewController {
             if let navController = segue.destinationViewController as? UINavigationController {
                 if var vc = navController.topViewController as? TopicViewController {
                     if let indexPath = self.tableView.indexPathForSelectedRow() {
-                        let c = AppManager.sharedInstance.getChannelAtIndex(indexPath.row)!
+                        let c = AppManager.sharedInstance.getChannelInSectionAtIndex(indexPath.section, index: indexPath.row)!
                         AppManager.sharedInstance.setSelectedChannel(c.group, topic: c.topic)
                     }
                 }

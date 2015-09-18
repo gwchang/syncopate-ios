@@ -106,7 +106,7 @@ class AppManager {
     
     func parseClusterDetailData(data: NSData) {
         loadClusterDetailData("cluster-detail-example")
-        return
+        /*
         var error: NSError?
         if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error) {
             if let dict = json as? NSDictionary {
@@ -128,6 +128,7 @@ class AppManager {
                 }
             }
         }
+        */
     }
     
     func refreshClusterDetail(callback: HttpStatusCallback) {
@@ -214,7 +215,8 @@ class AppManager {
     func getClusters() -> [ClusterState] {
         return persistencyManager.clusters
     }
-        
+    
+    /*
     func getChannelAtIndex(index: Int) -> ChannelState? {
         return persistencyManager.getChannelAtIndex(index)
     }
@@ -222,12 +224,14 @@ class AppManager {
     func getChannelsCount() -> Int {
         return persistencyManager.channelsOrder.count
     }
+    */
     
     // Selected cluster
     func getSelectedCluster() -> String {
         return persistencyManager.selectedCluster!.name
     }
     
+    /*
     func setSelectedCluster(name: String, token: String, id: Int, channels: [ChannelState]) {
         println("setSelectedCluster")
         persistencyManager.setCluster(name, token: token, id: id, channels: channels)
@@ -255,6 +259,7 @@ class AppManager {
             })
         }
     }
+    */
     
     // Selected channel
     func getSelectedChannelName() -> String {
