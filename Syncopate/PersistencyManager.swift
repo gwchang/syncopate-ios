@@ -159,7 +159,7 @@ class PersistencyManager {
                 c.setValue(value)
             }
         } else {
-            println("ERROR: PersistencyManager unable to find \(key) in channel lookup.")
+            print("ERROR: PersistencyManager unable to find \(key) in channel lookup.")
         }
     }
 

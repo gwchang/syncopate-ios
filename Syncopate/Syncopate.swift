@@ -16,13 +16,13 @@ func colorWithHexString(hex:String) -> UIColor {
         cString = (cString as NSString).substringFromIndex(1)
     }
     
-    if (count(cString) != 6) {
+    if (cString.characters.count != 6) {
         return UIColor.grayColor()
     }
     
-    var rString = (cString as NSString).substringToIndex(2)
-    var gString = ((cString as NSString).substringFromIndex(2) as NSString).substringToIndex(2)
-    var bString = ((cString as NSString).substringFromIndex(4) as NSString).substringToIndex(2)
+    let rString = (cString as NSString).substringToIndex(2)
+    let gString = ((cString as NSString).substringFromIndex(2) as NSString).substringToIndex(2)
+    let bString = ((cString as NSString).substringFromIndex(4) as NSString).substringToIndex(2)
     
     var r:CUnsignedInt = 0, g:CUnsignedInt = 0, b:CUnsignedInt = 0;
     NSScanner(string: rString).scanHexInt(&r)

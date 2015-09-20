@@ -71,17 +71,16 @@ class AppManager {
     
     func loadClusterDetailData(path: String) {
         if let path = NSBundle.mainBundle().pathForResource(path, ofType: "json") {
-            if let jsonData = NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe, error: nil) {
+            if let jsonData = try? NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe) {
                 parseClusterDetailData2(jsonData)
             }
         }
     }
     
     func parseClusterDetailData2(data: NSData) {
-        if let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(
+        if let jsonResult: NSDictionary = (try? NSJSONSerialization.JSONObjectWithData(
             data,
-            options: NSJSONReadingOptions.MutableContainers,
-            error: nil) as? NSDictionary {
+            options: NSJSONReadingOptions.MutableContainers)) as? NSDictionary {
             let (token, seriesUrl) = persistencyManager.setCluster(jsonResult)
             if seriesUrl.count > 0 {
                 ws.connectWithTokenAndSeries(token, series: seriesUrl, onMessageCallback: {(data: NSDictionary) in
@@ -171,7 +170,8 @@ class AppManager {
     func parseClusterListData(data: NSData) {
         persistencyManager.clusters = [ClusterState]()
         var error: NSError?
-        if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error) {
+        do {
+            let json: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: [])
             if let array = json as? NSArray {
                 // println(array)
                 for elem in array {
@@ -187,6 +187,8 @@ class AppManager {
                     }
                 }
             }
+        } catch let error1 as NSError {
+            error = error1
         }
     }
     

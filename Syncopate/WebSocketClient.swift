@@ -43,17 +43,17 @@ class WebSocketClient: WebSocketDelegate {
         self.socket?.connect();
         self.onMessageCallback = onMessageCallback
         
-        println("Connecting to websocket: \(self.host)")
+        print("Connecting to websocket: \(self.host)")
         // }
     }
     
     func connectWithTokenAndSeries(token: String, series: [String], onMessageCallback: WebSocketOnMessageCallback) {
         if series.count > 0 {
-            let seriesJoin = "&".join(series)
+            let seriesJoin = series.joinWithSeparator("&")
             let path = "/ws?token=\(token)&\(seriesJoin)"
             connect(path, onMessageCallback: onMessageCallback)
         } else {
-            println("Websocket url has not series requested.")
+            print("Websocket url has not series requested.")
         }
     }
     
@@ -61,22 +61,22 @@ class WebSocketClient: WebSocketDelegate {
         self.received = 0
         if let s = self.socket {
             s.disconnect()
-            println("Disconnecting to websocket: \(self.host)")
+            print("Disconnecting to websocket: \(self.host)")
             self.socket = nil
         }
     }
     
     // MARK: Websocket delegate methods
     func websocketDidConnect(ws: WebSocket) {
-        println("Websocket is connected: \(self.host)")
+        print("Websocket is connected: \(self.host)")
         isConnected = true
     }
     
     func websocketDidDisconnect(ws: WebSocket, error: NSError?) {
         if let e = error {
-            println("Websocket is disconnected: \(e.localizedDescription)")
+            print("Websocket is disconnected: \(e.localizedDescription)")
         } else {
-            println("Websocket disconnected: \(self.host)")
+            print("Websocket disconnected: \(self.host)")
         }
         isConnected = false
     }
@@ -86,22 +86,21 @@ class WebSocketClient: WebSocketDelegate {
         // println(self.received)
         
         if let data = text.dataUsingEncoding(NSUTF8StringEncoding) {
-            var error: NSError?;
-            let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data,
-                options:NSJSONReadingOptions.allZeros,
-                error: &error) as? NSDictionary;
+            do {
+                let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data,
+                    options:NSJSONReadingOptions()) as! NSDictionary;
             
-            if (jsonResult != nil) {
+            // if (jsonResult != nil) {
                 self.onMessageCallback?(data: jsonResult)
-            } else {
-                println("ERROR: Unable to parse text: \(text)");
+            } catch {
+                print("ERROR: Unable to parse text: \(text)");
             }
         }
         isConnected = true
     }
     
     func websocketDidReceiveData(ws: WebSocket, data: NSData) {
-        println("Received data: \(data.length)")
+        print("Received data: \(data.length)")
         isConnected = true
     }
 

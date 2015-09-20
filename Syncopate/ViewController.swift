@@ -34,10 +34,10 @@ class ViewController: UIViewController, WebSocketDelegate {
     
     func showSnapshot(key: String, value: String) {
         if self.viewSnapshots[key] == nil {
-            var valueHeight : CGFloat = 100;
-            var keyHeight : CGFloat = 15;
+            let valueHeight : CGFloat = 100;
+            let keyHeight : CGFloat = 15;
         
-            var valueLabel = UILabel(frame: CGRectMake(0, 0, 200, valueHeight));
+            let valueLabel = UILabel(frame: CGRectMake(0, 0, 200, valueHeight));
             valueLabel.center = CGPointMake(160, self.yStart);
             valueLabel.textAlignment = NSTextAlignment.Center
             valueLabel.text = value;
@@ -45,7 +45,7 @@ class ViewController: UIViewController, WebSocketDelegate {
             valueLabel.font = valueLabel.font.fontWithSize(valueHeight);
             self.view.addSubview(valueLabel);
         
-            var keyLabel = UILabel(frame: CGRectMake(0, 0, 200, keyHeight));
+            let keyLabel = UILabel(frame: CGRectMake(0, 0, 200, keyHeight));
             keyLabel.center = CGPointMake(160, self.yStart + valueHeight / 2 + 5);
             keyLabel.textAlignment = NSTextAlignment.Center
             keyLabel.text = key;
@@ -55,7 +55,7 @@ class ViewController: UIViewController, WebSocketDelegate {
             self.viewSnapshots[key] = valueLabel;
             self.yStart += valueHeight + keyHeight + 10;
         } else {
-            var valueLabel = self.viewSnapshots[key]!;
+            let valueLabel = self.viewSnapshots[key]!;
             valueLabel.text = value;
             valueLabel.setNeedsDisplay();
         }
@@ -122,7 +122,7 @@ class ViewController: UIViewController, WebSocketDelegate {
     func handleIntervalTimer(timer: NSTimer) {
         updateCount(++self.counter);
         
-        println("Timer: " + String(self.counter));
+        print("Timer: " + String(self.counter));
         getData();
         updateViews();
     }
@@ -160,7 +160,7 @@ class ViewController: UIViewController, WebSocketDelegate {
                     // println(last);
                     if let updateTimestamp : AnyObject = last["LastUpdate"] {
                         if let snapshot = last["Snapshot"] as? NSDictionary {
-                            println(snapshot);
+                            print(snapshot);
                             for (k,v) in snapshot {
                                 self.lastTimestamp = "\(updateTimestamp)";
                                 self.lastSnapshots["\(k)"] = "\(v)";
@@ -178,21 +178,21 @@ class ViewController: UIViewController, WebSocketDelegate {
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
         
-        println(request.URL!);
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+        print(request.URL!);
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
             if error != nil {
-                println("ERROR: " + request.URL!.absoluteString!);
-                println(error.description);
+                print("ERROR: " + request.URL!.absoluteString);
+                print(error.description);
             } else {
                 var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
                 
-                let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+                let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers) as? NSDictionary
                 
                 if (jsonResult != nil) {
                     self.parseData(jsonResult);
                 } else {
-                    println("ERROR: Unable to parse json " +
-                        request.URL!.absoluteString!);
+                    print("ERROR: Unable to parse json " +
+                        request.URL!.absoluteString);
                 }
             }
         })
@@ -206,7 +206,7 @@ class ViewController: UIViewController, WebSocketDelegate {
         socket.connect();
         self.socket = socket;
         
-        println("Connecting to websocket: \(self.sourceHostTextField.text)\(self.sourcePathTextField.text)")
+        print("Connecting to websocket: \(self.sourceHostTextField.text)\(self.sourcePathTextField.text)")
     }
     
     ///////////////////////////////////////////////////////////////////
@@ -214,14 +214,14 @@ class ViewController: UIViewController, WebSocketDelegate {
     ///////////////////////////////////////////////////////////////////
     
     func websocketDidConnect(ws: WebSocket) {
-        println("Websocket is connected: \(self.sourceHostTextField.text)\(self.sourcePathTextField.text)")
+        print("Websocket is connected: \(self.sourceHostTextField.text)\(self.sourcePathTextField.text)")
     }
     
     func websocketDidDisconnect(ws: WebSocket, error: NSError?) {
         if let e = error {
-            println("Websocket is disconnected: \(e.localizedDescription)")
+            print("Websocket is disconnected: \(e.localizedDescription)")
         } else {
-            println("Websocket disconnected: \(self.sourceHostTextField.text)\(self.sourcePathTextField.text)")
+            print("Websocket disconnected: \(self.sourceHostTextField.text)\(self.sourcePathTextField.text)")
         }
     }
     
@@ -233,20 +233,19 @@ class ViewController: UIViewController, WebSocketDelegate {
             // println("\(data)");
             var error: NSError?;
             let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data,
-                options:NSJSONReadingOptions.allZeros,
-                error: &error) as? NSDictionary;
+                options:NSJSONReadingOptions()) as? NSDictionary;
         
             if (jsonResult != nil) {
                 self.parseData(jsonResult);
             } else {
-                println("ERROR: Unable to parse text: \(text)");
+                print("ERROR: Unable to parse text: \(text)");
             }
         }
         updateViews();
     }
     
     func websocketDidReceiveData(ws: WebSocket, data: NSData) {
-        println("Received data: \(data.length)")
+        print("Received data: \(data.length)")
     }
 
 }

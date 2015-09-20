@@ -47,7 +47,7 @@ class ClusterTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selected cell number: \(indexPath.row)!")
+        print("You selected cell number: \(indexPath.row)!")
         // AppManager.sharedInstance.setSelectedCluster(clusters[indexPath.row].name)
         // performSegueWithIdentifier("showChannelTableView", sender: self)
         AppManager.sharedInstance.updateClusterDetail(clusters[indexPath.row].id, callback: showCallback)
@@ -60,7 +60,7 @@ class ClusterTableViewController: UITableViewController {
                 self.performSegueWithIdentifier("showChannelTableView", sender: self)
             }
         } else {
-            println("updateClusterDetail failed")
+            print("updateClusterDetail failed")
             if HttpClient.isAccessDeniedCode(status) {
                 AppManager.sharedInstance.logout()
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -80,7 +80,7 @@ class ClusterTableViewController: UITableViewController {
         cell.contentView.backgroundColor = SyncopateStyle.menuBackgroundColor
         
         // Selection colors
-        var bgColorView = UIView()
+        let bgColorView = UIView()
         bgColorView.backgroundColor = SyncopateStyle.menuSelectedColor
         cell.selectedBackgroundView = bgColorView
         

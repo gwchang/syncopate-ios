@@ -32,7 +32,6 @@
 		D47C90171BAB2B3D00212774 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47C90161BAB2B3D00212774 /* HeaderTableViewCell.swift */; };
 		D47C90191BAB34B500212774 /* cluster-detail-example.json in Resources */ = {isa = PBXBuildFile; fileRef = D47C90181BAB34B500212774 /* cluster-detail-example.json */; };
 		D49A2B0A1B71991300127617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A2B091B71991300127617 /* AppDelegate.swift */; };
-		D49A2B0C1B71991300127617 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A2B0B1B71991300127617 /* ViewController.swift */; };
 		D49A2B0F1B71991300127617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49A2B0D1B71991300127617 /* Main.storyboard */; };
 		D49A2B111B71991300127617 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D49A2B101B71991300127617 /* Images.xcassets */; };
 		D49A2B141B71991300127617 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49A2B121B71991300127617 /* LaunchScreen.xib */; };
@@ -100,7 +99,6 @@
 		D49A2B041B71991300127617 /* Syncopate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Syncopate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49A2B081B71991300127617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49A2B091B71991300127617 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D49A2B0B1B71991300127617 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D49A2B0E1B71991300127617 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D49A2B101B71991300127617 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D49A2B131B71991300127617 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 			children = (
 				D47C90181BAB34B500212774 /* cluster-detail-example.json */,
 				D49A2B091B71991300127617 /* AppDelegate.swift */,
-				D49A2B0B1B71991300127617 /* ViewController.swift */,
 				D47C8FE11B9A253800212774 /* WebSocketClient.swift */,
 				D47C90131BA620EF00212774 /* HttpClient.swift */,
 				D47C8FE41B9A2AFA00212774 /* ClusterState.swift */,
@@ -266,6 +263,8 @@
 		D49A2AFC1B71991300127617 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Gary Chang";
 				TargetAttributes = {
@@ -369,7 +368,6 @@
 				D47C8FD91B99139F00212774 /* ChannelState.swift in Sources */,
 				D47C900A1B9CC6F500212774 /* TopicViewController.swift in Sources */,
 				D47C90051B9B8F6300212774 /* ClusterTableViewCell.swift in Sources */,
-				D49A2B0C1B71991300127617 /* ViewController.swift in Sources */,
 				D47C90141BA620EF00212774 /* HttpClient.swift in Sources */,
 				D47C8FD11B9903C400212774 /* ChannelTableViewCell.swift in Sources */,
 				D47C90031B9B51EF00212774 /* SWRevealViewController.m in Sources */,

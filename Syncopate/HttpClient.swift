@@ -23,7 +23,7 @@ class HttpClient {
         // Create login string
         let loginString = NSString(format: "%@:%@", username, password)
         let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
-        let base64LoginString = loginData.base64EncodedStringWithOptions(nil)
+        let base64LoginString = loginData.base64EncodedStringWithOptions([])
         
         // Create request
         let url = NSURL(string: "http://\(host)\(urlpath)")

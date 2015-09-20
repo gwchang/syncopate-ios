@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
         usernameTextField.text = "admin"
         passwordTextField.text = "123"
         if (usernameTextField.text == "" || passwordTextField.text == "") {
-            var alert = UIAlertView()
+            let alert = UIAlertView()
             alert.title = "Please enter both a username and password!"
             alert.addButtonWithTitle("OK")
             alert.show()
@@ -62,9 +62,9 @@ class LoginViewController: UIViewController {
         usernameTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
         
-        println("Logging in with \(usernameTextField.text):\(passwordTextField.text)")
-        AppManager.sharedInstance.login(usernameTextField.text,
-            password: passwordTextField.text,
+        print("Logging in with \(usernameTextField.text):\(passwordTextField.text)")
+        AppManager.sharedInstance.login(usernameTextField.text!,
+            password: passwordTextField.text!,
             callback: loginCallback)
     }
     
@@ -85,7 +85,7 @@ class LoginViewController: UIViewController {
             // self.dismissViewControllerAnimated(true, completion: nil)
             performSegueWithIdentifier("showMainView", sender: self)
         } else {
-            var alert = UIAlertView()
+            let alert = UIAlertView()
             alert.title = "Login Failed"
             alert.message = "Wrong username or password."
             alert.addButtonWithTitle("Retry")

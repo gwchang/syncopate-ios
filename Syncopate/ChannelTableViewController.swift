@@ -26,10 +26,11 @@ class ChannelTableViewController: UITableViewController {
         
         // Initialize navigation bar
         self.navigationItem.title = AppManager.sharedInstance.getSelectedCluster()
-        var navBar = self.navigationController?.navigationBar
+        let navBar = self.navigationController?.navigationBar
         navBar?.barTintColor = SyncopateStyle.mainNavColor
-        let titleProp: NSDictionary = [NSForegroundColorAttributeName: SyncopateStyle.mainTextColor]
-        navBar?.titleTextAttributes = titleProp as [NSObject: AnyObject]
+        // let titleProp: NSDictionary = [NSForegroundColorAttributeName: SyncopateStyle.mainTextColor]
+        // navBar?.titleTextAttributes = titleProp as [NSObject: AnyObject]
+        navBar?.titleTextAttributes = [NSForegroundColorAttributeName: SyncopateStyle.mainTextColor]
         navBar?.tintColor = SyncopateStyle.mainTextColor
 
         // Initialize navigation menu button
@@ -52,16 +53,16 @@ class ChannelTableViewController: UITableViewController {
     }
     
     @IBAction func logoutAction(sender: UIBarButtonItem) {
-        var logoutAlert = UIAlertController(title: "Logout", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.Alert)
+        let logoutAlert = UIAlertController(title: "Logout", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.Alert)
         
-        logoutAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-            println("Handle Ok logic here")
+        logoutAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction) in
+            print("Handle Ok logic here")
             AppManager.sharedInstance.logout()
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.showLoginScreen(false)
         }))
         
-        logoutAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+        logoutAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction) in
             // println("Handle Cancel Logic here")
             // Do nothing
         }))
@@ -74,7 +75,7 @@ class ChannelTableViewController: UITableViewController {
         // Fetch more objects from a web service, for example...
         
         // Simply adding an object to the data source for this example
-        println("handleRefresh")
+        print("handleRefresh")
         AppManager.sharedInstance.refreshClusterDetail({(success: Bool, status: Int?) -> Void in
             if success {
                 dispatch_async(dispatch_get_main_queue()) {
@@ -82,7 +83,7 @@ class ChannelTableViewController: UITableViewController {
                     //       list with blank values
                     // self.tableView.reloadData()
                     self.refreshControl?.endRefreshing()
-                    println("refreshed")
+                    print("refreshed")
                 }
             } else {
                 if HttpClient.isAccessDeniedCode(status) {
@@ -113,7 +114,7 @@ class ChannelTableViewController: UITableViewController {
         let cellIdentifier = "ChannelTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ChannelTableViewCell
 
-        var channel = AppManager.sharedInstance.getChannelInSectionAtIndex(
+        let channel = AppManager.sharedInstance.getChannelInSectionAtIndex(
             indexPath.section,
             index: indexPath.row)!
         
@@ -162,7 +163,7 @@ class ChannelTableViewController: UITableViewController {
         
         // Selection colors
         cell.selectionStyle = UITableViewCellSelectionStyle.Default
-        var bgColorView = UIView()
+        let bgColorView = UIView()
         bgColorView.backgroundColor = SyncopateStyle.mainSelectedColor
         cell.selectedBackgroundView = bgColorView
         cell.backgroundColor = SyncopateStyle.mainBackgroundColor
@@ -224,7 +225,7 @@ class ChannelTableViewController: UITableViewController {
         if segue.identifier == "showTopicView" {
             if let navController = segue.destinationViewController as? UINavigationController {
                 if var vc = navController.topViewController as? TopicViewController {
-                    if let indexPath = self.tableView.indexPathForSelectedRow() {
+                    if let indexPath = self.tableView.indexPathForSelectedRow {
                         let c = AppManager.sharedInstance.getChannelInSectionAtIndex(indexPath.section, index: indexPath.row)!
                         AppManager.sharedInstance.setSelectedChannel(c.group, topic: c.topic)
                     }
