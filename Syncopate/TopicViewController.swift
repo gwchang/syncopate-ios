@@ -16,6 +16,7 @@ class TopicViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.view.backgroundColor = SyncopateStyle.topicBackgroundColor
         self.navigationItem.title = AppManager.sharedInstance.getSelectedChannelName()
+        // self.navigationItem.hidesBackButton = false
     }
 
     override func didReceiveMemoryWarning() {
