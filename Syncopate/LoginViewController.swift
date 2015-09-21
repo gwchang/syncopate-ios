@@ -19,9 +19,9 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.welcomeLabel.textColor = SyncopateStyle.menuTextColor
-        self.view.backgroundColor = SyncopateStyle.menuBackgroundColor
-        self.loginView.backgroundColor = SyncopateStyle.menuBackgroundColor
+        self.welcomeLabel.textColor = AppStyle.menuTextColor
+        self.view.backgroundColor = AppStyle.menuBackgroundColor
+        self.loginView.backgroundColor = AppStyle.menuBackgroundColor
         
         if let previousUsername = NSUserDefaults.standardUserDefaults().stringForKey("username") {
             usernameTextField.placeholder = previousUsername
@@ -42,8 +42,8 @@ class LoginViewController: UIViewController {
         loginButton.backgroundColor = UIColor.clearColor();
         loginButton.layer.cornerRadius = 5
         loginButton.layer.borderWidth = 1
-        loginButton.layer.borderColor = SyncopateStyle.menuTextColor.CGColor
-        loginButton.setTitleColor(SyncopateStyle.menuTextColor, forState: .Normal);
+        loginButton.layer.borderColor = AppStyle.menuTextColor.CGColor
+        loginButton.setTitleColor(AppStyle.menuTextColor, forState: .Normal);
     }
     
     @IBAction func loginAction(sender: AnyObject) {

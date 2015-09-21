@@ -19,19 +19,19 @@ class ChannelTableViewController: UITableViewController {
         // self.tableView.dataSource = self
 
         // Initialize background and separator color
-        self.tableView.backgroundColor = SyncopateStyle.mainBackgroundColor
-        self.tableView.separatorColor = SyncopateStyle.mainSeparatorColor
+        self.tableView.backgroundColor = AppStyle.mainBackgroundColor
+        self.tableView.separatorColor = AppStyle.mainSeparatorColor
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         self.tableView.separatorInset = UIEdgeInsetsZero
         
         // Initialize navigation bar
         self.navigationItem.title = AppManager.sharedInstance.getSelectedCluster()
         let navBar = self.navigationController?.navigationBar
-        navBar?.barTintColor = SyncopateStyle.mainNavColor
-        // let titleProp: NSDictionary = [NSForegroundColorAttributeName: SyncopateStyle.mainTextColor]
+        navBar?.barTintColor = AppStyle.mainNavColor
+        // let titleProp: NSDictionary = [NSForegroundColorAttributeName: AppStyle.mainTextColor]
         // navBar?.titleTextAttributes = titleProp as [NSObject: AnyObject]
-        navBar?.titleTextAttributes = [NSForegroundColorAttributeName: SyncopateStyle.mainTextColor]
-        navBar?.tintColor = SyncopateStyle.mainTextColor
+        navBar?.titleTextAttributes = [NSForegroundColorAttributeName: AppStyle.mainTextColor]
+        navBar?.tintColor = AppStyle.mainTextColor
 
         // Initialize navigation menu button
         if self.revealViewController() != nil {
@@ -136,9 +136,9 @@ class ChannelTableViewController: UITableViewController {
     
     func initHeaderCell(cell: HeaderTableViewCell, header: String) {
         cell.headerLabel.text = header
-        cell.headerLabel.textColor = SyncopateStyle.mainTextColor
-        cell.headerLabel.font = cell.headerLabel.font.fontWithSize(SyncopateStyle.mainHeaderFontSize)
-        cell.backgroundColor = SyncopateStyle.mainSeparatorColor
+        cell.headerLabel.textColor = AppStyle.mainTextColor
+        cell.headerLabel.font = cell.headerLabel.font.fontWithSize(AppStyle.mainHeaderFontSize)
+        cell.backgroundColor = AppStyle.mainSeparatorColor
     }
     
     func initChannelCell(cell: ChannelTableViewCell, channel: ChannelState) {
@@ -149,24 +149,24 @@ class ChannelTableViewController: UITableViewController {
         cell.valueLabel.text = channel.value
         
         // Set color and font size
-        cell.contentView.backgroundColor = SyncopateStyle.mainBackgroundColor
-        // cell.groupLabel.textColor = SyncopateStyle.mainTextColor
-        // cell.groupLabel.font = cell.groupLabel.font.fontWithSize(SyncopateStyle.mainGroupFontSize)
+        cell.contentView.backgroundColor = AppStyle.mainBackgroundColor
+        // cell.groupLabel.textColor = AppStyle.mainTextColor
+        // cell.groupLabel.font = cell.groupLabel.font.fontWithSize(AppStyle.mainGroupFontSize)
         
-        cell.topicLabel.textColor = SyncopateStyle.mainHighlightColor
-        cell.topicLabel.font = cell.topicLabel.font.fontWithSize(SyncopateStyle.mainTopicFontSize)
+        cell.topicLabel.textColor = AppStyle.mainHighlightColor
+        cell.topicLabel.font = cell.topicLabel.font.fontWithSize(AppStyle.mainTopicFontSize)
         
-        cell.valueLabel.textColor = SyncopateStyle.mainTextColor
-        cell.valueLabel.font = cell.valueLabel.font.fontWithSize(SyncopateStyle.mainValueFontSize)
+        cell.valueLabel.textColor = AppStyle.mainTextColor
+        cell.valueLabel.font = cell.valueLabel.font.fontWithSize(AppStyle.mainValueFontSize)
         channel.setValueLabel(cell.valueLabel)
         // println("\(indexPath.row): \(channel.description())")
         
         // Selection colors
         cell.selectionStyle = UITableViewCellSelectionStyle.Default
         let bgColorView = UIView()
-        bgColorView.backgroundColor = SyncopateStyle.mainSelectedColor
+        bgColorView.backgroundColor = AppStyle.mainSelectedColor
         cell.selectedBackgroundView = bgColorView
-        cell.backgroundColor = SyncopateStyle.mainBackgroundColor
+        cell.backgroundColor = AppStyle.mainBackgroundColor
         
         // Get rid of inset
         cell.layoutMargins = UIEdgeInsetsZero
@@ -174,11 +174,11 @@ class ChannelTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return SyncopateStyle.mainRowHeight
+        return AppStyle.mainRowHeight
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: NSInteger) -> CGFloat {
-        return SyncopateStyle.mainHeaderHeight
+        return AppStyle.mainHeaderHeight
     }
 
     /*

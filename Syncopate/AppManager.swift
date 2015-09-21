@@ -32,8 +32,8 @@ class AppManager {
     
     init() {
         persistencyManager = PersistencyManager()
-        http = HttpClient(host: SyncopateConfig.httpHost)
-        ws = WebSocketClient(host: SyncopateConfig.wsHost)
+        http = HttpClient(host: AppConfig.httpHost)
+        ws = WebSocketClient(host: AppConfig.wsHost)
         loggedIn = false
         username = ""
         password = ""

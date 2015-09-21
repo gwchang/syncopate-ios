@@ -14,7 +14,7 @@ class TopicViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = SyncopateStyle.topicBackgroundColor
+        self.view.backgroundColor = AppStyle.topicBackgroundColor
         self.navigationItem.title = AppManager.sharedInstance.getSelectedChannelName()
         // self.navigationItem.hidesBackButton = false
     }

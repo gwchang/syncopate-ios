@@ -19,8 +19,8 @@ class ClusterTableViewController: UITableViewController {
         clusters = AppManager.sharedInstance.getClusters()
         
         // Initialize background and separator color
-        self.tableView.backgroundColor = SyncopateStyle.menuBackgroundColor
-        self.tableView.separatorColor = SyncopateStyle.menuSeparatorColor
+        self.tableView.backgroundColor = AppStyle.menuBackgroundColor
+        self.tableView.separatorColor = AppStyle.menuSeparatorColor
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.tableView.separatorInset = UIEdgeInsetsZero
         
@@ -76,12 +76,12 @@ class ClusterTableViewController: UITableViewController {
         let cluster = clusters[indexPath.row]
         
         cell.nameLabel.text = cluster.name
-        cell.nameLabel.textColor = SyncopateStyle.menuTextColor
-        cell.contentView.backgroundColor = SyncopateStyle.menuBackgroundColor
+        cell.nameLabel.textColor = AppStyle.menuTextColor
+        cell.contentView.backgroundColor = AppStyle.menuBackgroundColor
         
         // Selection colors
         let bgColorView = UIView()
-        bgColorView.backgroundColor = SyncopateStyle.menuSelectedColor
+        bgColorView.backgroundColor = AppStyle.menuSelectedColor
         cell.selectedBackgroundView = bgColorView
         
         // Get rid of separators

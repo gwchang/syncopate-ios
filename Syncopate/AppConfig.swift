@@ -41,7 +41,7 @@ struct AppTheme {
     static let color5 = colorWithHexString("#2F3440")
 }
 
-struct SyncopateStyle {
+struct AppStyle {
     static let mainTextColor        = AppTheme.color3
     static let mainHighlightColor   = AppTheme.color1
     static let mainBackgroundColor  = AppTheme.color4
@@ -65,7 +65,7 @@ struct SyncopateStyle {
     static let mainHeaderHeight: CGFloat = 24
 }
 
-struct SyncopateConfig {
+struct AppConfig {
     static let wsHost = "45.33.39.21:8080"
     static let httpHost = "localhost:8000"
     static let debugClusterName = "__debug__"
