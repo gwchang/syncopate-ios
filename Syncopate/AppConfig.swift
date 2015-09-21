@@ -33,7 +33,7 @@ func colorWithHexString(hex:String) -> UIColor {
     return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: CGFloat(1))
 }
 
-struct SyncopateTheme {
+struct AppTheme {
     static let color1 = colorWithHexString("#ff7f66")
     static let color2 = colorWithHexString("#59646e")
     static let color3 = colorWithHexString("#fff6e5")
@@ -42,20 +42,20 @@ struct SyncopateTheme {
 }
 
 struct SyncopateStyle {
-    static let mainTextColor        = SyncopateTheme.color3
-    static let mainHighlightColor   = SyncopateTheme.color1
-    static let mainBackgroundColor  = SyncopateTheme.color4
-    static let mainSeparatorColor   = SyncopateTheme.color5
-    static let mainSelectedColor    = SyncopateTheme.color2
-    static let mainNavColor         = SyncopateTheme.color4
+    static let mainTextColor        = AppTheme.color3
+    static let mainHighlightColor   = AppTheme.color1
+    static let mainBackgroundColor  = AppTheme.color4
+    static let mainSeparatorColor   = AppTheme.color5
+    static let mainSelectedColor    = AppTheme.color2
+    static let mainNavColor         = AppTheme.color4
     
-    static let menuTextColor        = SyncopateTheme.color3
-    static let menuHighlightColor   = SyncopateTheme.color2
-    static let menuBackgroundColor  = SyncopateTheme.color5
-    static let menuSeparatorColor   = SyncopateTheme.color4
-    static let menuSelectedColor    = SyncopateTheme.color4
+    static let menuTextColor        = AppTheme.color3
+    static let menuHighlightColor   = AppTheme.color2
+    static let menuBackgroundColor  = AppTheme.color5
+    static let menuSeparatorColor   = AppTheme.color4
+    static let menuSelectedColor    = AppTheme.color4
     
-    static let topicBackgroundColor = SyncopateTheme.color5
+    static let topicBackgroundColor = AppTheme.color5
     
     static let mainValueFontSize: CGFloat = 20
     static let mainGroupFontSize: CGFloat = 15
