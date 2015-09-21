@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "EEAA1FF8D172A7F6AA0A8F7AA17184A224D73E68",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "EEAA1FF8D172A7F6AA0A8F7AA17184A224D73E68" : 0,
+    "C86D95FCAEB1FEA0694B5D4AC7241D7E5F42F31D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F198CDF6-6492-4FB1-A985-708D39569F79",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "EEAA1FF8D172A7F6AA0A8F7AA17184A224D73E68" : "Syncopate\/",
+    "C86D95FCAEB1FEA0694B5D4AC7241D7E5F42F31D" : "..\/Github\/Starscream"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Blub",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Blub.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/daltoniam\/Starscream.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C86D95FCAEB1FEA0694B5D4AC7241D7E5F42F31D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/gwchang\/syncopate-ios",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EEAA1FF8D172A7F6AA0A8F7AA17184A224D73E68"
+    }
+  ]
+}
