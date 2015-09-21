@@ -223,13 +223,9 @@ class ChannelTableViewController: UITableViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         if segue.identifier == "showTopicView" {
-            if let navController = segue.destinationViewController as? UINavigationController {
-                if var vc = navController.topViewController as? TopicViewController {
-                    if let indexPath = self.tableView.indexPathForSelectedRow {
-                        let c = AppManager.sharedInstance.getChannelInSectionAtIndex(indexPath.section, index: indexPath.row)!
-                        AppManager.sharedInstance.setSelectedChannel(c.group, topic: c.topic)
-                    }
-                }
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let c = AppManager.sharedInstance.getChannelInSectionAtIndex(indexPath.section, index: indexPath.row)!
+                AppManager.sharedInstance.setSelectedChannel(c.group, topic: c.topic)
             }
         }
     }
